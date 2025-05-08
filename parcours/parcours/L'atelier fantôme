@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>L’Atelier Fantôme – FAFA EXPLORATOR™</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../scripts/fafa-core.js"></script>
+  <style>
+    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔮 L’Atelier Fantôme</h1>
+    <p>Un ancien atelier d’artiste résonne encore d’étranges échos... Les toiles bougent, les pinceaux tombent. Et si l’esprit du peintre n’avait pas terminé son œuvre ?</p>
+    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+  </header>
+
+  <main>
+    <!-- Etape 1 -->
+    <section class="etape" data-step="1">
+      <h2>🎨 Enigme 1 : Tache suspecte</h2>
+      <p>Sur la toile principale, une tache semble volontaire. Qu'évoque-t-elle selon toi ?</p>
+      <input type="text" placeholder="Fleur, animal, émotion...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 2 : mini-jeu couleurs -->
+    <section class="etape hidden" data-step="2">
+      <h2>🎨 Enigme 2 : Palette du peintre</h2>
+      <p>Reconstitue la bonne combinaison de couleurs sur la palette du fantôme.</p>
+      <div id="mini-jeu-couleurs"></div>
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 3 -->
+    <section class="etape hidden" data-step="3">
+      <h2>👻 Enigme 3 : Le nom oublié</h2>
+      <p>Une signature fantomatique est apparue sur le mur. Que peux-tu y lire ?</p>
+      <input type="text" placeholder="Nom ou lettre...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 4 : mission photo -->
+    <section class="etape hidden" data-step="4">
+      <h2>📸 Mission photo</h2>
+      <p>Photographie ton reflet dans le miroir ovale du fond de l'atelier. Un autre visage apparaîtra-t-il ?</p>
+      <button class="valider">Photo prise</button>
+    </section>
+
+    <!-- Etape 5 : voix du peintre -->
+    <section class="etape hidden" data-step="5">
+      <h2>🎤 Enigme finale : Le mot d’adieu</h2>
+      <p>Un murmure chuchote un dernier mot... Que dit-il ?</p>
+      <input type="text" placeholder="Mot mystérieux...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Fin -->
+    <section class="etape hidden" data-step="fin">
+      <h2>🌟 L’Œuvre est terminée</h2>
+      <p>Bravo ! Tu as apaisé l'esprit de l'artiste. Tu gagnes le badge "Artiste Fantôme FAFA" 🎨</p>
+      <div class="score"></div>
+      <p><em>Ajouté dans ton Carnet FAFA™</em></p>
+    </section>
+  </main>
+
+  <script>
+    let startTime = Date.now();
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const seconds = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
+    }, 1000);
+  </script>
+</body>
+</html>
