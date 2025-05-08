@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFAWEEN – L’ombre du manoir</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>🎃 FAFAWEEN : L'ombre du manoir</h1>
+  <p>Bienvenue à l’Hôtel Transylvanie version FAFA. Des monstres rigolos hantent Banyuls pour Halloween. Résous leurs énigmes pour libérer le secret du manoir !</p>
+  <a href="enigme1.html"><button>Entrer dans le manoir</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Cri de Dracula</title></head>
+<body>
+  <h2>🩸 Épreuve 1 : Cri de Dracula</h2>
+  <p>Comment s'appelle la fille de Dracula dans le film ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('mavis'))location.href='enigme2.html';else alert('Essaie encore...');}</script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Potion de momie</title></head>
+<body>
+  <h2>⚱️ Épreuve 2 : Potion de momie</h2>
+  <p>Quel ingrédient rend invisible la momie ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('poussiere'))location.href='enigme3.html';else alert('Ce n’est pas le bon ingrédient.');}</script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Décode le cri</title></head>
+<body>
+  <h2>🧙‍♀️ Épreuve 3 : Cri du loup-garou</h2>
+  <p>Combien de loups dans la meute du film Hotel Transylvanie ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value === '5')location.href='enigme4.html';else alert('Ils hurlent encore…');}</script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Photo-ombre</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Ombre hantée</h2>
+  <p>Prends une photo d'une silhouette ou forme sombre sur un mur ou dans la rue !</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Clé du manoir</title></head>
+<body>
+  <h2>🔑 Épreuve 5 : Clé du manoir</h2>
+  <p>Quel mot magique faut-il dire pour ouvrir le portail du manoir ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('abracadabra'))location.href='fin.html';else alert('Le portail reste fermé.');}</script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Victoire FAFAWEEN</title></head>
+<body>
+  <h2>🌟 Bravo !</h2>
+  <p>Tu as déjoué les mystères du manoir et reçois le badge FAFAWEEN 🎃</p>
+  <p>Temps total : <span id="chrono"></span></p>
+  <script>
+    let d = Date.now() - (localStorage.fafaween || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('fafaween');
+  </script>
+</body>
+</html>
