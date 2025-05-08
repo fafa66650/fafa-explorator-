@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Le Trésor de l’Abbé – FAFA PATRIMONIO™</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .etape {
+      background-color: #1e293b;
+      color: white;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-left: 6px solid #fbbf24;
+      border-radius: 10px;
+    }
+
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⛪ Le Trésor de l’Abbé</h1>
+    <p>Départ : Église de Banyuls-sur-Mer</p>
+    <p>Durée estimée : 2h</p>
+  </header>
+
+  <main>
+    <div class="etape">
+      <h2>📜 Énigme 1</h2>
+      <p>Un vieux manuscrit en latin contient ce mot : "Vinum Sanctum". Que signifie-t-il ?</p>
+      <input id="e1" placeholder="Ta traduction ici...">
+      <button onclick="check1()">Valider</button>
+      <div id="a1" class="hidden">
+        ✅ Correct ! <strong>Le savais-tu ?</strong> "Vinum Sanctum" signifie "Vin sacré", souvent utilisé lors des offices religieux.  
+        ➤ Suis la lumière des vitraux...
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q2">
+      <h2>🌈 Énigme 2</h2>
+      <p>Un vitrail contient une anomalie. Quel est l’objet ou la couleur étrange que tu remarques ?</p>
+      <input id="e2" placeholder="Observation...">
+      <button onclick="check2()">Valider</button>
+      <div id="a2" class="hidden">
+        ✅ Bien vu ! <strong>Le savais-tu ?</strong> Les vitraux racontent souvent des énigmes cachées dans les détails.  
+        ➤ Dernier passage : le banc de l’Abbé.
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q3">
+      <h2>🔐 Énigme 3</h2>
+      <p>Sous le banc de l’Abbé, un code gravé : "7-4-9". Que fais-tu avec ce code ?</p>
+      <input id="e3" placeholder="Ta réponse ou interprétation...">
+      <button onclick="check3()">Valider</button>
+      <div id="a3" class="hidden">
+        ✅ Tu as percé le mystère ! <strong>Le savais-tu ?</strong> Ces chiffres étaient utilisés pour ouvrir une trappe secrète à l’époque !  
+        <br><br>🏁 <strong>FÉLICITATIONS !</strong> Tu viens de retrouver le Trésor de l’Abbé. Tu peux célébrer ta victoire au clocher 🕊️
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function check1() {
+      const rep = document.getElementById('e1').value.toLowerCase();
+      if (rep.includes("vin sacré") || rep.includes("vinum")) {
+        document.getElementById('a1').classList.remove('hidden');
+        document.getElementById('q2').classList.remove('hidden');
+      } else {
+        alert("❌ Mauvaise traduction !");
+      }
+    }
+
+    function check2() {
+      const rep = document.getElementById('e2').value.toLowerCase();
+      if (rep.length > 3) {
+        document.getElementById('a2').classList.remove('hidden');
+        document.getElementById('q3').classList.remove('hidden');
+      } else {
+        alert("❌ Tu peux mieux observer !");
+      }
+    }
+
+    function check3() {
+      const rep = document.getElementById('e3').value.toLowerCase();
+      if (rep.length > 3 || rep.includes("trappe") || rep.includes("cle")) {
+        document.getElementById('a3').classList.remove('hidden');
+      } else {
+        alert("❌ Réfléchis à ce que signifie ce code !");
+      }
+    }
+  </script>
+</body>
+</html>
