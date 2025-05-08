@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAFA PATRIMONIO™</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .question, .reponse, .info {
+      margin: 30px auto;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    .info {
+      background-color: #1e293b;
+      padding: 15px;
+      border-left: 5px solid #3b82f6;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏛️ FAFA PATRIMONIO™ – Mission : Le Trésor de l’Abbé</h1>
+    <p>Résous cette énigme pour avancer !</p>
+  </header>
+
+  <main>
+    <div class="question">
+      <h2>Quel musée célèbre à Banyuls porte le nom d’un sculpteur local ?</h2>
+      <input id="reponse" placeholder="Tape ta réponse ici..." />
+      <button onclick="valider()">Valider</button>
+    </div>
+
+    <div id="info" class="info">
+      ✅ Bonne réponse !<br />
+      <strong>Le savais-tu ?</strong> Aristide Maillol, sculpteur né à Banyuls, a laissé une empreinte majeure dans l’art moderne français.<br />
+      ➤ Direction : la cave coopérative pour la suite de l’aventure 🍷
+    </div>
+  </main>
+
+  <script>
+    function valider() {
+      const bonneReponse = "maillol";
+      const reponse = document.getElementById("reponse").value.toLowerCase().trim();
+      if (reponse.includes(bonneReponse)) {
+        document.getElementById("info").style.display = "block";
+      } else {
+        alert("❌ Mauvaise réponse ! Réessaie.");
+      }
+    }
+  </script>
+</body>
+</html>
