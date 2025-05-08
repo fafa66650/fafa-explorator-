@@ -1,1 +1,101 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFAwarts – L'appel du Château</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>🧙 FAFAwarts – L'appel du Château</h1>
+  <p>Tu viens de recevoir ta lettre magique. Pour entrer à FAFAwarts, relève les 5 épreuves magiques dissimulées dans Banyuls !</p>
+  <a href="enigme1.html"><button>Commencer</button></a>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 1 – Choixpeau</title></head>
+<body>
+  <h2>🧙 Épreuve 1 : Choixpeau Magique</h2>
+  <p>Quelle qualité te représente ? (courage, loyauté, ambition, sagesse)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const ok = ['courage', 'loyauté', 'ambition', 'sagesse'];
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (ok.includes(val)) location.href = 'enigme2.html';
+      else alert('Essaie encore, jeune sorcier !');
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Potion</title></head>
+<body>
+  <h2>🧪 Épreuve 2 : Préparation de potion</h2>
+  <p>Quel ingrédient faut-il pour réussir la potion de vérité ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (!localStorage.start) localStorage.start = Date.now();
+    function valider() {
+      const ok = ['veritaserum', 'menthe', 'plume de hibou'];
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (ok.includes(val)) location.href = 'enigme3.html';
+      else alert('Non, cette potion exploserait !');
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Tableau</title></head>
+<body>
+  <h2>🖼️ Épreuve 3 : Mot de passe du tableau</h2>
+  <p>Une voix te murmure... “mot magique pour entrer dans la salle commune ?”</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'caput draconis')
+        location.href = 'enigme4.html';
+      else alert('Le tableau reste fermé...');
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Photo magique</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Capture de créature</h2>
+  <p>Photographie une statue ressemblant à un animal magique de ton choix.</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Sortilège final</title></head>
+<body>
+  <h2>✨ Épreuve 5 : Sortilège final</h2>
+  <p>Quel sort permet d’éclairer ta baguette ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('lumos'))
+        location.href = 'fin.html';
+      else alert('Ce n’est pas le bon sort !');
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Fin – Badge obtenu</title></head>
+<body>
+  <h2>🎓 Félicitations !</h2>
+  <p>Tu es officiellement un sorcier diplômé de FAFAwarts !</p>
+  <p>🧙‍♂️ Badge : Apprenti Sorcier FAFA™</p>
+  <p>⏱️ Temps total : <span id="temps"></span></p>
+  <script>
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
+  </script>
+</body>
+</html>
