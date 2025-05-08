@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFA-MINIONS – Recrutement de bêta farfelue</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>🦜 FAFA-MINIONS : En mission Gru-niale</h1>
+  <p>Gru te confie une mission secrète à Banyuls ! Tu dois recruter des Minions cachés et résoudre les énigmes givrées pour devenir Super-Minion FAFA.</p>
+  <a href="enigme1.html"><button>Commencer le délire</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Banane !</title></head>
+<body>
+  <h2>🍌 Épreuve 1 : Le mot préféré des Minions</h2>
+  <p>Quel est le fruit fétiche des Minions ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('banane'))location.href='enigme2.html';else alert('Bee-do! Mauvaise réponse !');}</script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Déguisement</title></head>
+<body>
+  <h2>🧒 Épreuve 2 : Le déguisement parfait</h2>
+  <p>Quel accessoire porte un Minion sur les yeux ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('lunette'))location.href='enigme3.html';else alert('Ce n’est pas leur style !');}</script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Voix mystérieuse</title></head>
+<body>
+  <h2>🗣️ Épreuve 3 : Qui parle ?</h2>
+  <p>Qui est le chef des Minions dans les films ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('gru'))location.href='enigme4.html';else alert('Nooon Banana !');}</script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Mission photo</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Photo-Minion</h2>
+  <p>Photographie quelque chose de jaune et rigolo dans Banyuls !</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Réplique finale</title></head>
+<body>
+  <h2>Épreuve 5 : Réplique secrète</h2>
+  <p>Complète la phrase : "Bananaaaa... _______ !"</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('party'))location.href='fin.html';else alert('Pas encore assez givré !');}</script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Super-Minion</title></head>
+<body>
+  <h2>🌟 Bravo Super-Minion !</h2>
+  <p>Tu as relevé toutes les missions et reçois le badge FAFA-Minion !</p>
+  <p>Mission terminée en <span id="chrono"></span></p>
+  <script>
+    let d = Date.now() - (localStorage.minionStart || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('minionStart');
+  </script>
+</body>
+</html>
