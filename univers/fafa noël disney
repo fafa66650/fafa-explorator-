@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFA NOËL – Magie de l'hiver</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>❄️ FAFA NOËL : Mission givrée</h1>
+  <p>Le traîneau du Père Noël s'est perdu au-dessus de Banyuls ! Avec l'aide des héros Disney, récupère les clés magiques pour sauver la fête !</p>
+  <a href="enigme1.html"><button>Commencer la magie</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Reine des neiges</title></head>
+<body>
+  <h2>❄️ Épreuve 1 : Chant givré</h2>
+  <p>Complète le titre du célèbre tube d'Elsa : "Libérée... _______"</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('délivrée'))location.href='enigme2.html';else alert('Fais un effort magique !');}</script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Clés Disney</title></head>
+<body>
+  <h2>🔑 Épreuve 2 : Clés de conte</h2>
+  <p>Quel héros Disney utilise une lampe magique ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('aladdin'))location.href='enigme3.html';else alert('Pas le bon héros...');}</script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Renne manquant</title></head>
+<body>
+  <h2>🪴 Épreuve 3 : Le renne perdu</h2>
+  <p>Quel est le nom du renne rouge du Père Noël ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('rudolph'))location.href='enigme4.html';else alert('Ce n’est pas ce renne-là !');}</script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Photo magique</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Souvenir enchanté</h2>
+  <p>Photographie une décoration de Noël brillante dans Banyuls !</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Mot de passe final</title></head>
+<body>
+  <h2>🎄 Épreuve 5 : Cadeau verrouillé</h2>
+  <p>Quel mot magique Disney ouvre les cadeaux dans "Mary Poppins" ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider(){
+      if(document.getElementById('rep').value.toLowerCase().includes('supercalifragilistic'))
+        location.href='fin.html';
+      else alert('Pas encore assez magique !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Mission réussie</title></head>
+<body>
+  <h2>🌟 Mission Noël Réussie !</h2>
+  <p>Tu as sauvé la fête et reçois le badge FAFA NOËL !</p>
+  <p>Temps : <span id="chrono"></span></p>
+  <script>
+    let d = Date.now() - (localStorage.noelFafa || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('noelFafa');
+  </script>
+</body>
+</html>
