@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFAVENGERS – Recrutement</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>🔥 FAFAVENGERS : Rejoins l'équipe !</h1>
+  <p>Une menace pèse sur Banyuls. Nick Fury a besoin de toi. Rassemble les pierres de pouvoir FAFA pour intégrer les FAFAVENGERS.</p>
+  <a href="enigme1.html"><button>Commencer la mission</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Marteau mystère</title></head>
+<body>
+  <h2>Épreuve 1 : Le marteau de Thor</h2>
+  <p>Quel est le nom du marteau de Thor ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('mjolnir'))
+        location.href = 'enigme2.html';
+      else alert('Tu n’es pas digne ! Essaie encore.');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Pierre de l’esprit</title></head>
+<body>
+  <h2>Épreuve 2 : Pierre de l'esprit</h2>
+  <p>Qui a porté la pierre de l'esprit sur le front ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('vision'))
+        location.href = 'enigme3.html';
+      else alert('Mauvais héros.');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Le Bouclier</title></head>
+<body>
+  <h2>Épreuve 3 : Le bouclier de Captain</h2>
+  <p>De quel métal est fait le bouclier de Captain America ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('vibranium'))
+        location.href = 'enigme4.html';
+      else alert('Tu dois lire le dossier SHIELD !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Mission photo</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Signe des Avengers</h2>
+  <p>Photographie un "A" ou un logo qui ressemble au symbole des Avengers dans ton environnement.</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Gant de l'infini</title></head>
+<body>
+  <h2>Épreuve 5 : Gant de l'infini</h2>
+  <p>Combien y a-t-il de pierres d'infinité sur le gant de Thanos ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '6')
+        location.href = 'fin.html';
+      else alert('Encore un peu d’entraînement jeune héros.');
+    }
+  </script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Mission réussie</title></head>
+<body>
+  <h2>🌟 Bienvenue dans les FAFAVENGERS</h2>
+  <p>Tu as réussi toutes les épreuves. Voici ton badge "Avenger FAFA" !</p>
+  <p>Mission accomplie en <span id="chrono"></span>.</p>
+  <script>
+    let d = Date.now() - (localStorage.startAv || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('startAv');
+  </script>
+</body>
+</html>
