@@ -16,6 +16,7 @@
       font-size: 3em;
       margin-bottom: 10px;
       color: #38bdf8;
+      animation: zoomIn 2s ease;
     }
     h2 {
       font-size: 1.5em;
@@ -25,6 +26,7 @@
     img.logo {
       width: 120px;
       margin-bottom: 20px;
+      animation: spinLogo 6s linear infinite;
     }
     .btn {
       background: #facc15;
@@ -36,6 +38,7 @@
       border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s;
+      margin: 10px;
     }
     .btn:hover {
       background: #fde047;
@@ -47,6 +50,14 @@
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    @keyframes spinLogo {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -60,6 +71,8 @@
     <p><strong>Astuce :</strong> ton temps est chronométré, et tes réponses seront validées à chaque étape. Une carte et une boussole interactive t'aideront à progresser.</p>
     <br><br>
     <a href="menu_principal.html"><button class="btn">Choisir mon parcours</button></a>
+    <a href="univers_menu.html"><button class="btn">Explorer d'autres univers</button></a>
+    <a href="fafa-hq.html"><button class="btn">🏠 Retour FAFA HQ (Admin)</button></a>
   </div>
 </body>
 </html>
