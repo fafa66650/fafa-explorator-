@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chaud Devant au Port – FAFA AVENTURA™</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .etape {
+      background-color: #1e293b;
+      color: white;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      border-left: 6px solid #38bdf8;
+    }
+
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚓ Chaud Devant au Port</h1>
+    <p>Départ : Port de plaisance de Banyuls-sur-Mer</p>
+    <p>Durée estimée : 2h</p>
+  </header>
+
+  <main>
+    <div class="etape">
+      <h2>🧭 Énigme 1</h2>
+      <p>Parmi les bateaux amarrés, lequel porte un nom d’animal ?</p>
+      <input id="r1" placeholder="Nom ou type d’animal...">
+      <button onclick="check1()">Valider</button>
+      <div id="a1" class="hidden">
+        ✅ Bien vu ! <strong>Le savais-tu ?</strong> Beaucoup de bateaux sont nommés d’après des animaux pour porter chance en mer.  
+        ➤ Passe à l’objet caché...
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q2">
+      <h2>🛟 Énigme 2</h2>
+      <p>Un objet est dissimulé dans une bouée de sauvetage. Selon toi, que pourrait-on y cacher ?</p>
+      <input id="r2" placeholder="Ta supposition...">
+      <button onclick="check2()">Valider</button>
+      <div id="a2" class="hidden">
+        ✅ Bonne intuition ! <strong>Le savais-tu ?</strong> Des marins cachaient parfois des messages dans les objets flottants.  
+        ➤ Direction : la corde mystérieuse.
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q3">
+      <h2>🪢 Énigme 3</h2>
+      <p>Observe les cordages au port. Un nœud particulier est utilisé pour la “ligne de vie”. Quel est son nom ?</p>
+      <input id="r3" placeholder="Type de nœud ou description...">
+      <button onclick="check3()">Valider</button>
+      <div id="a3" class="hidden">
+        ✅ Excellent ! <strong>Le savais-tu ?</strong> Le “nœud de chaise” est l’un des plus sûrs et utilisés pour sauver des vies.  
+        <br><br>🏁 Mission réussie ! Tu es prêt pour naviguer comme un vrai capitaine de FAFA EXPLORATOR™ ! ⚓
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function check1() {
+      const rep = document.getElementById('r1').value.toLowerCase();
+      if (rep.includes("requin") || rep.includes("chat") || rep.includes("poisson") || rep.length > 3) {
+        document.getElementById('a1').classList.remove('hidden');
+        document.getElementById('q2').classList.remove('hidden');
+      } else {
+        alert("❌ Regarde mieux les noms des bateaux !");
+      }
+    }
+
+    function check2() {
+      const rep = document.getElementById('r2').value.toLowerCase();
+      if (rep.includes("message") || rep.includes("plan") || rep.length > 3) {
+        document.getElementById('a2').classList.remove('hidden');
+        document.getElementById('q3').classList.remove('hidden');
+      } else {
+        alert("❌ Réfléchis aux objets flottants...");
+      }
+    }
+
+    function check3() {
+      const rep = document.getElementById('r3').value.toLowerCase();
+      if (rep.includes("chaise") || rep.includes("boucle") || rep.length > 4) {
+        document.getElementById('a3').classList.remove('hidden');
+      } else {
+        alert("❌ Pas le bon nœud !");
+      }
+    }
+  </script>
+</body>
+</html>
