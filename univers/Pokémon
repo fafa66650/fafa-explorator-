@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFAKEMON – Début d'aventure</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>🐉 FAFAKEMON : Deviens Maître</h1>
+  <p>Prof. FAFACHEN t'attend pour ta première aventure. Récolte les badges, trouve les Poké-enigmes et prouve que tu peux devenir Maître FAFAKEMON !</p>
+  <a href="enigme1.html"><button>Je commence l'aventure</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Starter</title></head>
+<body>
+  <h2>Épreuve 1 : Choisis ton Pokémon</h2>
+  <p>Quel est le starter de type feu de Kanto ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('salameche'))
+        location.href = 'enigme2.html';
+      else alert('Ce n’est pas le bon type !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Attaque mystère</title></head>
+<body>
+  <h2>Épreuve 2 : Attaque mystère</h2>
+  <p>Quelle attaque est efficace contre un Pokémon de type Plante ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const r = document.getElementById('rep').value.toLowerCase();
+      if (r.includes('feu') || r.includes('flamm')) location.href = 'enigme3.html';
+      else alert('Pas très efficace...');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Pokédex local</title></head>
+<body>
+  <h2>Épreuve 3 : Pokédex FAFA</h2>
+  <p>Quel Pokémon ressemble à une boule rose qui soigne ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('leveinard'))
+        location.href = 'enigme4.html';
+      else alert('Cherche encore dans ton Pokédex.');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Mission photo Poké</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Poké-Safari</h2>
+  <p>Photographie un animal réel qui pourrait être un Pokémon !</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Capture finale</title></head>
+<body>
+  <h2>📏 Épreuve 5 : Capture de légendaire</h2>
+  <p>Quel Pokémon est connu pour maîtriser le temps ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (val.includes('dialga')) location.href = 'fin.html';
+      else alert('Ce n’est pas lui !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Maître FAFAKEMON</title></head>
+<body>
+  <h2>🌟 Félicitations, Maître Pokémon !</h2>
+  <p>Tu as capturé un légendaire et gagné le badge FAFAKEMON !</p>
+  <p>Temps total : <span id="chrono"></span></p>
+  <script>
+    let d = Date.now() - (localStorage.startPk || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('startPk');
+  </script>
+</body>
+</html>
