@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>L’Atelier Fantôme – FAFA ART™</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .etape {
+      background-color: #1e293b;
+      color: white;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      border-left: 6px solid #a855f7;
+    }
+
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>👻 L’Atelier Fantôme</h1>
+    <p>Départ : Ancienne école d’art de Banyuls</p>
+    <p>Durée estimée : 2h</p>
+  </header>
+
+  <main>
+    <div class="etape">
+      <h2>🎨 Énigme 1</h2>
+      <p>Dans la palette de peinture, une couleur semble fausse. Laquelle ?</p>
+      <input id="r1" placeholder="Nom d'une couleur...">
+      <button onclick="check1()">Valider</button>
+      <div id="a1" class="hidden">
+        ✅ Tu as l’œil ! <strong>Le savais-tu ?</strong> Certains artistes glissaient des pigments “fantômes” pour signer secrètement leurs œuvres.  
+        ➤ Analyse une œuvre exposée...
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q2">
+      <h2>🖼️ Énigme 2</h2>
+      <p>Relie l’œuvre “Le Silence des Formes” à son auteur supposé :</p>
+      <input id="r2" placeholder="Nom de l’artiste...">
+      <button onclick="check2()">Valider</button>
+      <div id="a2" class="hidden">
+        ✅ Bien joué ! <strong>Le savais-tu ?</strong> Cette œuvre est attribuée à un élève inconnu de Maillol, un “fantôme” de l’art.  
+        ➤ Passe à l’épreuve finale.
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q3">
+      <h2>🔦 Énigme 3</h2>
+      <p>Dans l’atelier obscur, un indice n’apparaît qu’à la lumière UV. Devine ou invente ce qu’il pourrait dire :</p>
+      <input id="r3" placeholder="Message ou mot caché...">
+      <button onclick="check3()">Valider</button>
+      <div id="a3" class="hidden">
+        ✅ Tu as vu l’invisible ! <strong>Le savais-tu ?</strong> Les œuvres anciennes étaient parfois superposées, et révélées sous UV par les restaurateurs.  
+        <br><br>🏁 Mission terminée ! Tu as percé le secret de L’Atelier Fantôme ! 🎨👻
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function check1() {
+      const rep = document.getElementById('r1').value.toLowerCase();
+      if (rep.includes("violet") || rep.includes("noir") || rep.includes("fluorescent")) {
+        document.getElementById('a1').classList.remove('hidden');
+        document.getElementById('q2').classList.remove('hidden');
+      } else {
+        alert("❌ Essaye une couleur improbable ou anormale.");
+      }
+    }
+
+    function check2() {
+      const rep = document.getElementById('r2').value.toLowerCase();
+      if (rep.includes("maillol") || rep.includes("inconnu") || rep.length > 3) {
+        document.getElementById('a2').classList.remove('hidden');
+        document.getElementById('q3').classList.remove('hidden');
+      } else {
+        alert("❌ Pas le bon nom !");
+      }
+    }
+
+    function check3() {
+      const rep = document.getElementById('r3').value.toLowerCase();
+      if (rep.length > 3) {
+        document.getElementById('a3').classList.remove('hidden');
+      } else {
+        alert("❌ Essaie d’imaginer ce qu’un fantôme d’artiste écrirait !");
+      }
+    }
+  </script>
+</body>
+</html>
