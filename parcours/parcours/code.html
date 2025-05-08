@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Code FAFA Secret – FAFA MYSTÈRE™</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .etape {
+      background-color: #1e293b;
+      color: white;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      border-left: 6px solid #f59e0b;
+    }
+
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .chrono {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #fcd34d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🗝️ Code FAFA Secret</h1>
+    <p>Départ : Parc Municipal de Banyuls-sur-Mer</p>
+    <p>Durée estimée : 2h</p>
+  </header>
+
+  <main>
+    <div class="chrono">
+      ⏱️ Chrono activé : <span id="timer">00:00</span>
+    </div>
+
+    <div class="etape">
+      <h2>🎨 Énigme 1</h2>
+      <p>Une fresque colorée cache un symbole étrange. Lequel vois-tu ?</p>
+      <input id="r1" placeholder="Ex : spirale, clef, œil...">
+      <button onclick="check1()">Valider</button>
+      <div id="a1" class="hidden">
+        ✅ Bien vu ! <strong>Le savais-tu ?</strong> Les fresques de ville racontent souvent des histoires cryptées.  
+        ➤ Passe à la fontaine codée...
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q2">
+      <h2>🚰 Énigme 2</h2>
+      <p>Une fontaine comporte des chiffres gravés. Devine ou interprète leur signification :</p>
+      <input id="r2" placeholder="Ex : année, date, code...">
+      <button onclick="check2()">Valider</button>
+      <div id="a2" class="hidden">
+        ✅ Lecture correcte ! <strong>Le savais-tu ?</strong> De nombreuses fontaines anciennes indiquent des dates symboliques ou des repères géographiques.  
+        ➤ Dernière épreuve : rapidité FAFA !
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q3">
+      <h2>⚡ Énigme 3 – Chrono</h2>
+      <p>Entre le mot magique FAFA en moins de 10 secondes pour déverrouiller le coffre :</p>
+      <input id="r3" placeholder="Mot secret...">
+      <button onclick="check3()">Valider</button>
+      <div id="a3" class="hidden">
+        ✅ 🔓 Code FAFA activé ! <strong>Le savais-tu ?</strong> Ce mot ouvre un coffre réel dans les versions “Groupe Spécial”.  
+        <br><br>🏁 Tu as terminé le parcours ultime ! Tu es digne de la confiance de FAFA EXPLORATOR™ 🔐🎉
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let startTime = Date.now();
+    const timer = document.getElementById('timer');
+
+    setInterval(() => {
+      const now = Date.now();
+      const diff = Math.floor((now - startTime) / 1000);
+      const min = String(Math.floor(diff / 60)).padStart(2, '0');
+      const sec = String(diff % 60).padStart(2, '0');
+      timer.textContent = `${min}:${sec}`;
+    }, 1000);
+
+    function check1() {
+      const rep = document.getElementById('r1').value.toLowerCase();
+      if (rep.length > 3) {
+        document.getElementById('a1').classList.remove('hidden');
+        document.getElementById('q2').classList.remove('hidden');
+      } else {
+        alert("❌ Ce n’est pas assez précis !");
+      }
+    }
+
+    function check2() {
+      const rep = document.getElementById('r2').value.toLowerCase();
+      if (rep.includes("2023") || rep.includes("code") || rep.length > 4) {
+        document.getElementById('a2').classList.remove('hidden');
+        document.getElementById('q3').classList.remove('hidden');
+      } else {
+        alert("❌ Mauvaise interprétation !");
+      }
+    }
+
+    function check3() {
+      const rep = document.getElementById('r3').value.toLowerCase();
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      if (rep.includes("fafa") && elapsed <= 600) {
+        document.getElementById('a3').classList.remove('hidden');
+      } else if (elapsed > 600) {
+        alert("⏱️ Temps écoulé ! Recommence plus vite !");
+      } else {
+        alert("❌ Mauvais mot !");
+      }
+    }
+  </script>
+</body>
+</html>
