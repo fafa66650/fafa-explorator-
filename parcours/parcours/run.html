@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAFA RUN™ – Mission Sportive</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .etape {
+      margin: 30px auto;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .resultat {
+      background-color: #1e293b;
+      padding: 15px;
+      border-left: 5px solid #22c55e;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏃‍♂️ FAFA RUN™ – Épreuve 1 : Trouve l’endroit mystère</h1>
+    <p>Indice : “Là où la mer touche les pieds de la montagne”</p>
+  </header>
+
+  <main>
+    <div class="etape">
+      <label>Quel est ce lieu emblématique à Banyuls ?</label>
+      <input id="input" placeholder="Entre ta réponse..." />
+      <button onclick="valider()">Valider</button>
+    </div>
+
+    <div class="resultat" id="resultat">
+      ✅ Bravo ! Tu es au bon endroit.<br />
+      <strong>Le savais-tu ?</strong><br />
+      Le sentier du littoral à Banyuls est l’un des plus spectaculaires de la Côte Vermeille, entre mer, criques et falaises rouges.
+    </div>
+  </main>
+
+  <script>
+    function valider() {
+      const attendu = "sentier" || "sentier du littoral";
+      const rep = document.getElementById("input").value.toLowerCase().trim();
+      if (rep.includes("sentier")) {
+        document.getElementById("resultat").style.display = "block";
+      } else {
+        alert("❌ Mauvaise réponse. Réessaie !");
+      }
+    }
+  </script>
+</body>
+</html>
