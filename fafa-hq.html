@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAFA HQ™ – Panneau Admin</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #3b82f6;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #1e293b;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #3b82f6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 FAFA HQ™ – Panneau de Contrôle</h1>
+
+  <div class="section">
+    <h2>🔓 Déverrouiller un parcours</h2>
+    <label>Nom du parcours à débloquer :</label>
+    <input type="text" placeholder="ex : run" />
+    <button onclick="alert('Déverrouillage simulé')">Débloquer</button>
+  </div>
+
+  <div class="section">
+    <h2>📩 Envoyer un message aux joueurs</h2>
+    <label>Message :</label>
+    <textarea rows="4" placeholder="Tape ton message ici..."></textarea>
+    <button onclick="alert('Message envoyé')">Envoyer</button>
+  </div>
+
+  <div class="section">
+    <h2>🕒 Voir les scores</h2>
+    <button onclick="alert('Scores simulés\nGroupe 1 : 1250 pts\nGroupe 2 : 980 pts')">
+      Afficher les scores
+    </button>
+  </div>
+
+  <footer>
+    <p style="color:#64748b;margin-top:30px;">© FAFA™ — Interface privée. Ne pas partager sans autorisation.</p>
+  </footer>
+</body>
+</html>
