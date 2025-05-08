@@ -1,84 +1,247 @@
+<!-- intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>FAFA-MINIONS – Recrutement de bêta farfelue</title>
-  <link rel="stylesheet" href="../../style.css">
+  <title>FAFANIONS™ – L’Invasion des Minions</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #fef9c3, #fde047);
+      font-family: 'Comic Sans MS', cursive;
+      color: #1e293b;
+      text-align: center;
+      padding: 40px;
+    }
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      max-width: 720px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 25px #facc15;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    button {
+      margin-top: 25px;
+      background: #facc15;
+      color: #1f2937;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #eab308;
+    }
+  </style>
 </head>
 <body>
-  <h1>🦜 FAFA-MINIONS : En mission Gru-niale</h1>
-  <p>Gru te confie une mission secrète à Banyuls ! Tu dois recruter des Minions cachés et résoudre les énigmes givrées pour devenir Super-Minion FAFA.</p>
-  <a href="enigme1.html"><button>Commencer le délire</button></a>
+  <div class="intro-box">
+    <h1>🦚 FAFANIONS™ – L’Invasion des Minions</h1>
+    <p>✨ Des Minions ont été vus sur la plage, dans les vignes, et même dans les musées de Banyuls !</p>
+    <p>🚨 C’est la pagaille : gadgets volés, bananes disparues, pancartes à l’envers...</p>
+    <p>💼 Tu es nommé Agent FAFA™, et ta mission est simple : les retrouver, les comprendre... et les calmer !</p>
+    <p>💪 10 épreuves, 100% rigolotes, te séparent de la paix.</p>
+    <a href="enigme1.html"><button>Démarrer la mission Minion</button></a>
+  </div>
 </body>
 </html>
-
 <!-- enigme1.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 1 – Banane !</title></head>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Bananacode</title></head>
 <body>
-  <h2>🍌 Épreuve 1 : Le mot préféré des Minions</h2>
-  <p>Quel est le fruit fétiche des Minions ?</p>
+  <h2>🍌 Épreuve 1 : Le Code Banana</h2>
+  <p>Quel fruit les Minions adorent-ils plus que tout ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
-  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('banane'))location.href='enigme2.html';else alert('Bee-do! Mauvaise réponse !');}</script>
-</body>
-</html>
+  <script>
+    if (!localStorage.start) localStorage.start = Date.now();
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('banane')) {
+        location.href = 'enigme2.html';
+      } else {
+        alert("Beedo ! Ce n'est pas leur fruit favori.");
+      }
+    }
+  </script>
+</body></html>
 
 <!-- enigme2.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 2 – Déguisement</title></head>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Lunettes perdues</title></head>
 <body>
-  <h2>🧒 Épreuve 2 : Le déguisement parfait</h2>
-  <p>Quel accessoire porte un Minion sur les yeux ?</p>
+  <h2>🕶 Épreuve 2 : Lunettes cassées</h2>
+  <p>Combien d’yeux a un Minion classique ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
-  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('lunette'))location.href='enigme3.html';else alert('Ce n’est pas leur style !');}</script>
-</body>
-</html>
+  <script>
+    let v = document.getElementById('rep');
+    function valider() {
+      if (v.value === '1' || v.value === '2') {
+        location.href = 'enigme3.html';
+      } else {
+        alert("Non ! Les Minions n'ont pas tout ce que tu dis !");
+      }
+    }
+  </script>
+</body></html>
 
 <!-- enigme3.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 3 – Voix mystérieuse</title></head>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Mots mélangés</title></head>
 <body>
-  <h2>🗣️ Épreuve 3 : Qui parle ?</h2>
-  <p>Qui est le chef des Minions dans les films ?</p>
+  <h2>🎮 Épreuve 3 : Décode les mots Minions</h2>
+  <p>"NIALUBL" est un mot Minion. Quel mot normal cache-t-il ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
-  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('gru'))location.href='enigme4.html';else alert('Nooon Banana !');}</script>
-</body>
-</html>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase() === 'bulinal') {
+      location.href = 'enigme4.html';
+    } else {
+      alert("Hmm... Essaie d'inverser !");
+    }
+  </script>
+</body></html>
 
 <!-- enigme4.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 4 – Mission photo</title></head>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Couleur Minion</title></head>
 <body>
-  <h2>📸 Épreuve 4 : Photo-Minion</h2>
-  <p>Photographie quelque chose de jaune et rigolo dans Banyuls !</p>
-  <button onclick="location.href='enigme5.html'">Photo prise</button>
-</body>
-</html>
+  <h2>🌟 Épreuve 4 : La couleur secrète</h2>
+  <p>Quelle couleur de vêtement portent les Minions ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('bleu')) {
+      location.href = 'enigme5.html';
+    } else {
+      alert("Pas tout à fait... ils ont une salopette colorée !");
+    }
+  </script>
+</body></html>
 
 <!-- enigme5.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 5 – Réplique finale</title></head>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Mission photo</title></head>
 <body>
-  <h2>Épreuve 5 : Réplique secrète</h2>
-  <p>Complète la phrase : "Bananaaaa... _______ !"</p>
+  <h2>📸 Épreuve 5 : Capture jaune</h2>
+  <p>Prends une photo de quelque chose de jaune comme un Minion !</p>
+  <button onclick="location.href='enigme6.html'">Photo prise</button>
+</body></html>
+<!-- enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 6 – Cri Minion</title></head>
+<body>
+  <h2>🚨 Épreuve 6 : Le cri du Minion</h2>
+  <p>Quel est le mot qu'ils crient souvent quand ils sont contents ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
-  <script>function valider(){if(document.getElementById('rep').value.toLowerCase().includes('party'))location.href='fin.html';else alert('Pas encore assez givré !');}</script>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('banana')) {
+        location.href = 'enigme7.html';
+      } else {
+        alert("Mouahaha... pas ce cri-là !");
+      }
+    }
+  </script>
+</body></html>
+
+<!-- enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 7 – Puzzle Minion</title></head>
+<body>
+  <h2>🧩 Épreuve 7 : Puzzle chaotique</h2>
+  <p>Quel mot se cache dans ce méli-mélo : "GIRAB" ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase() === 'gabar' || document.getElementById('rep').value.toLowerCase() === 'garbi') {
+      location.href = 'enigme8.html';
+    } else {
+      alert("C'est toujours en désordre avec eux...");
+    }
+  </script>
+</body></html>
+
+<!-- enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 8 – Devine le film</title></head>
+<body>
+  <h2>🎬 Épreuve 8 : Cinéminion</h2>
+  <p>Quel est le nom du premier film dans lequel les Minions sont apparus ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('moi, moche') || document.getElementById('rep').value.toLowerCase().includes('despicable')) {
+      location.href = 'enigme9.html';
+    } else {
+      alert("Tu dois revoir tes classiques !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 9 – Enigme sonore</title></head>
+<body>
+  <h2>🎵 Épreuve 9 : Chant minion</h2>
+  <p>Quelle chanson les Minions parodient souvent avec leur propre langage ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    let r = document.getElementById('rep').value.toLowerCase();
+    if (r.includes('barbie') || r.includes('baba') || r.includes('happy')) {
+      location.href = 'enigme10.html';
+    } else {
+      alert("Hmm ce n'est pas celle-là...");
+    }
+  </script>
+</body></html>
+
+<!-- enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 10 – Code banana</title></head>
+<body>
+  <h2>🍌 Épreuve 10 : Banana finale</h2>
+  <p>Combien de lettres contient le mot "BANANA" ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value === '6') {
+      location.href = 'bonus.html';
+    } else {
+      alert("Ce n'est pas le bon nombre !");
+    }
+  </script>
+</body></html>
+<!-- bonus.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🍌 Bonus – Banana Surprise</title></head>
+<body>
+  <h2>🚀 Bonus : Banana suprême !</h2>
+  <p>🍌 Bravo Agent FAFA, tu as réussi toutes les épreuves Minionesques !</p>
+  <p>✨ Code secret : <strong>MINION-FAFA-2025</strong></p>
+  <p>🦚 Ramène-le au QG FAFA pour recevoir ta banane d'or !</p>
+  <button onclick="location.href='fin.html'">Fin de mission</button>
 </body>
 </html>
 
 <!-- fin.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Super-Minion</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>👌 Fin – Mission Minion</title></head>
 <body>
-  <h2>🌟 Bravo Super-Minion !</h2>
-  <p>Tu as relevé toutes les missions et reçois le badge FAFA-Minion !</p>
-  <p>Mission terminée en <span id="chrono"></span></p>
+  <h2>🌟 Tu es un vrai FAFANION !</h2>
+  <p>⏳ Temps total : <span id="temps"></span></p>
+  <p>🎉 Badge : Maître Minion FAFA™</p>
+  <p>💬 Le savais-tu ? Les Minions parlent un mélange de français, espagnol, anglais et... n'importe quoi !</p>
   <script>
-    let d = Date.now() - (localStorage.minionStart || Date.now());
-    let m = Math.floor(d / 60000);
-    let s = Math.floor((d % 60000) / 1000);
-    document.getElementById('chrono').innerText = `${m}m ${s}s`;
-    localStorage.removeItem('minionStart');
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
   </script>
 </body>
 </html>
