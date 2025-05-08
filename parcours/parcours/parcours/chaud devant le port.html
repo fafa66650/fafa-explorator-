@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chaud Devant au Port – FAFA EXPLORATOR™</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../scripts/fafa-core.js"></script>
+  <style>
+    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚓️ Chaud Devant au Port</h1>
+    <p>Un ancien marin a laissé des indices tout autour du port. Suis les traces, affronte les énigmes, et retrouve le coffre perdu des capitaines de Banyuls !</p>
+    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+  </header>
+
+  <main>
+    <!-- Etape 1 -->
+    <section class="etape" data-step="1">
+      <h2>⛵️ Enigme 1 : Le noeud marin</h2>
+      <p>Quel type de noeud est attaché au quai principal ?</p>
+      <input type="text" placeholder="Noeud de huit, cabestan, etc...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 2 : mini-jeu directionnel -->
+    <section class="etape hidden" data-step="2">
+      <h2>🔬 Enigme 2 : Cap sur l'îlot</h2>
+      <p>Utilise la boussole pour trouver la bonne direction vers la prochaine balise !</p>
+      <div id="boussole"></div>
+      <button class="valider">Direction validée</button>
+    </section>
+
+    <!-- Etape 3 -->
+    <section class="etape hidden" data-step="3">
+      <h2>🛥️ Enigme 3 : Cargo fantôme</h2>
+      <p>Un nom effacé sur une coque rouillée : que peux-tu déchiffrer ?</p>
+      <input type="text" placeholder="Nom ou lettre visible...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 4 : mission photo -->
+    <section class="etape hidden" data-step="4">
+      <h2>📸 Mission photo</h2>
+      <p>Photographie une ancre réelle sur le port. Cherche bien !</p>
+      <button class="valider">Photo prise</button>
+    </section>
+
+    <!-- Etape 5 : code du coffre -->
+    <section class="etape hidden" data-step="5">
+      <h2>💼 Enigme finale : Le coffre</h2>
+      <p>Entre le code énigmatique trouvé sur la bouée verte. Ce code ouvre le coffre des marins.</p>
+      <input type="text" placeholder="Code...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Fin -->
+    <section class="etape hidden" data-step="fin">
+      <h2>🎉 Bien joué matelot !</h2>
+      <p>Tu viens de récupérer le trésor maritime de Banyuls. Reçois le badge "Capitaine FAFA" 🌊</p>
+      <div class="score"></div>
+      <p><em>Inscrit dans ton Carnet FAFA™</em></p>
+    </section>
+  </main>
+
+  <script>
+    let startTime = Date.now();
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const seconds = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
+    }, 1000);
+  </script>
+</body>
+</html>
