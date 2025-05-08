@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Énigme Botanique – FAFA EXPLORATOR™</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../scripts/fafa-core.js"></script>
+  <style>
+    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿 Énigme Botanique</h1>
+    <p>Bienvenue dans le jardin secret de Banyuls ! Une plante rare aurait été cachée par les anciens botanistes FAFA. Résous les énigmes pour la retrouver !</p>
+    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+  </header>
+
+  <main>
+    <!-- Etape 1 -->
+    <section class="etape" data-step="1">
+      <h2>🌼 Enigme 1 : Feuille unique</h2>
+      <p>Une feuille a une forme bien particulière. Laquelle ?</p>
+      <input type="text" placeholder="coeur, dentelée, épineuse...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 2 : mini-jeu de classification -->
+    <section class="etape hidden" data-step="2">
+      <h2>🌳 Enigme 2 : Puzzle botanique</h2>
+      <p>Classe correctement les plantes en familles !</p>
+      <div id="mini-jeu-plantes"></div>
+      <button class="valider">Classification correcte</button>
+    </section>
+
+    <!-- Etape 3 -->
+    <section class="etape hidden" data-step="3">
+      <h2>🌱 Enigme 3 : L'odeur mystérieuse</h2>
+      <p>Une plante dégage une odeur sucrée et puissante. Laquelle est-ce ?</p>
+      <input type="text" placeholder="lavande, thym, jasmin...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 4 : mission photo -->
+    <section class="etape hidden" data-step="4">
+      <h2>📸 Mission photo</h2>
+      <p>Photographie une plante aux feuilles rouges ou dégradées. Un indice y est caché !</p>
+      <button class="valider">Photo prise</button>
+    </section>
+
+    <!-- Etape 5 : mot gravé -->
+    <section class="etape hidden" data-step="5">
+      <h2>🌺 Enigme finale : Le nom gravé</h2>
+      <p>Un banc du jardin cache un nom gravé lié à la plante mystère. Quel est-il ?</p>
+      <input type="text" placeholder="Nom mystérieux...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Fin -->
+    <section class="etape hidden" data-step="fin">
+      <h2>🌟 Botaniste confirmé !</h2>
+      <p>Tu as identifié la plante secrète et débloqué le badge "Maître Botanique FAFA" 🌿</p>
+      <div class="score"></div>
+      <p><em>Ajouté à ton Carnet FAFA™</em></p>
+    </section>
+  </main>
+
+  <script>
+    let startTime = Date.now();
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const seconds = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
+    }, 1000);
+  </script>
+</body>
+</html>
