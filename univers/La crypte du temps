@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFA ESCAPE – La Crypte du Temps</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>⏱️ FAFA ESCAPE : La Crypte du Temps</h1>
+  <p>Tu es enfermé dans une ancienne crypte sous Banyuls. Pour sortir, tu dois déchiffrer les pièges temporels laissés par FAFA... Tu n'as que 45 minutes !</p>
+  <a href="enigme1.html"><button>Démarrer l’évasion</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Horloge cachée</title></head>
+<body>
+  <h2>⏰ Épreuve 1 : L’horloge figée</h2>
+  <p>Quel chiffre manque à l’horloge si on additionne les autres pour faire 78 ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value === '6')location.href='enigme2.html';else alert('Temps détraqué !');}</script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Cadenas secret</title></head>
+<body>
+  <h2>🔐 Épreuve 2 : Le code gravé</h2>
+  <p>Un mur affiche "IV + IX". Que dois-tu entrer ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value === '13')location.href='enigme3.html';else alert('Le mur reste muet.');}</script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Piège de lumière</title></head>
+<body>
+  <h2>💡 Épreuve 3 : Lumière piégée</h2>
+  <p>Un rayon passe à travers un vitrail coloré. Quelle couleur résulte du mélange de bleu et rouge ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>function valider(){if(document.getElementById('rep').value.toLowerCase()==='violet')location.href='enigme4.html';else alert('Pas la bonne teinte.');}</script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Mission photo crypte</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Gravure ancienne</h2>
+  <p>Prends une photo d'un symbole ancien ou gravure autour de toi.</p>
+  <button onclick="location.href='enigme5.html'">Photo faite</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme finale</title></head>
+<body>
+  <h2>🔮 Épreuve 5 : Sortie dimensionnelle</h2>
+  <p>Le mot de sortie est le contraire de "entrer" en latin. Que dis-tu ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider(){
+      if(document.getElementById('rep').value.toLowerCase()==='exire')location.href='fin.html';
+      else alert('Le portail reste scellé.');
+    }
+  </script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Évasion réussie</title></head>
+<body>
+  <h2>🌟 Bravo explorateur du temps !</h2>
+  <p>Tu t’es échappé de la Crypte du Temps ! Badge FAFA ESCAPE débloqué.</p>
+  <p>Temps : <span id="chrono"></span></p>
+  <script>
+    let d = Date.now() - (localStorage.fafaescape || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('fafaescape');
+  </script>
+</body>
+</html>
