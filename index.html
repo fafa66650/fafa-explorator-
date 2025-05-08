@@ -1,32 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAFA EXPLORATOR™</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="jeu.js"></script>
+  <meta charset="UTF-8">
+  <title>Bienvenue – FAFA EXPLORATOR™</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #f8fafc;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .logo {
+      width: 180px;
+      border-radius: 20px;
+      animation: bounce 2s infinite;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 80%;
+      margin-bottom: 30px;
+    }
+
+    .start-btn {
+      background-color: #3b82f6;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      font-size: 1.2em;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      background-color: #2563eb;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>🚀 Bienvenue dans <span class="titre">FAFA EXPLORATOR™</span></h1>
-    <p>L'aventure commence ici ! Choisis ton mode de jeu :</p>
-  </header>
+  <img src="assets/logo.png" alt="Logo FAFA" class="logo">
+  <h1>Bienvenue dans FAFA EXPLORATOR™</h1>
+  <p>Prépare-toi à vivre des aventures incroyables à travers Banyuls-sur-Mer. Chaque mission te fera découvrir un trésor culturel, naturel ou fantastique...</p>
+  <button class="start-btn" onclick="window.location.href='menu.html'">🎮 Commencer l’aventure</button>
 
-  <main>
-    <section class="menu">
-      <button onclick="lancerMode('patrimonio')">🏛️ FAFA PATRIMONIO™</button>
-      <button onclick="lancerMode('run')">🏃‍♂️ FAFA RUN™</button>
-      <button onclick="lancerMode('univerz')">🌌 FAFA UNIVERZ™</button>
-      <button onclick="lancerAdmin()">🔐 Accès ADMIN (FAFA HQ™)</button>
-    </section>
-  </main>
-
-  <footer>
-    <p>© FAFA™ — Application protégée. Tous droits réservés.</p>
-  </footer>
+  <audio autoplay loop>
+    <source src="assets/audio/intro-fafa.mp3" type="audio/mpeg">
+    Ton navigateur ne supporte pas l’audio.
+  </audio>
 </body>
 </html>
-<audio autoplay>
-  <source src="assets/intro.mp3" type="audio/mpeg" />
-</audio>
