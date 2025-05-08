@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAFA EXPLORATOR™</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="jeu.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🚀 Bienvenue dans <span class="titre">FAFA EXPLORATOR™</span></h1>
+    <p>L'aventure commence ici ! Choisis ton mode de jeu :</p>
+  </header>
+
+  <main>
+    <section class="menu">
+      <button onclick="lancerMode('patrimonio')">🏛️ FAFA PATRIMONIO™</button>
+      <button onclick="lancerMode('run')">🏃‍♂️ FAFA RUN™</button>
+      <button onclick="lancerMode('univerz')">🌌 FAFA UNIVERZ™</button>
+      <button onclick="lancerAdmin()">🔐 Accès ADMIN (FAFA HQ™)</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© FAFA™ — Application protégée. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
