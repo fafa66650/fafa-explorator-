@@ -1,5 +1,4 @@
-/assets/
-├── logo.png
-├── intro.mp3
-├── patrimoine.jpg
-├── voix-bienvenue.mp3
+<img src="assets/logo.png" alt="Logo FAFA" width="150" />
+<audio autoplay>
+  <source src="assets/intro.mp3" type="audio/mpeg" />
+</audio>
