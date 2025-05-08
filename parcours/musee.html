@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Panique au Musée – FAFA PATRIMONIO™</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .etape {
+      background-color: #1e293b;
+      color: white;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      border-left: 6px solid #ef4444;
+    }
+
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🖼️ Panique au Musée – Le Secret de Maillol</h1>
+    <p>Lieu de départ : Musée Maillol, Banyuls-sur-Mer</p>
+    <p>Durée estimée : 2h</p>
+  </header>
+
+  <main>
+    <div class="etape">
+      <h2>🧩 Énigme 1</h2>
+      <p>Quel célèbre artiste est né à Banyuls ?</p>
+      <input id="r1" placeholder="Ta réponse...">
+      <button onclick="check1()">Valider</button>
+      <div id="a1" class="hidden">
+        ✅ Bien joué ! <strong>Le savais-tu ?</strong> Aristide Maillol est connu pour ses sculptures monumentales.  
+        ➤ Passe à l’œuvre suivante.
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q2">
+      <h2>🎨 Énigme 2</h2>
+      <p>Associe cette œuvre à son époque : <br><em>“La Méditerranée”</em></p>
+      <input id="r2" placeholder="Entre le siècle ou l'époque...">
+      <button onclick="check2()">Valider</button>
+      <div id="a2" class="hidden">
+        ✅ Parfait ! <strong>Le savais-tu ?</strong> Cette œuvre date du début du XXe siècle.  
+        ➤ Dernière salle !
+      </div>
+    </div>
+
+    <div class="etape hidden" id="q3">
+      <h2>🔍 Énigme 3</h2>
+      <p>Un code est caché dans une sculpture du musée. Selon toi, quel animal y est sculpté ?</p>
+      <input id="r3" placeholder="Réponse...">
+      <button onclick="check3()">Valider</button>
+      <div id="a3" class="hidden">
+        ✅ Incroyable œil de lynx ! <strong>Le savais-tu ?</strong> Maillol intégrait parfois des symboles animaux dans ses œuvres.  
+        <br><br>🏁 Tu as percé le mystère du musée ! Rejoins la salle centrale pour valider ta mission.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function check1() {
+      const rep = document.getElementById('r1').value.toLowerCase();
+      if (rep.includes("maillol")) {
+        document.getElementById('a1').classList.remove('hidden');
+        document.getElementById('q2').classList.remove('hidden');
+      } else {
+        alert("❌ Essaie encore !");
+      }
+    }
+
+    function check2() {
+      const rep = document.getElementById('r2').value.toLowerCase();
+      if (rep.includes("20") || rep.includes("xx")) {
+        document.getElementById('a2').classList.remove('hidden');
+        document.getElementById('q3').classList.remove('hidden');
+      } else {
+        alert("❌ Mauvaise époque !");
+      }
+    }
+
+    function check3() {
+      const rep = document.getElementById('r3').value.toLowerCase();
+      if (rep.includes("chat") || rep.includes("oiseau") || rep.length > 3) {
+        document.getElementById('a3').classList.remove('hidden');
+      } else {
+        alert("❌ Observe bien la sculpture !");
+      }
+    }
+  </script>
+</body>
+</html>
