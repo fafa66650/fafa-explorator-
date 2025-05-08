@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFA Bros – Aventure Champignon</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <h1>🍄 FAFA Bros : Départ vers le Royaume</h1>
+  <p>Un tuyau magique t'aspire vers un monde où les énigmes sautent de plateformes en plateformes. Tu devras affronter Koopa, sauver la princesse et collecter des pièces FAFA pour réussir !</p>
+  <a href="enigme1.html"><button>Commencer l'aventure</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Le Bloc Mystère</title></head>
+<body>
+  <h2>Épreuve 1 : Le Bloc Mystère</h2>
+  <p>Un bloc donne une pièce quand tu dis le bon mot : lequel ? (indice : saut)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'hop')
+        location.href = 'enigme2.html';
+      else alert('Rien ne sort du bloc... essaie encore !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Tuyau vert</title></head>
+<body>
+  <h2>Épreuve 2 : Le Tuyau secret</h2>
+  <p>Un tuyau vert te pose une question : quel est l'animal de Yoshi ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('dinosaure'))
+        location.href = 'enigme3.html';
+      else alert('Tu tombes dans le vide... essaie encore !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Le Goomba</title></head>
+<body>
+  <h2>Épreuve 3 : Écrase le Goomba</h2>
+  <p>Quelle est la couleur du Goomba classique ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'marron')
+        location.href = 'enigme4.html';
+      else alert('Ce n’était pas le bon !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Photo bonus</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Pièce cachée</h2>
+  <p>Photographie une mosaïque colorée ressemblant à un niveau Mario IRL !</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Château de fin</title></head>
+<body>
+  <h2>Épreuve 5 : Trouve la princesse</h2>
+  <p>Quel est le nom de la princesse à sauver dans Mario ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('peach'))
+        location.href = 'fin.html';
+      else alert('Ce n’est pas la bonne tour !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Fin FAFA Bros</title></head>
+<body>
+  <h2>🌟 Victoire !</h2>
+  <p>Tu as sauvé le Royaume Champignon et reçois le badge FAFA Bros !</p>
+  <p>Fini le parcours avec le chrono : <span id="chrono"></span></p>
+  <script>
+    let d = Date.now() - (localStorage.startMario || Date.now());
+    let m = Math.floor(d / 60000);
+    let s = Math.floor((d % 60000) / 1000);
+    document.getElementById('chrono').innerText = `${m}m ${s}s`;
+    localStorage.removeItem('startMario');
+  </script>
+</body>
+</html>
