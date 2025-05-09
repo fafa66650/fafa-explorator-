@@ -1,0 +1,234 @@
+<!-- intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFADISNEY™ – Les Portes de l’Imaginaire</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #fef3c7, #fcd34d);
+      color: #4b0082;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      max-width: 720px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 25px #fbbf24;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #c2410c;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 30px;
+      background: #f59e0b;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d97706;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-box">
+    <h1>🌟 FAFADISNEY™ – Les Portes de l’Imaginaire</h1>
+    <p>📖 Un vieux grimoire magique s’est ouvert au cœur de Banyuls...</p>
+    <p>🚀 Mais les contes sont mélangés : des princesses dans des grottes, des pirates dans les musées !</p>
+    <p>🧙‍♂️ Il te faudra rétablir la magie en résolvant 10 épreuves, de Cendrillon à Vaiana !</p>
+    <p>💫 Réveille le pouvoir de l’imagination et sauve les mondes Disney.</p>
+    <a href="enigme1.html"><button>Ouvrir le grimoire enchanté</button></a>
+  </div>
+</body>
+</html>
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Pantoufle perdue</title></head>
+<body>
+  <h2>👠 Épreuve 1 : Qui a perdu sa chaussure au bal ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (!localStorage.start) localStorage.start = Date.now();
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('cendrillon')) {
+        location.href = 'enigme2.html';
+      } else {
+        alert("Ce n'est pas elle... essaie encore !");
+      }
+    }
+  </script>
+</body></html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Le miroir</title></head>
+<body>
+  <h2>📞 Épreuve 2 : "Miroir, mon beau miroir..." qui parle ainsi ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('reine') || document.getElementById('rep').value.toLowerCase().includes('blanche')) {
+      location.href = 'enigme3.html';
+    } else {
+      alert("Pas ce personnage, continue la quête !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Sous la mer</title></head>
+<body>
+  <h2>🌊 Épreuve 3 : Quel est le nom de la petite sirène ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('ariel')) {
+      location.href = 'enigme4.html';
+    } else {
+      alert("Essaie encore, elle adore nager sous la mer !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Montagne magique</title></head>
+<body>
+  <h2>❄️ Épreuve 4 : Qui chante "Libérée, délivrée" ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('elsa')) {
+      location.href = 'enigme5.html';
+    } else {
+      alert("Ce n'est pas Anna, cherche encore !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Mission photo</title></head>
+<body>
+  <h2>📷 Épreuve 5 : Prends une photo d'un lieu magique !</h2>
+  <p>(Une fontaine, un jardin fleuri ou un lieu éclairé de nuit)</p>
+  <button onclick="location.href='enigme6.html'">Photo prise</button>
+</body></html>
+<!-- enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 6 – Le secret du lion</title></head>
+<body>
+  <h2>🦁 Épreuve 6 : Quel lion deviendra roi dans un dessin animé ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('simba')) {
+      location.href = 'enigme7.html';
+    } else {
+      alert("Rugis un peu plus fort...!");
+    }
+  </script>
+</body></html>
+
+<!-- enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 7 – Montgolfière des rêves</title></head>
+<body>
+  <h2>🌌 Épreuve 7 : Dans quel film une maison vole avec des ballons ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('là-haut') || document.getElementById('rep').value.toLowerCase().includes('up')) {
+      location.href = 'enigme8.html';
+    } else {
+      alert("Pas encore décollé... Essaie encore.");
+    }
+  </script>
+</body></html>
+
+<!-- enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 8 – Lumière magique</title></head>
+<body>
+  <h2>🌟 Épreuve 8 : Quelle princesse est fascinée par les lanternes volantes ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('raiponce')) {
+      location.href = 'enigme9.html';
+    } else {
+      alert("Lanternes éteintes, réfléchis !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 9 – Tatouage du héros</title></head>
+<body>
+  <h2>🌊 Épreuve 9 : Quel héros tatoué aide Vaiana ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('maui')) {
+      location.href = 'enigme10.html';
+    } else {
+      alert("Pas ce héros-là !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 10 – Magie finale</title></head>
+<body>
+  <h2>🌟 Épreuve 10 : Quelle clé ouvre tous les royaumes de la magie ?</h2>
+  <p>Un seul mot : K____</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.startsWith('k') && (val.includes('key') || val.includes('kingdom') || val.includes('kristal'))) {
+      location.href = 'bonus.html';
+    } else {
+      alert("Essaie encore, pense à Kingdom Hearts ou la clé magique !");
+    }
+  </script>
+</body></html>
+<!-- bonus.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>✨ Bonus – Clé de l’Imaginaire</title></head>
+<body>
+  <h2>🌟 Bonus : Tu as débloqué la Clé Enchantée !</h2>
+  <p>🧙 Bravo explorateur, les royaumes Disney sont réunis.</p>
+  <p>🔑 Code à transmettre à FAFA HQ : <strong>DISNEY-FAFA-2025</strong></p>
+  <p>✨ Cette clé ouvre les portes vers de nouveaux mondes imaginaires...</p>
+  <button onclick="location.href='fin.html'">Fermer le grimoire</button>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🌟 Fin – Gardien de l’Imaginaire</title></head>
+<body>
+  <h2>🌈 Félicitations, tu es un Gardien de l’Imaginaire !</h2>
+  <p>⏳ Temps total : <span id="temps"></span></p>
+  <p>💼 Badge : Clé de l’Imaginaire FAFA™</p>
+  <p>💫 Le savais-tu ? Walt Disney a créé Mickey en 1928 après avoir perdu les droits de son premier personnage, Oswald le lapin chanceux !</p>
+  <script>
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
+  </script>
+</body>
+</html>
