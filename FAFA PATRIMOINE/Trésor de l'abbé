@@ -1,79 +1,328 @@
+<!-- patrimoine3/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Le Trésor de l’Abbé – FAFA EXPLORATOR™</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../scripts/fafa-core.js"></script>
+  <title>⛪ FAFA Patrimonio 3 – Le Trésor de l’Abbé</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0fdfa, #e0f2fe);
+      color: #1e293b;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .box {
+      background: white;
+      max-width: 750px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #064e3b;
+    }
+    p {
+      font-size: 1.1em;
+      color: #374151;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background: #047857;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #065f46;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <header>
+  <div class="box">
+    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
     <h1>⛪ Le Trésor de l’Abbé</h1>
-    <p>La vieille église renferme un secret transmis depuis des siècles par l'Abbé Calvet. Tu es l’élu(e) pour découvrir le trésor caché sous l’autel. Observe, réfléchis et fais vite !</p>
-    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
-  </header>
-
-  <main>
-    <!-- Etape 1 -->
-    <section class="etape" data-step="1">
-      <h2>⛪ Enigme 1 : Fenêtre divine</h2>
-      <p>Observe les vitraux. L'un d'eux est inversé... Lequel et pourquoi ?</p>
-      <input type="text" placeholder="Saint, symbole, couleur...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 2 : mini-jeu code médiéval -->
-    <section class="etape hidden" data-step="2">
-      <h2>🔮 Enigme 2 : Alphabet secret</h2>
-      <p>Décode cette phrase gravée dans le banc en utilisant l’alphabet de l’Abbé.</p>
-      <div id="mini-jeu-code"></div>
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 3 -->
-    <section class="etape hidden" data-step="3">
-      <h2>✨ Enigme 3 : Le chant du trésor</h2>
-      <p>Une inscription sous un banc parle d'un psaume. Quel est le chiffre qui l'accompagne ?</p>
-      <input type="text" placeholder="Ex: 23">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 4 : mission photo -->
-    <section class="etape hidden" data-step="4">
-      <h2>📸 Mission photo</h2>
-      <p>Photographie l’orgue majestueux depuis la nef centrale. Tu auras peut-être une révélation !</p>
-      <button class="valider">Photo prise</button>
-    </section>
-
-    <!-- Etape 5 : final avec boussole -->
-    <section class="etape hidden" data-step="5">
-      <h2>🔮 Enigme finale : Le calice oublié</h2>
-      <p>Un objet ancien sous l’autel contient la clé. Quel mot est gravé dessus ? Oriente-toi avec la boussole.</p>
-      <input type="text" placeholder="Mot mystérieux...">
-      <div id="boussole"></div>
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Fin -->
-    <section class="etape hidden" data-step="fin">
-      <h2>🌟 Trésor révélé !</h2>
-      <p>Bravo ! Tu as résolu les énigmes de l'église et ouvert le secret de l'Abbé. Reçois le badge de "Décodeur Sacré FAFA" ⛪️</p>
-      <div class="score"></div>
-      <p><em>Souvenir ajouté à ton Carnet FAFA™</em></p>
-    </section>
-  </main>
+    <p>
+      En fouillant la sacristie de l’église Saint-Jean, tu découvres une vieille lettre mentionnant un <strong>trésor sacré oublié</strong>...<br><br>
+      Ton enquête va te mener de vitraux mystérieux à des croix cachées, entre secrets, codes et bénédictions anciennes.<br><br>
+      Résous les 10 énigmes pour libérer la dernière relique bénie de Banyuls.<br>
+      ⏱️ Le temps est compté... et l’abbé t’observe !
+    </p>
+    <button onclick="demarrer()">🎯 Lancer la mission sacrée</button>
+  </div>
 
   <script>
-    let startTime = Date.now();
-    setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
-      const seconds = String(elapsed % 60).padStart(2, '0');
-      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
-    }, 1000);
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine3/enigme1.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Énigme 1 – L’inscription oubliée</title></head>
+<body>
+  <h2>🔎 Énigme 1 : L’inscription oubliée</h2>
+  <p>Sur le linteau de l’église, un mot latin est gravé : que signifie "PAX" ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <p id="savais"></p>
+  <script>
+    function valider() {
+      const r = document.getElementById("rep").value.toLowerCase();
+      if (r === "paix") {
+        document.getElementById("savais").innerText = "🕊️ Le savais-tu ? \"Pax\" signifie paix en latin, un symbole fréquent sur les lieux sacrés.";
+        setTimeout(() => location.href = 'enigme2.html', 3000);
+      } else {
+        alert("Essaie encore. C’est un mot de paix.");
+      }
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine3/enigme2.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Énigme 2 – Croix secrète</title></head>
+<body>
+  <h2>✝️ Énigme 2 : La croix secrète</h2>
+  <p>Quelle forme possède la croix celtique gravée sur le pilier nord ?</p>
+  <form onsubmit="return valider()">
+    <label><input type="radio" name="q" value="a"> Une croix en X</label><br>
+    <label><input type="radio" name="q" value="b"> Une croix avec un cercle</label><br>
+    <label><input type="radio" name="q" value="c"> Une croix double</label><br>
+    <button type="submit">Valider</button>
+  </form>
+  <script>
+    function valider() {
+      const r = document.querySelector('input[name="q"]:checked');
+      if (r && r.value === 'b') location.href = 'enigme3.html';
+      else alert("Non, elle entoure un symbole.");
+      return false;
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 3 – Vitrail mystère</title></head>
+<body>
+  <h2>🖼️ Énigme 3 : Vitrail mystère</h2>
+  <p>Photographie un vitrail représentant une scène biblique.</p>
+  <button onclick="location.href='enigme4.html'">📸 Photo prise</button>
+</body>
+</html>
+
+<!-- patrimoine3/enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 4 – Symbole caché</title></head>
+<body>
+  <h2>🔐 Énigme 4 : Symbole caché</h2>
+  <p>Quel symbole trouve-t-on souvent sur les cloches d’église ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('croix'))
+        location.href = 'enigme5.html';
+      else alert("Ce n’est pas ce symbole sacré.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 5 – Anagramme divine</title></head>
+<body>
+  <h2>🔤 Énigme 5 : Anagramme divine</h2>
+  <p>Réorganise : <strong>SEIGEUR</strong></p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'seigneur')
+        location.href = 'enigme6.html';
+      else alert("Réessaye. C’est un mot religieux.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 6 – Suite sacrée</title></head>
+<body>
+  <h2>🔢 Énigme 6 : Suite sacrée</h2>
+  <p>3, 6, 9, ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '12')
+        location.href = 'enigme7.html';
+      else alert("Mauvaise réponse !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 7 – Date sacrée</title></head>
+<body>
+  <h2>📅 Énigme 7 : Date sacrée</h2>
+  <p>En quelle année fut construite l’église Saint-Jean ? (indice sur panneau devant l’entrée)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '1693')
+        location.href = 'enigme8.html';
+      else alert("Regarde bien les inscriptions sur le mur !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 8 – Clé d’autel</title></head>
+<body>
+  <h2>🗝️ Énigme 8 : Clé d’autel</h2>
+  <p>Combien de cierges sont allumés sur l’autel principal ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '7')
+        location.href = 'enigme9.html';
+      else alert("Regarde bien la photo ou sur place !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 9 – Mot du sermon</title></head>
+<body>
+  <h2>📖 Énigme 9 : Mot du sermon</h2>
+  <p>Quel mot revient souvent dans les homélies ? (amour, justice, foi, espoir)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const ok = ['amour', 'foi', 'espoir'];
+    function valider() {
+      if (ok.includes(document.getElementById('rep').value.toLowerCase()))
+        location.href = 'enigme10.html';
+      else alert("Mot trop rare. Essaie un autre.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine3/enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 10 – Mot final</title></head>
+<body>
+  <h2>⛪ Énigme 10 : Mot final</h2>
+  <p>Quel mot sacré relie toutes les énigmes ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (!localStorage.getItem("start")) localStorage.setItem("start", Date.now());
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'foi')
+        location.href = 'fin.html';
+      else alert("Cherche un mot très présent dans les lieux de culte.");
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine3/fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Fin – Le Trésor de l’Abbé</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fefce8, #fef9c3);
+      text-align: center;
+      padding: 60px 20px;
+      color: #1f2937;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #78350f;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    .badge {
+      margin: 30px auto;
+      padding: 15px;
+      background: #ca8a04;
+      color: white;
+      display: inline-block;
+      border-radius: 12px;
+      font-size: 1.2em;
+    }
+    #chrono {
+      font-size: 1.3em;
+      margin-top: 20px;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #a16207;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #854d0e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Trésor retrouvé !</h1>
+    <p>Félicitations ! Tu as découvert la dernière relique sacrée de Banyuls.</p>
+    <div class="badge">🏅 Badge : Gardien de la Foi FAFA™</div>
+    <p id="chrono">⏱️ Temps total : ...</p>
+    <p>Que la lumière te guide vers la prochaine aventure !</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+  </div>
+
+  <script>
+    const debut = localStorage.getItem("start");
+    if (debut) {
+      const fin = Date.now();
+      const duree = Math.floor((fin - debut) / 1000);
+      const min = String(Math.floor(duree / 60)).padStart(2, '0');
+      const sec = String(duree % 60).padStart(2, '0');
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      localStorage.removeItem("start");
+    }
   </script>
 </body>
 </html>
