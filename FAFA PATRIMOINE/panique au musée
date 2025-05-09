@@ -1,79 +1,329 @@
+<!-- patrimoine2/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Panique au Musée – FAFA EXPLORATOR™</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../scripts/fafa-core.js"></script>
+  <title>🖼️ FAFA Patrimonio 2 – Panique au Musée</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+      color: #1f2937;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .box {
+      background: white;
+      max-width: 750px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #1e40af;
+    }
+    p {
+      font-size: 1.1em;
+      color: #374151;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background: #1d4ed8;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e3a8a;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🔹 Panique au Musée</h1>
-    <p>Une nuit mystérieuse au Musée Maillol... Des oeuvres se sont réveillées ! Enquête, observe et décode pour restaurer l'ordre avant l'ouverture !</p>
-    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
-  </header>
-
-  <main>
-    <!-- Etape 1 -->
-    <section class="etape" data-step="1">
-      <h2>🎨 Enigme 1 : Oeuvre déplacée</h2>
-      <p>Une toile est retournée. Décris ce que tu y vois...</p>
-      <input type="text" placeholder="Objet, animal, couleur...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 2 : mini-jeu visuel -->
-    <section class="etape hidden" data-step="2">
-      <h2>🖼️ Enigme 2 : Puzzle de reconstitution</h2>
-      <p>Remets en ordre les fragments d'une sculpture.</p>
-      <div id="mini-jeu-sculpture"></div>
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 3 -->
-    <section class="etape hidden" data-step="3">
-      <h2>🌟 Enigme 3 : Brillance volée</h2>
-      <p>Une œuvre a perdu sa lumière. Quel élément l'illumine habituellement ?</p>
-      <input type="text" placeholder="Lampe, vitrail, or, etc...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 4 : mission photo -->
-    <section class="etape hidden" data-step="4">
-      <h2>📸 Mission photo</h2>
-      <p>Imite la pose d'une statue près de l'accueil et prends une photo !</p>
-      <button class="valider">Photo prise</button>
-    </section>
-
-    <!-- Etape 5 : code final avec boussole -->
-    <section class="etape hidden" data-step="5">
-      <h2>🔮 Enigme finale : Le socle mystère</h2>
-      <p>Un code gravé sous une sculpture indique la sortie secrète. Que dis-tu voir ?</p>
-      <input type="text" placeholder="Code...">
-      <div id="boussole"></div>
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Fin -->
-    <section class="etape hidden" data-step="fin">
-      <h2>🎉 Bravo !</h2>
-      <p>Tu as calmé les œuvres révoltées ! Tu gagnes le badge de "Gardien de l'Art FAFA" 🏆</p>
-      <div class="score"></div>
-      <p><em>Souvenir sauvegardé dans ton Carnet FAFA™</em></p>
-    </section>
-  </main>
+  <div class="box">
+    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
+    <h1>🖼️ Panique au Musée</h1>
+    <p>
+      Une mystérieuse panne a provoqué la disparition de plusieurs œuvres d’art au musée Maillol...<br><br>
+      Toi seul peux résoudre ce mystère en retrouvant les 10 éléments perdus dans la ville et le musée !<br><br>
+      Prépare-toi, chaque étape révèle un indice artistique !
+    </p>
+    <button onclick="demarrer()">🎯 Commencer la mission</button>
+  </div>
 
   <script>
-    let startTime = Date.now();
-    setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
-      const seconds = String(elapsed % 60).padStart(2, '0');
-      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
-    }, 1000);
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine2/enigme1.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🖼️ Énigme 1 – L'œuvre floue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h2>🔍 Énigme 1 : L'œuvre floue</h2>
+  <p>Quel est le nom de l’artiste dont le portrait est flouté ci-dessous ?</p>
+  <img src="../../actifs/flou-maillol.jpg" alt="Portrait flou" width="250">
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <p id="savais"></p>
+  <script>
+    function valider() {
+      const r = document.getElementById("rep").value.toLowerCase().trim();
+      if (r === "maillol") {
+        document.getElementById("savais").innerText = "🎨 Le savais-tu ? Aristide Maillol était un sculpteur et peintre français né à Banyuls.";
+        setTimeout(() => location.href = "enigme2.html", 3000);
+      } else alert("Essaie encore. Regarde bien les contours !");
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine2/enigme2.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Énigme 2 – Forme sculptée</title></head>
+<body>
+  <h2>🗿 Énigme 2 : Forme sculptée</h2>
+  <p>Quelle forme géométrique décrit le mieux les sculptures de Maillol ?</p>
+  <form onsubmit="return valider()">
+    <label><input type="radio" name="q" value="a"> Anguleuse</label><br>
+    <label><input type="radio" name="q" value="b"> Cubique</label><br>
+    <label><input type="radio" name="q" value="c"> Ronde</label><br>
+    <button type="submit">Valider</button>
+  </form>
+  <script>
+    function valider() {
+      const r = document.querySelector('input[name="q"]:checked');
+      if (r && r.value === 'c') location.href = 'enigme3.html';
+      else alert("Non, ses œuvres sont plutôt douces et arrondies !");
+      return false;
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 3 – Assemblage</title></head>
+<body>
+  <h2>🧩 Énigme 3 : Puzzle d’une statue</h2>
+  <p>Quelle pièce complète cette statue célèbre ?</p>
+  <img src="../../actifs/puzzle-maillol.jpg" width="250">
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const val = document.getElementById("rep").value.toUpperCase();
+      if (val === 'B') location.href = 'enigme4.html';
+      else alert("Essaie encore. Regarde bien les formes !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 4 – Citation</title></head>
+<body>
+  <h2>🧠 Énigme 4 : Devine la citation</h2>
+  <p>Complète : "L’art est le ... de l’esprit."</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const v = document.getElementById('rep').value.toLowerCase();
+      if (v === 'reflet') location.href = 'enigme5.html';
+      else alert("Essaie encore.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 5 – Trouve le cadre</title></head>
+<body>
+  <h2>🖼️ Énigme 5 : Repère l’œuvre</h2>
+  <p>Photographie une œuvre dans le musée représentant une femme assise.</p>
+  <button onclick="location.href='enigme6.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- patrimoine2/enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 6 – Couleur dominante</title></head>
+<body>
+  <h2>🎨 Énigme 6 : Couleur dominante</h2>
+  <p>Quelle couleur domine l’œuvre 'La Méditerranée' ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'brun')
+        location.href = 'enigme7.html';
+      else alert("Ce n’est pas la couleur principale de cette sculpture.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 7 – Chronologie</title></head>
+<body>
+  <h2>📅 Énigme 7 : Date de naissance</h2>
+  <p>En quelle année est né Aristide Maillol ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '1861')
+        location.href = 'enigme8.html';
+      else alert("Ce n’est pas la bonne date. Essaie encore !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 8 – Anagramme artistique</title></head>
+<body>
+  <h2>🔤 Énigme 8 : Anagramme</h2>
+  <p>Reforme le mot : "SILECTUPR"</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'sculptier' || document.getElementById('rep').value.toLowerCase() === 'sculpteur')
+        location.href = 'enigme9.html';
+      else alert("Faux, cherche encore dans les lettres !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 9 – Mini-jeu mémoire</title></head>
+<body>
+  <h2>🧠 Énigme 9 : Code mémoire</h2>
+  <p>Souviens-toi : quel est le code du cadre 'Muse' ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '143')
+        location.href = 'enigme10.html';
+      else alert("Incorrect ! Essaye de te souvenir.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine2/enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 10 – Mot final</title></head>
+<body>
+  <h2>🎓 Énigme 10 : Mot final</h2>
+  <p>Quel mot résume l’art de Maillol ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'équilibre')
+        location.href = 'fin.html';
+      else alert("Tu y es presque. Réfléchis au style de ses œuvres.");
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine2/fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Fin – Panique au Musée</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f9ff, #dbeafe);
+      text-align: center;
+      padding: 60px 20px;
+      color: #1e293b;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #1e40af;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    .badge {
+      margin: 30px auto;
+      padding: 15px;
+      background: #3b82f6;
+      color: white;
+      display: inline-block;
+      border-radius: 12px;
+      font-size: 1.2em;
+    }
+    #chrono {
+      font-size: 1.3em;
+      margin-top: 20px;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Bravo détective artistique !</h1>
+    <p>Tu as rétabli l’ordre au musée Maillol avec talent.</p>
+    <div class="badge">🏅 Badge : Gardien des œuvres FAFA™</div>
+    <p id="chrono">⏱️ Temps total : ...</p>
+    <p>Rejoins FAFA HQ pour révéler ta prochaine mission artistique.</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+  </div>
+
+  <script>
+    const debut = localStorage.getItem("start");
+    if (debut) {
+      const fin = Date.now();
+      const duree = Math.floor((fin - debut) / 1000);
+      const min = String(Math.floor(duree / 60)).padStart(2, '0');
+      const sec = String(duree % 60).padStart(2, '0');
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      localStorage.removeItem("start");
+    }
   </script>
 </body>
 </html>
