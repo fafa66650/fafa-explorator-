@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Crique Secrète – FAFA EXPLORATOR™</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../scripts/fafa-core.js"></script>
+  <style>
+    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌊 Crique Secrète</h1>
+    <p>Une crique oubliée cache un passage menant à une grotte mystérieuse. Trouve les indices laissés par les explorateurs FAFA et découvre ce qu'elle renferme !</p>
+    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+  </header>
+
+  <main>
+    <!-- Etape 1 -->
+    <section class="etape" data-step="1">
+      <h2>🗻 Enigme 1 : Traces de pas</h2>
+      <p>Sur le sable, des traces mènent à un rocher. Que semblent-elles représenter ?</p>
+      <input type="text" placeholder="Animal, symbole, direction...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 2 : mini-jeu orientation -->
+    <section class="etape hidden" data-step="2">
+      <h2>🌍 Enigme 2 : Carte ancienne</h2>
+      <p>Une carte dessinée dans le sable donne une direction. Oriente-toi !</p>
+      <div id="boussole"></div>
+      <button class="valider">Suivi de la carte</button>
+    </section>
+
+    <!-- Etape 3 -->
+    <section class="etape hidden" data-step="3">
+      <h2>👽 Enigme 3 : La roche à visage</h2>
+      <p>Un visage semble sculpté dans la roche... Quel est son état d'esprit ?</p>
+      <input type="text" placeholder="Triste, content, en colère, etc.">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Etape 4 : mission photo -->
+    <section class="etape hidden" data-step="4">
+      <h2>📸 Mission photo</h2>
+      <p>Photographie l'ouverture rocheuse en forme de coeur. Elle est visible uniquement depuis un certain angle.</p>
+      <button class="valider">Photo prise</button>
+    </section>
+
+    <!-- Etape 5 : trésor caché -->
+    <section class="etape hidden" data-step="5">
+      <h2>🎁 Enigme finale : Le message des vagues</h2>
+      <p>Un mot apparaît dans la mousse des vagues près du trou marin. Que lis-tu ?</p>
+      <input type="text" placeholder="Mot secret...">
+      <button class="valider">Valider</button>
+    </section>
+
+    <!-- Fin -->
+    <section class="etape hidden" data-step="fin">
+      <h2>🌟 Bienvenue explorateur !</h2>
+      <p>Tu as trouvé la crique FAFA et révélé son mystère. Reçois ton badge "Garde-Crique FAFA" 🌿</p>
+      <div class="score"></div>
+      <p><em>Souvenir ajouté à ton Carnet FAFA™</em></p>
+    </section>
+  </main>
+
+  <script>
+    let startTime = Date.now();
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const seconds = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
+    }, 1000);
+  </script>
+</body>
+</html>
