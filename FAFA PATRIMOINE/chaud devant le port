@@ -1,78 +1,299 @@
+<!-- patrimoine6/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Chaud Devant au Port – FAFA EXPLORATOR™</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../scripts/fafa-core.js"></script>
+  <title>⚓ FAFA Patrimonio 6 – L’Énigme du Port</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #eff6ff, #dbeafe);
+      text-align: center;
+      padding: 60px 20px;
+      color: #1e3a8a;
+    }
+    .box {
+      background: white;
+      max-width: 750px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #1e40af;
+    }
+    p {
+      font-size: 1.1em;
+      color: #334155;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background: #1d4ed8;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e3a8a;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>⚓️ Chaud Devant au Port</h1>
-    <p>Un ancien marin a laissé des indices tout autour du port. Suis les traces, affronte les énigmes, et retrouve le coffre perdu des capitaines de Banyuls !</p>
-    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
-  </header>
-
-  <main>
-    <!-- Etape 1 -->
-    <section class="etape" data-step="1">
-      <h2>⛵️ Enigme 1 : Le noeud marin</h2>
-      <p>Quel type de noeud est attaché au quai principal ?</p>
-      <input type="text" placeholder="Noeud de huit, cabestan, etc...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 2 : mini-jeu directionnel -->
-    <section class="etape hidden" data-step="2">
-      <h2>🔬 Enigme 2 : Cap sur l'îlot</h2>
-      <p>Utilise la boussole pour trouver la bonne direction vers la prochaine balise !</p>
-      <div id="boussole"></div>
-      <button class="valider">Direction validée</button>
-    </section>
-
-    <!-- Etape 3 -->
-    <section class="etape hidden" data-step="3">
-      <h2>🛥️ Enigme 3 : Cargo fantôme</h2>
-      <p>Un nom effacé sur une coque rouillée : que peux-tu déchiffrer ?</p>
-      <input type="text" placeholder="Nom ou lettre visible...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 4 : mission photo -->
-    <section class="etape hidden" data-step="4">
-      <h2>📸 Mission photo</h2>
-      <p>Photographie une ancre réelle sur le port. Cherche bien !</p>
-      <button class="valider">Photo prise</button>
-    </section>
-
-    <!-- Etape 5 : code du coffre -->
-    <section class="etape hidden" data-step="5">
-      <h2>💼 Enigme finale : Le coffre</h2>
-      <p>Entre le code énigmatique trouvé sur la bouée verte. Ce code ouvre le coffre des marins.</p>
-      <input type="text" placeholder="Code...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Fin -->
-    <section class="etape hidden" data-step="fin">
-      <h2>🎉 Bien joué matelot !</h2>
-      <p>Tu viens de récupérer le trésor maritime de Banyuls. Reçois le badge "Capitaine FAFA" 🌊</p>
-      <div class="score"></div>
-      <p><em>Inscrit dans ton Carnet FAFA™</em></p>
-    </section>
-  </main>
+  <div class="box">
+    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
+    <h1>⚓ L’Énigme du Port</h1>
+    <p>
+      Le vieux port de Banyuls renferme bien plus que des filets et des barques...<br><br>
+      Une légende locale évoque un message crypté transmis par les pêcheurs résistants à travers des symboles cachés entre les quais.<br><br>
+      Entre noeuds marins, bouées, ancres et bateaux, relève les 10 énigmes pour découvrir ce message oublié.<br>
+      🎣 Ton enquête commence maintenant...
+    </p>
+    <button onclick="demarrer()">🚤 Commencer l’enquête portuaire</button>
+  </div>
 
   <script>
-    let startTime = Date.now();
-    setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
-      const seconds = String(elapsed % 60).padStart(2, '0');
-      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
-    }, 1000);
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
+</body>
+</html>
+<!-- patrimoine6/enigme1.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Énigme 1 – Bouée mystérieuse</title></head>
+<body>
+  <h2>🛟 Énigme 1 : Bouée mystérieuse</h2>
+  <p>Quel est le nom donné à une bouée flottante de signalisation rouge ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const r = document.getElementById("rep").value.toLowerCase();
+      if (r.includes("latérale") || r.includes("tribord")) location.href = 'enigme2.html';
+      else alert("Cherche une balise de navigation bien connue.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 2 – Nœud marin</title></head>
+<body>
+  <h2>🪢 Énigme 2 : Nœud marin</h2>
+  <p>Quel nœud est réputé incassable et utilisé pour l’amarrage ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes("nœud de chaise"))
+      location.href = 'enigme3.html';
+    else alert("Ce n’est pas le bon nœud.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 3 – Barque photo</title></head>
+<body>
+  <h2>🚤 Énigme 3 : Barque photo</h2>
+  <p>Photographie une barque traditionnelle amarrée au port.</p>
+  <button onclick="location.href='enigme4.html'">📸 Photo prise</button>
+</body>
+</html>
+
+<!-- patrimoine6/enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 4 – Matériel de pêche</title></head>
+<body>
+  <h2>🎣 Énigme 4 : Matériel de pêche</h2>
+  <p>Quel est le nom du panier circulaire utilisé pour remonter les poissons ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase() === 'épuisette')
+      location.href = 'enigme5.html';
+    else alert("Ce n’est pas le bon mot !");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 5 – Résistance</title></head>
+<body>
+  <h2>🕵️ Énigme 5 : Message codé</h2>
+  <p>Quel mot-clé symbolique fut utilisé par les résistants en mer à Banyuls ? (indice : lumière)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes("phare"))
+      location.href = 'enigme6.html';
+    else alert("Indice lumineux à creuser...");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 6 – Anagramme</title></head>
+<body>
+  <h2>🔤 Énigme 6 : Anagramme du port</h2>
+  <p>Réorganise les lettres : <strong>CAPNORE</strong></p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const v = document.getElementById('rep').value.toLowerCase();
+    if (v === 'panocre' || v === 'caprone') location.href = 'enigme7.html';
+    else alert("Essaie encore, cherche un mot en lien avec l’environnement marin...");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 7 – Animal marin</title></head>
+<body>
+  <h2>🐙 Énigme 7 : Animal marin</h2>
+  <p>Quel animal à huit bras chasse dans les rochers au port ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase() === 'poulpe')
+      location.href = 'enigme8.html';
+    else alert("Cet animal se faufile partout...");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 8 – Code portuaire</title></head>
+<body>
+  <h2>🔢 Énigme 8 : Code portuaire</h2>
+  <p>Le code gravé sur le quai est : 4+4x2. Résous-le.</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value === '12')
+      location.href = 'enigme9.html';
+    else alert("Petit calcul rapide à refaire.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 9 – Objet flottant</title></head>
+<body>
+  <h2>🌊 Énigme 9 : Objet flottant</h2>
+  <p>Quel objet en liège est accroché aux filets ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val === 'flotteur' || val === 'bouchon') location.href = 'enigme10.html';
+    else alert("Il permet au filet de ne pas couler.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 10 – Mot final</title></head>
+<body>
+  <h2>⚓ Énigme 10 : Mot final</h2>
+  <p>Quel mot représente le port, les marins, les nœuds et les messages ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const r = document.getElementById('rep').value.toLowerCase();
+    if (r === 'navigation') location.href = 'fin.html';
+    else alert("Cherche un mot qui relie tous les thèmes portuaires...");
+  </script>
+</body>
+</html>
+<!-- patrimoine6/fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>⚓ Fin – L’Énigme du Port</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #dbeafe, #eff6ff);
+      text-align: center;
+      padding: 60px 20px;
+      color: #1e3a8a;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #1e40af;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    .badge {
+      margin: 30px auto;
+      padding: 15px;
+      background: #1d4ed8;
+      color: white;
+      display: inline-block;
+      border-radius: 12px;
+      font-size: 1.2em;
+    }
+    #chrono {
+      font-size: 1.3em;
+      margin-top: 20px;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #1e3a8a;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚓ Mission Portuaire Accomplie !</h1>
+    <p>Tu as levé le mystère du port, entre traditions maritimes et secrets des résistants.</p>
+    <div class="badge">🏅 Badge : Enquêteur Marin FAFA™</div>
+    <p id="chrono">⏱️ Temps total : ...</p>
+    <p>Les quais t’attendront pour de nouvelles aventures FAFA !</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+  </div>
+
+  <script>
+    const debut = localStorage.getItem("start");
+    if (debut) {
+      const fin = Date.now();
+      const duree = Math.floor((fin - debut) / 1000);
+      const min = String(Math.floor(duree / 60)).padStart(2, '0');
+      const sec = String(duree % 60).padStart(2, '0');
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      localStorage.removeItem("start");
+    }
   </script>
 </body>
 </html>
