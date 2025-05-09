@@ -1,0 +1,213 @@
+<!-- intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFA Junior Trail™ – L’Alliance des 4 Chemins</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #e0f7fa, #f0f9ff);
+      color: #1e3a8a;
+      font-family: 'Verdana', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      max-width: 740px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 25px #3b82f6;
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #1d4ed8;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 30px;
+      background: #2563eb;
+      color: white;
+      padding: 14px 26px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-box">
+    <h1>🌍 FAFA Junior Trail™ – L’Alliance des 4 Chemins</h1>
+    <p>⛰ Légende ancienne : 4 pierres élémentaires protègent l’équilibre de la nature à Banyuls...</p>
+    <p>🤝 Mais un tremblement de terre magique les a dispersées sur les hauteurs et les chemins !</p>
+    <p>⚖️ Ta mission : retrouver les 4 éléments (eau, feu, air, terre), les prendre en photo et résoudre leur énigme !</p>
+    <p>🌋 Seulement alors, tu pourras restaurer l’Alliance et devenir Protecteur des Sentiers !</p>
+    <a href="etape1.html"><button>Commencer la Quête Élémentaire</button></a>
+  </div>
+</body>
+</html>
+<!-- etape1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 1 – L'eau des hauteurs</title></head>
+<body>
+  <h2>💧 Étape 1 : L'élément de l'eau</h2>
+  <p>🌊 Près de la fontaine de la croix blanche, observe l'eau qui coule. Quel mot se cache sur la plaque ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('source') || val.includes('claire')) {
+      location.href = 'etape2.html';
+    } else {
+      alert("Regarde bien la plaque de pierre !");
+    }
+  </script>
+</body></html>
+
+<!-- etape2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 2 – Photo de l'eau</title></head>
+<body>
+  <h2>📷 Étape 2 : Photo élément Eau</h2>
+  <p>Prends une photo de la fontaine ou d'une flaque naturelle !</p>
+  <button onclick="location.href='etape3.html'">Photo prise</button>
+</body></html>
+
+<!-- etape3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 3 – Le feu caché</title></head>
+<body>
+  <h2>🔥 Étape 3 : L'élément du feu</h2>
+  <p>🔌 En observant une plaque de barbeque ou une balise rouge en hauteur, tu lis un mot marqué : quel est-il ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const r = document.getElementById('rep').value.toLowerCase();
+    if (r.includes('feu') || r.includes('braise')) {
+      location.href = 'etape4.html';
+    } else {
+      alert("Trop tiède, recommence...");
+    }
+  </script>
+</body></html>
+
+<!-- etape4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 4 – Photo du feu</title></head>
+<body>
+  <h2>📷 Étape 4 : Photo élément Feu</h2>
+  <p>Prends une photo de quelque chose de rouge, orange ou d'une balise chaude !</p>
+  <button onclick="location.href='etape5.html'">Photo prise</button>
+</body></html>
+
+<!-- etape5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 5 – Saut du vent</title></head>
+<body>
+  <h2>🌬️ Étape 5 : L'élément de l'air</h2>
+  <p>🍃 Près du belvédère ou dans un endroit en hauteur, observe les drapeaux. Combien en vois-tu ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value === '3') {
+      location.href = 'etape6.html';
+    } else {
+      alert("Lève les yeux encore !");
+    }
+  </script>
+</body></html>
+<!-- etape6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 6 – Photo de l'air</title></head>
+<body>
+  <h2>📷 Étape 6 : Photo élément Air</h2>
+  <p>Prends une photo d’un arbre qui bouge dans le vent, ou d’un objet en hauteur qui vole ou flotte !</p>
+  <button onclick="location.href='etape7.html'">Photo prise</button>
+</body></html>
+
+<!-- etape7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 7 – L'élément de la Terre</title></head>
+<body>
+  <h2>🌾 Étape 7 : L'élément Terre</h2>
+  <p>⛰ Dans un endroit rocheux ou près d’un muret en pierre, cherche une inscription ancienne. Quel mot lis-tu ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const r = document.getElementById('rep').value.toLowerCase();
+    if (r.includes('roche') || r.includes('terre') || r.includes('banyuls')) {
+      location.href = 'etape8.html';
+    } else {
+      alert("Pas encore... creuse plus profond dans ton regard !");
+    }
+  </script>
+</body></html>
+
+<!-- etape8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 8 – Photo Terre</title></head>
+<body>
+  <h2>📷 Étape 8 : Photo élément Terre</h2>
+  <p>Prends une photo d’un caillou, d’une colline ou d’un muret naturel.</p>
+  <button onclick="location.href='etape9.html'">Photo prise</button>
+</body></html>
+
+<!-- etape9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 9 – L'incantation finale</title></head>
+<body>
+  <h2>🌌 Étape 9 : Formule magique</h2>
+  <p>✨ Reconstitue l’incantation : Eau + Feu + Air + Terre donne le mot magique...</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('élément') || val.includes('harmonie')) {
+      location.href = 'bonus.html';
+    } else {
+      alert("L’incantation ne vibre pas... essaie un mot d’union.");
+    }
+  </script>
+</body></html>
+
+<!-- etape10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 10 – Surprise</title></head>
+<body>
+  <h2>🌟 Étape Bonus : Cache secrète</h2>
+  <p>⛺ Un des 4 lieux visités contient une pierre gravée FAFA. Reviens-y et prends-la en photo !</p>
+  <button onclick="location.href='fin.html'">Photo prise</button>
+</body></html>
+<!-- bonus.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🌟 Bonus – Les 4 Éléments</title></head>
+<body>
+  <h2>✨ Bonus : Tu as restauré l’Alliance !</h2>
+  <p>🔍 En retrouvant les 4 pierres sacrées, tu as uni les éléments naturels de Banyuls.</p>
+  <p>🌟 Code FAFA HQ : <strong>ELEMENTOR-2025</strong></p>
+  <button onclick="location.href='fin.html'">Voir ton badge</button>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🌟 Fin – Protecteur des Sentiers</title></head>
+<body>
+  <h2>🤿 Bravo, gardien des 4 chemins !</h2>
+  <p>⏳ Temps total : <span id="temps"></span></p>
+  <p>💼 Badge obtenu : Protecteur FAFA des Éléments™</p>
+  <p>💡 Le savais-tu ? L’air, l’eau, la terre et le feu sont les 4 éléments de base dans de nombreuses cultures du monde, comme les anciens Grecs ou les peuples asiatiques !</p>
+  <script>
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
+  </script>
+</body>
+</html>
