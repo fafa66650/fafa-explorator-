@@ -1,0 +1,232 @@
+<!-- intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>FAFAwarts – L'appel du Château</title></head>
+<body>
+  <h1>🧙 FAFAwarts – L'appel du Château</h1>
+  <p>Tu viens de recevoir ta lettre magique. Pour entrer à FAFAwarts, relève les 10 épreuves magiques dissimulées dans Banyuls !</p>
+  <a href="enigme1.html"><button>Commencer</button></a>
+</body>
+</html>
+
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 1 – Choixpeau</title></head>
+<body>
+  <h2>🧙 Épreuve 1 : Choixpeau Magique</h2>
+  <p>Quelle qualité te représente ? (courage, loyauté, ambition, sagesse)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const ok = ['courage', 'loyauté', 'ambition', 'sagesse'];
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (ok.includes(val)) location.href = 'enigme2.html';
+      else alert('Essaie encore, jeune sorcier !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 2 – Potion</title></head>
+<body>
+  <h2>🧪 Épreuve 2 : Potion de vérité</h2>
+  <p>Quel ingrédient faut-il pour réussir la potion ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const ok = ['veritaserum', 'menthe', 'plume de hibou'];
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (ok.includes(val)) location.href = 'enigme3.html';
+      else alert('Cette potion exploserait !');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Tableau</title></head>
+<body>
+  <h2>🖼️ Épreuve 3 : Mot de passe du tableau</h2>
+  <p>Une voix murmure... “mot magique pour entrer dans la salle commune ?”</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'caput draconis')
+        location.href = 'enigme4.html';
+      else alert('Le tableau reste fermé...');
+    }
+  </script>
+</body>
+</html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Photo magique</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Capture de créature</h2>
+  <p>Photographie une statue ressemblant à un animal magique de ton choix.</p>
+  <button onclick="location.href='enigme5.html'">Photo prise</button>
+</body>
+</html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Sortilège</title></head>
+<body>
+  <h2>✨ Épreuve 5 : Sortilège lumineux</h2>
+  <p>Quel sort éclaire ta baguette ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('lumos'))
+        location.href = 'enigme6.html';
+      else alert('Ce n’est pas le bon sort !');
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 6 – Carte enchantée</title></head>
+<body>
+  <h2>🧭 Épreuve 6 : Suivre la Carte Magique</h2>
+  <p>Le professeur FAFAfol a laissé une note : “Depuis le Port, suis la direction du soleil couchant, passe trois arches, et compte 10 pas à l'Est”.</p>
+  <p>Quelle direction finale dois-tu prendre ? (Nord, Sud, Est, Ouest)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <div id="savoir" style="margin-top:10px; color:#93c5fd;"></div>
+  <script>
+    function valider() {
+      const r = document.getElementById('rep').value.toLowerCase();
+      if (r === 'est') {
+        document.getElementById('savoir').innerText = "Le savais-tu ? L'Est symbolise la lumière et la connaissance chez les sorciers.";
+        setTimeout(() => location.href='enigme7.html', 4000);
+      } else {
+        alert("Essaie encore, regarde bien les indices !");
+      }
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 7 – Puzzle Magique</title></head>
+<body>
+  <h2>🧩 Épreuve 7 : Le Sort Brisé</h2>
+  <p>Le sort <strong>Protego</strong> a été désassemblé. Remets les lettres dans le bon ordre :</p>
+  <p><strong>G, O, P, T, R, E, O</strong></p>
+  <input id="rep" placeholder="Tape le mot reconstitué"><button onclick="valider()">Valider</button>
+  <div id="savoir" style="margin-top:10px; color:#93c5fd;"></div>
+  <script>
+    function valider() {
+      const r = document.getElementById('rep').value.toLowerCase().replaceAll(' ', '');
+      if (r === 'protego') {
+        document.getElementById('savoir').innerText = "Le savais-tu ? Protego est un sort de défense qui repousse les maléfices adverses.";
+        setTimeout(() => location.href='enigme8.html', 4000);
+      } else {
+        alert("Ce n’est pas le bon ordre, essaie encore !");
+      }
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 8 – Rune ancienne</title></head>
+<body>
+  <h2>🔮 Épreuve 8 : Décryptage de Rune</h2>
+  <p>Une rune magique s'illumine avec ce message gravé : <strong>L__OS</strong></p>
+  <p><strong>Complète le mot magique :</strong></p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <div id="savoir" style="margin-top:10px; color:#93c5fd;"></div>
+  <script>
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (val === 'lumos') {
+        document.getElementById('savoir').innerText = "Le savais-tu ? Lumos est utilisé pour faire jaillir la lumière du bout d’une baguette.";
+        setTimeout(() => location.href='enigme9.html', 4000);
+      } else {
+        alert("Essaie encore, la rune ne s’ouvre pas !");
+      }
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 9 – Dédicace Secrète</title></head>
+<body>
+  <h2>📸 Épreuve 9 : Dédicace secrète</h2>
+  <p>Un sorcier a gravé son nom sur un banc enchanté de Banyuls.</p>
+  <p><strong>Indice :</strong> “Il commence comme courage et se termine comme le roi des serpents.”</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <div id="savoir" style="margin-top:10px; color:#93c5fd;"></div>
+  <script>
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (val === 'corard') {
+        document.getElementById('savoir').innerText = "Le savais-tu ? Certains lieux de Banyuls cachent des noms issus de légendes sorcières locales.";
+        setTimeout(() => location.href='enigme10.html', 4000);
+      } else {
+        alert("Ce n’est pas le bon nom gravé. Essaie encore !");
+      }
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 10 – Duel Final</title></head>
+<body>
+  <h2>⚔️ Épreuve 10 : Duel Magique Final</h2>
+  <p>Un dernier sort t'est lancé ! Pour survivre, choisis le bon sortilège défensif.</p>
+  <p><strong>Choisis entre :</strong> expelliarmus, stupefix, protego</p>
+  <input id="rep"><button onclick="valider()">Lancer le sort</button>
+  <div id="savoir" style="margin-top:10px; color:#93c5fd;"></div>
+  <script>
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (val === 'protego') {
+        document.getElementById('savoir').innerText = "Le savais-tu ? Protego est le sort le plus utilisé pour se protéger lors d’un duel magique.";
+        setTimeout(() => location.href='bonus.html', 4000);
+      } else {
+        alert("Mauvais sort ! Tu dois te protéger, réfléchis !");
+      }
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🎁 Bonus – Trésor de FAFAwarts</title></head>
+<body>
+  <h2>🎁 Bonus Magique : Le Trésor de FAFAwarts</h2>
+  <p>Bravo ! En réussissant les 10 épreuves, tu débloques un accès unique à la salle secrète.</p>
+  <p><strong>Code à retenir :</strong> FAFA-EXTRA-2025</p>
+  <p>🔐 Transmets ce code au maître du jeu ou rends-toi au lieu mystère pour le valider.</p>
+  <p>Ce code te donne accès à un badge caché ou une récompense IRL 🗝️</p>
+  <button onclick="location.href='fin.html'">Terminer l'aventure</button>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🎓 Fin – Sorcier diplômé</title></head>
+<body>
+  <h2>🎓 Félicitations !</h2>
+  <p>Tu es officiellement un sorcier diplômé de FAFAwarts !</p>
+  <p>🧙‍♂️ Badge obtenu : Grand Mage de Banyuls</p>
+  <p>⏱️ Temps total : <span id="temps"></span></p>
+  <p>🎁 Tu peux maintenant choisir un autre univers dans FAFA Explorator™ ou recommencer cette quête avec d’autres compagnons.</p>
+  <script>
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
+  </script>
+</body>
+</html>
