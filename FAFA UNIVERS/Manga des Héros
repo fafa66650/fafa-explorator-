@@ -1,0 +1,228 @@
+<!-- intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAFAMANGA™ – Le Cristal des Héros</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #fef9c3, #fde68a);
+      color: #1e293b;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      max-width: 720px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 25px #facc15;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #c2410c;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 30px;
+      background: #f97316;
+      color: white 
+      padding: 14px 28px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ea580c;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-box">
+    <h1>🌟 FAFAMANGA™ – Le Cristal des Héros</h1>
+    <p>💥 Un éclat d'énergie s'est échappé du multivers Manga...</p>
+    <p>🤝 De Naruto à Luffy, en passant par Goku, tous les héros te demandent de restaurer le cristal !</p>
+    <p>🌟 10 épreuves t'attendent dans Banyuls : forces, symboles, combats, réflexion.</p>
+    <p>🥇 Démontre que tu mérites le titre de Héros du Multimanga FAFA™ !</p>
+    <a href="enigme1.html"><button>Lancer la quête manga</button></a>
+  </div>
+</body>
+</html>
+<!-- enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Technique secrète</title></head>
+<body>
+  <h2>⚡ Épreuve 1 : Quel est le nom de la technique signature de Naruto ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (!localStorage.start) localStorage.start = Date.now();
+    if (document.getElementById('rep').value.toLowerCase().includes('rasengan')) {
+      location.href = 'enigme2.html';
+    } else {
+      alert("Ce n’est pas le bon jutsu !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Fruit du démon</title></head>
+<body>
+  <h2>🍎 Épreuve 2 : Quel fruit donne ses pouvoirs à Luffy ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('gomu') || val.includes('caoutchouc')) {
+      location.href = 'enigme3.html';
+    } else {
+      alert("Ce n'est pas ce fruit-là...");
+    }
+  </script>
+</body></html>
+
+<!-- enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Mission photo</title></head>
+<body>
+  <h2>📷 Épreuve 3 : Trouve un lieu qui ressemble à un "dojo" ou sanctuaire</h2>
+  <p>(Fontaine, arbre sacré, terrasse zen...)</p>
+  <button onclick="location.href='enigme4.html'">Photo prise</button>
+</body></html>
+
+<!-- enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Super Saiyan</title></head>
+<body>
+  <h2>🌟 Épreuve 4 : Quelle couleur ont les cheveux d'un Super Saiyan ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('jaune') || document.getElementById('rep').value.toLowerCase().includes('dor')) {
+      location.href = 'enigme5.html';
+    } else {
+      alert("Tu n'es pas encore transformé...");
+    }
+  </script>
+</body></html>
+
+<!-- enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Rappel stratégie</title></head>
+<body>
+  <h2>🎮 Épreuve 5 : Quel manga met en scène un cahier mortel ?</h2>
+  <p>(Une seule réponse possible)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('death note')) {
+      location.href = 'enigme6.html';
+    } else {
+      alert("Essaie encore, pense aux cahiers noirs...");
+    }
+  </script>
+</body></html>
+<!-- enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 6 – Alliance</title></head>
+<body>
+  <h2>⚔️ Épreuve 6 : Qui forme une "Guilde" dans le manga Fairy Tail ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('natsu') || val.includes('lucy')) {
+      location.href = 'enigme7.html';
+    } else {
+      alert("Essaie encore, pense à la guilde de feu !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 7 – Silhouette mystère</title></head>
+<body>
+  <h2>👁️ Épreuve 7 : Je suis chauve, habillé de jaune et invincible. Qui suis-je ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes('saitama')) {
+      location.href = 'enigme8.html';
+    } else {
+      alert("Essaie encore, pense aux coups uniques !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 8 – Culture japonaise</title></head>
+<body>
+  <h2>🌍 Épreuve 8 : Que signifie le mot japonais "Nakama" ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('ami') || val.includes('camarade') || val.includes('compagnon')) {
+      location.href = 'enigme9.html';
+    } else {
+      alert("Pas tout à fait, cherche la signification dans One Piece !");
+    }
+  </script>
+</body></html>
+
+<!-- enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 9 – Mission dessin</title></head>
+<body>
+  <h2>🎨 Épreuve 9 : Dessine ou mime le kanji de "force" (力) sur un sol ou mur et prends une photo.</h2>
+  <button onclick="location.href='enigme10.html'">Photo prise</button>
+</body></html>
+
+<!-- enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 10 – Fusion finale</title></head>
+<body>
+  <h2>🌟 Épreuve 10 : Quel mot dit-on lors de la "fusion" entre 2 guerriers dans DBZ ?</h2>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('fusion') || val.includes('fusion ha')) {
+      location.href = 'bonus.html';
+    } else {
+      alert("Tu n'es pas encore en fusion !");
+    }
+  </script>
+</body></html>
+<!-- bonus.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🌟 Bonus – Cristal restauré</title></head>
+<body>
+  <h2>✨ Bonus : Cristal de l'équilibre restauré !</h2>
+  <p>🌟 Tu as rechargé le Cristal Manga avec ta sagesse et ton courage.</p>
+  <p>🤝 Code à transmettre au QG FAFA : <strong>FAFAMANGA-2025</strong></p>
+  <p>🏆 Tu mérites le badge de Héros du Multimanga™ !</p>
+  <button onclick="location.href='fin.html'">Accéder au sanctuaire final</button>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>✨ Fin – Héros du Multimanga</title></head>
+<body>
+  <h2>🌟 Bravo, héros !</h2>
+  <p>⏳ Temps total : <span id="temps"></span></p>
+  <p>💼 Badge obtenu : Cristal Manga FAFA™</p>
+  <p>💡 Le savais-tu ? Le mot "manga" signifie "dessin libre" et remonte à plus de 200 ans !</p>
+  <script>
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
+  </script>
+</body>
+</html>
