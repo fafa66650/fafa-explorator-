@@ -1,0 +1,170 @@
+<!-- intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ultra FAFA™ – La Course des Crêtes</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+      color: #1e293b;
+      font-family: 'Trebuchet MS', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      max-width: 740px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 25px #cbd5e1;
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #334155;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 30px;
+      background: #1e40af;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-box">
+    <h1>🏋️ Ultra FAFA™ – La Course des Crêtes</h1>
+    <p>⛺ 5 crêtes, 5 fragments d'un plan ancien gravé dans la pierre de Banyuls.</p>
+    <p>🤍 Chaque sommet cache un chiffre, chaque réponse t'approche du code final.</p>
+    <p>⚡ 4h30 d'aventure physique, mentale et naturelle. Seuls les plus persévérants verront la lumière du coffre FAFA™.</p>
+    <p>🔐 Relève le défi, un sommet après l'autre...</p>
+    <a href="etape1.html"><button>Commencer la course des crêtes</button></a>
+  </div>
+</body>
+</html>
+<!-- etape1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 1 – Crête du Signal</title></head>
+<body>
+  <h2>🌌 Crête 1 : La pierre d'observation</h2>
+  <p>🔰 Sur une borne G.R, lis le chiffre inscrit à la base. Quel est-il ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (!localStorage.start) localStorage.start = Date.now();
+    if (document.getElementById('rep').value === '6') {
+      location.href = 'etape2.html';
+    } else {
+      alert("Ce n'est pas la bonne balise...");
+    }
+  </script>
+</body></html>
+
+<!-- etape2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 2 – Photo sommet rocheux</title></head>
+<body>
+  <h2>📷 Crête 2 : Prends une photo du point de vue rocheux (2e sommet)</h2>
+  <p>🌿 Près d'une croix ou antenne, photographie un rocher avec une forme curieuse.</p>
+  <button onclick="location.href='etape3.html'">Photo prise</button>
+</body></html>
+
+<!-- etape3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 3 – Le mot du vent</title></head>
+<body>
+  <h2>🌬️ Crête 3 : Une pancarte secouée par le vent</h2>
+  <p>🌪 Que lit-on dessus, près du 3e sommet, sur la pancarte verte ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val.includes('nature') || val.includes('respect')) {
+      location.href = 'etape4.html';
+    } else {
+      alert("Lis bien, même si ça bouge !");
+    }
+  </script>
+</body></html>
+<!-- etape4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 4 – Crête du Rébus</title></head>
+<body>
+  <h2>🕵️‍♂️ Crête 4 : Énigme au sommet</h2>
+  <p>⛰ Trouve cette phrase cachée gravée dans une pierre : <br><em>"Je commence une clé, je finis une montagne"</em></p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const r = document.getElementById('rep').value.toLowerCase();
+    if (r.includes('pic') || r.includes('clé')) {
+      location.href = 'etape5.html';
+    } else {
+      alert("Essaie un mot qui relie les deux indices...");
+    }
+  </script>
+</body></html>
+
+<!-- etape5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 5 – Code final</title></head>
+<body>
+  <h2>🔐 Crée ton code</h2>
+  <p>✔ Rassemble les 5 chiffres trouvés (ordre libre) et entre-les ici :</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value;
+    if (val.includes('6') && val.length >= 5) {
+      location.href = 'bonus.html';
+    } else {
+      alert("Vérifie bien chaque sommet, tu en as oublié un !");
+    }
+  </script>
+</body></html>
+
+<!-- etape6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Étape 6 – Panorama final</title></head>
+<body>
+  <h2>🌄 Crête 5 : Prends une photo de la vue la plus haute</h2>
+  <p>📷 Depuis le point culminant, photographie le ciel, la mer et les montagnes. Garde-la comme preuve !</p>
+  <button onclick="location.href='etape5.html'">Photo prise</button>
+</body></html>
+<!-- bonus.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🌟 Bonus – Clé des Sommets</title></head>
+<body>
+  <h2>🌋 Bonus : Code reconstitué !</h2>
+  <p>🥇 Tu es l’un des rares à avoir atteint les 5 crêtes et trouvé les 5 chiffres cachés !</p>
+  <p>🔐 Remets ce code au QG FAFA : <strong>CRETE-2025</strong></p>
+  <button onclick="location.href='fin.html'">Voir ton résultat</button>
+</body>
+</html>
+
+<!-- fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🌟 Fin – Maître des Crêtes</title></head>
+<body>
+  <h2>🌍 Félicitations, aventurier de l’extrême !</h2>
+  <p>⏳ Temps total : <span id="temps"></span></p>
+  <p>💼 Badge obtenu : Ultra FAFA™ – Maître des Crêtes</p>
+  <p>💡 Le savais-tu ? Le Col de Banyuls est un passage ancestral entre la France et l’Espagne, emprunté depuis des siècles par les bergers et les contrebandiers !</p>
+  <script>
+    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
+    let min = String(Math.floor(duration / 60)).padStart(2, '0');
+    let sec = String(duration % 60).padStart(2, '0');
+    document.getElementById('temps').innerText = `${min}:${sec}`;
+    localStorage.removeItem('start');
+  </script>
+</body>
+</html>
