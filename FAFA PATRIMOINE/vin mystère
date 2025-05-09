@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mission Vin Mystère – FAFA EXPLORATOR™</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../scripts/fafa-core.js"></script>
+  <style>
+    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍇 Mission Vin Mystère</h1>
+    <p>Bienvenue dans les coulisses secrètes des caves de Banyuls. Une légende raconte qu'un vieux maître-vigneron aurait dissimulé un message dans une barrique... Saurez-vous le retrouver ?</p>
+    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+  </header>
 
+  <main>
+    <!-- Etapes ici (inchangées) -->
+    ...
+  </main>
+
+  <script>
+    // Chronomètre
+    let startTime = Date.now();
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const seconds = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
+    }, 1000);
+  </script>
+</body>
+</html>
