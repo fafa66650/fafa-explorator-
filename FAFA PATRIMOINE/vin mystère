@@ -1,17 +1,17 @@
-<!-- patrimoine5/intro.html -->
+<!-- patrimoine10/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🍇 FAFA Patrimonio 5 – Le Secret des Vignes</title>
+  <title>🍇 FAFA Patrimonio 10 – Le Vin Mystère de la Cave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #fef9f5, #fef3c7);
-      color: #3f2f1d;
+      background: linear-gradient(to bottom, #fef2f2, #fff7ed);
       text-align: center;
       padding: 60px 20px;
+      color: #7c2d12;
     }
     .box {
       background: white;
@@ -19,15 +19,15 @@
       margin: auto;
       padding: 40px;
       border-radius: 18px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.06);
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
     }
     h1 {
       font-size: 2.2em;
-      color: #78350f;
+      color: #92400e;
     }
     p {
       font-size: 1.1em;
-      color: #4b3a2a;
+      color: #78350f;
     }
     button {
       margin-top: 30px;
@@ -35,12 +35,12 @@
       font-size: 1.1em;
       border: none;
       border-radius: 10px;
-      background: #92400e;
+      background: #c2410c;
       color: white;
       cursor: pointer;
     }
     button:hover {
-      background: #7c2d12;
+      background: #a16207;
     }
     .logo {
       margin-bottom: 20px;
@@ -50,14 +50,13 @@
 <body>
   <div class="box">
     <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
-    <h1>🍇 Le Secret des Vignes</h1>
+    <h1>🍇 Le Vin Mystère de la Cave</h1>
     <p>
-      En explorant la cave coopérative de Banyuls, tu tombes sur un vieux fût griffonné d’un symbole étrange…<br><br>
-      Une carte codée t’entraîne dans les collines viticoles, là où poussent les plus anciens cépages.<br><br>
-      Résous les 10 énigmes cachées entre rangées, pressoirs, barriques et murs de pierre.<br>
-      🗝️ Un secret oublié t’attend au cœur du terroir…
+      Une cuvée d’exception se cacherait dans les profondeurs de la cave coopérative de Banyuls...<br><br>
+      Mais seul un aventurier capable de résoudre les 10 énigmes vigneronnes pourra la révéler.<br><br>
+      🍷 Que la chasse au nectar commence !
     </p>
-    <button onclick="demarrer()">🍷 Lancer la quête du vignoble</button>
+    <button onclick="demarrer()">🔍 Entrer dans la cave</button>
   </div>
 
   <script>
@@ -68,162 +67,164 @@
   </script>
 </body>
 </html>
-<!-- patrimoine5/enigme1.html -->
+<!-- patrimoine10/enigme1.html -->
 <!DOCTYPE html>
-<html lang="fr">
-<head><meta charset="UTF-8"><title>Énigme 1 – Cépage caché</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 1 – Le fruit de la vigne</title></head>
 <body>
-  <h2>🍇 Énigme 1 : Cépage caché</h2>
-  <p>Quel cépage emblématique de Banyuls est utilisé dans son vin doux naturel ?</p>
+  <h2>🍇 Énigme 1 : Le fruit de la vigne</h2>
+  <p>Quel fruit est à l’origine du vin ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    function valider() {
-      const r = document.getElementById("rep").value.toLowerCase();
-      if (r.includes("grenache")) location.href = 'enigme2.html';
-      else alert("Ce n’est pas le bon raisin !");
-    }
+    if (document.getElementById("rep").value.toLowerCase().includes("raisin"))
+      location.href = 'enigme2.html';
+    else alert("Indice : il pousse en grappe.");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme2.html -->
+<!-- patrimoine10/enigme2.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 2 – Presse ancestrale</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 2 – Cépage local</title></head>
 <body>
-  <h2>🛠️ Énigme 2 : Presse ancestrale</h2>
-  <p>Comment appelle-t-on l’outil utilisé pour écraser le raisin ?</p>
+  <h2>🍷 Énigme 2 : Cépage local</h2>
+  <p>Quel cépage est typique des vins de Banyuls ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase() === 'pressoir') location.href = 'enigme3.html';
-    else alert("Ce n’est pas le bon terme !");
+    if (document.getElementById("rep").value.toLowerCase().includes("grenache"))
+      location.href = 'enigme3.html';
+    else alert("Un cépage rouge et sucré...");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme3.html -->
+<!-- patrimoine10/enigme3.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 3 – Vignoble photo</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 3 – Photo de la barrique</title></head>
 <body>
-  <h2>📸 Énigme 3 : Vignoble photo</h2>
-  <p>Photographie une parcelle de vigne en terrasse sur les hauteurs de Banyuls.</p>
+  <h2>📸 Énigme 3 : Photo de la barrique</h2>
+  <p>Photographie une barrique ou un fût visible dans la cave.</p>
   <button onclick="location.href='enigme4.html'">📷 Photo prise</button>
 </body>
 </html>
 
-<!-- patrimoine5/enigme4.html -->
+<!-- patrimoine10/enigme4.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 4 – Anagramme des sens</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 4 – Arôme mystère</title></head>
 <body>
-  <h2>🔤 Énigme 4 : Anagramme des sens</h2>
-  <p>Réorganise les lettres : <strong>VINDA</strong></p>
+  <h2>👃 Énigme 4 : Arôme mystère</h2>
+  <p>Quel arôme fruité est souvent associé au vin rouge ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
     const r = document.getElementById('rep').value.toLowerCase();
-    if (r === 'divan' || r === 'davin') location.href = 'enigme5.html';
-    else alert("Ce n’est pas le bon mot. Réfléchis !");
+    if (r.includes("cerise") || r.includes("mûre") || r.includes("cassis"))
+      location.href = 'enigme5.html';
+    else alert("C’est un fruit rouge !");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme5.html -->
+<!-- patrimoine10/enigme5.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 5 – Sucre naturel</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 5 – Pressurage</title></head>
 <body>
-  <h2>🍬 Énigme 5 : Sucre naturel</h2>
-  <p>Quel phénomène naturel est arrêté lors de la vinification pour obtenir du vin doux naturel ?</p>
+  <h2>🧃 Énigme 5 : Pressurage</h2>
+  <p>Quel mot désigne l’action d’extraire le jus du raisin ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('fermentation'))
+    if (document.getElementById("rep").value.toLowerCase() === 'pressurage')
       location.href = 'enigme6.html';
-    else alert("Indice : lié à la levure et au sucre...");
+    else alert("Mot technique du vigneron.");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme6.html -->
+<!-- patrimoine10/enigme6.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 6 – Couleur mystère</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 6 – Mot secret</title></head>
 <body>
-  <h2>🎨 Énigme 6 : Couleur mystère</h2>
-  <p>Quelle est la teinte rouge-brun souvent observée dans les vins Banyuls âgés ?</p>
+  <h2>🔤 Énigme 6 : Mot secret</h2>
+  <p>Réorganise : <strong>INEV</strong></p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase() === 'tuilé') location.href = 'enigme7.html';
-    else alert("Couleur liée à l’oxydation naturelle...");
+    if (document.getElementById('rep').value.toLowerCase() === 'vine')
+      location.href = 'enigme7.html';
+    else alert("Un mot à l’envers, un liquide précieux...");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme7.html -->
+<!-- patrimoine10/enigme7.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 7 – Date d'appellation</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 7 – Code du chai</title></head>
 <body>
-  <h2>📅 Énigme 7 : Date d'appellation</h2>
-  <p>En quelle année le Banyuls a-t-il été reconnu AOC ?</p>
+  <h2>🔢 Énigme 7 : Code du chai</h2>
+  <p>Dans un coin est inscrit : 8 + 2 x 2. Résous-le.</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value === '1936') location.href = 'enigme8.html';
-    else alert("Cherche sur les panneaux de la cave !");
+    if (document.getElementById("rep").value === '12') location.href = 'enigme8.html';
+    else alert("Pense aux règles de calcul...");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme8.html -->
+<!-- patrimoine10/enigme8.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 8 – Code barrique</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 8 – Lieu de stockage</title></head>
 <body>
-  <h2>🛢️ Énigme 8 : Code barrique</h2>
-  <p>Un code est gravé sur une barrique : 5+3x2. Résous-le.</p>
+  <h2>🏚️ Énigme 8 : Lieu de stockage</h2>
+  <p>Quel est le nom de la pièce où le vin vieillit en barrique ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value === '11') location.href = 'enigme9.html';
-    else alert("Petite opération mathématique...");
+    if (document.getElementById("rep").value.toLowerCase().includes("chai"))
+      location.href = 'enigme9.html';
+    else alert("Un mot utilisé par les vignerons...");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme9.html -->
+<!-- patrimoine10/enigme9.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 9 – Outil ancien</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 9 – Température idéale</title></head>
 <body>
-  <h2>🔧 Énigme 9 : Outil ancien</h2>
-  <p>Comment s’appelle l’outil utilisé pour tailler les sarments ?</p>
+  <h2>🌡️ Énigme 9 : Température idéale</h2>
+  <p>Combien de degrés faut-il pour conserver le vin (environ) ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    const r = document.getElementById('rep').value.toLowerCase();
-    if (r === 'sécateur') location.href = 'enigme10.html';
-    else alert("Il sert à couper les branches dures...");
+    const r = parseInt(document.getElementById("rep").value);
+    if (r >= 10 && r <= 16) location.href = 'enigme10.html';
+    else alert("Entre 10 et 16°C en général...");
   </script>
 </body>
 </html>
 
-<!-- patrimoine5/enigme10.html -->
+<!-- patrimoine10/enigme10.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Énigme 10 – Mot final</title></head>
+<html><head><meta charset="UTF-8"><title>Énigme 10 – Le mot final</title></head>
 <body>
   <h2>🍷 Énigme 10 : Mot final</h2>
-  <p>Quel mot représente le savoir-faire, la terre, le climat et l’humain dans le vin ?</p>
+  <p>Quel mot relie cave, raisin, fermentation, bouteille et tradition ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase() === 'terroir') location.href = 'fin.html';
-    else alert("Ce mot regroupe tout l’art du vin local.");
+    if (document.getElementById("rep").value.toLowerCase() === 'vin')
+      location.href = 'fin.html';
+    else alert("Ce mot est au cœur de tout ce parcours...");
   </script>
 </body>
 </html>
-<!-- patrimoine5/fin.html -->
+<!-- patrimoine10/fin.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🍷 Fin – Le Secret des Vignes</title>
+  <title>🍷 Fin – Le Vin Mystère de la Cave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #fef3c7, #fde68a);
+      background: linear-gradient(to bottom, #fff7ed, #fef2f2);
       text-align: center;
       padding: 60px 20px;
-      color: #3f1d13;
+      color: #92400e;
     }
     .container {
       background: white;
@@ -236,7 +237,7 @@
     h1 {
       font-size: 2em;
       margin-bottom: 20px;
-      color: #92400e;
+      color: #c2410c;
     }
     p {
       font-size: 1.1em;
@@ -244,7 +245,7 @@
     .badge {
       margin: 30px auto;
       padding: 15px;
-      background: #d97706;
+      background: #ea580c;
       color: white;
       display: inline-block;
       border-radius: 12px;
@@ -260,22 +261,22 @@
       font-size: 1em;
       border: none;
       border-radius: 8px;
-      background: #92400e;
+      background: #7c2d12;
       color: white;
       cursor: pointer;
     }
     .btn:hover {
-      background: #78350f;
+      background: #9a3412;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🍷 Bravo Vigneron des Collines !</h1>
-    <p>Tu as percé les mystères du vignoble, entre traditions, outils anciens et savoir-faire local.</p>
-    <div class="badge">🏅 Badge : Gardien du Terroir FAFA™</div>
+    <h1>🍷 Félicitations, Dégustateur de Légende !</h1>
+    <p>Tu as percé les secrets de la cave et retrouvé la cuvée mystère...</p>
+    <div class="badge">🏅 Badge : Maître du Vin FAFA™</div>
     <p id="chrono">⏱️ Temps total : ...</p>
-    <p>Rejoins FAFA HQ pour une nouvelle aventure viticole ou culturelle.</p>
+    <p>Rejoins le QG FAFA pour d’autres quêtes parfumées !</p>
     <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
   </div>
 
