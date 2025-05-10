@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🏫 Défi Écoles & Points Jeunes</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #eff6ff; color: #1e3a8a; text-align: center; padding: 60px 20px; }
+    h1 { font-size: 2.3em; color: #2563eb; }
+    p { font-size: 1.2em; margin: 30px 0; }
+    .btn {
+      padding: 16px 32px;
+      background: #3b82f6;
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h1>🏫 Défi des Explorateurs Juniors</h1>
+  <p>Chaque groupe scolaire ou jeunesse de Banyuls affronte un parcours unique !
+  Résous 8 épreuves et découvre l'indice pour retrouver le coffre final 🗝️</p>
+  <button class="btn" onclick="demarrer()">🎒 Commencer le défi</button>
+  <script>
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = 'enigme1.html';
+    }
+  </script>
+</body>
+</html>
