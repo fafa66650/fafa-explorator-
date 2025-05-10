@@ -1,15 +1,63 @@
-<!-- patrimoine2/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8"><title>🌌 Galaxie FAFou</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>🌌 Galaxie FAFou – Introduction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #0f172a, #1e40af);
+      text-align: center;
+      color: #f0f9ff;
+      padding: 60px 20px;
+    }
+    .container {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #facc15;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 30px 0;
+    }
+    .btn {
+      padding: 16px 32px;
+      background: #0ea5e9;
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #0284c7;
+    }
+  </style>
+</head>
 <body>
-  <h1>🌌 Bienvenue dans la Galaxie FAFou</h1>
-  <p>Les étoiles ont perdu leur alignement ! Rétablis l'équilibre galactique grâce à ta logique et ton imagination.</p>
-  <button onclick="demarrer()">🚀 Lancer la mission</button>
+  <div class="container">
+    <h1>🌌 Bienvenue dans la Galaxie FAFou</h1>
+    <p>Les étoiles ont perdu leur alignement !<br>
+    Rétablis l'équilibre galactique grâce à ta logique et ton imagination.<br>
+    Prépare-toi à relever 10 épreuves stellaires...<br><br>
+    ✨ La galaxie a besoin de toi !
+    </p>
+    <button class="btn" onclick="demarrer()">🚀 Lancer la mission</button>
+  </div>
   <script>
     function demarrer() {
       localStorage.setItem("start", Date.now());
-      location.href = 'enigme1.html';
+      location.href = "enigme1.html";
     }
   </script>
 </body>
