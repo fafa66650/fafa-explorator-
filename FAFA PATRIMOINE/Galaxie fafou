@@ -160,9 +160,11 @@
   <p>Comment s’appelait la mission qui a amené l’homme sur la Lune ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase() === 'apollo')
-      location.href = 'enigme10.html';
-    else alert("Dieu grec du soleil et des arts...");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'apollo')
+        location.href = 'enigme10.html';
+      else alert("Dieu grec du soleil et des arts...");
+    }
   </script>
 </body>
 </html>
@@ -175,9 +177,11 @@
   <p>Quel mot désigne un message envoyé depuis l’espace ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes("signal"))
-      location.href = 'fin.html';
-    else alert("Pense à un message radio...");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes("signal"))
+        location.href = 'fin.html';
+      else alert("Pense à un message radio...");
+    }
   </script>
 </body>
 </html>
@@ -188,32 +192,96 @@
 <head>
   <meta charset="UTF-8">
   <title>🌌 Fin – Galaxie FAFou</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 60px 20px; }
-    .container { background: #1e293b; max-width: 700px; margin: auto; padding: 40px; border-radius: 20px; }
-    h1 { font-size: 2em; color: #38bdf8; }
-    .badge { margin: 30px auto; padding: 15px; background: #0ea5e9; border-radius: 12px; display: inline-block; font-size: 1.2em; }
-    #chrono { font-size: 1.3em; margin-top: 20px; }
-    .btn { margin-top: 30px; padding: 12px 24px; font-size: 1em; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; }
-    .btn:hover { background: #2563eb; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #020617, #1e3a8a);
+      text-align: center;
+      color: #e0f2fe;
+      padding: 60px 20px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #facc15;
+    }
+    .badge {
+      margin: 30px auto;
+      padding: 15px;
+      background: #0ea5e9;
+      color: white;
+      border-radius: 12px;
+      display: inline-block;
+      font-size: 1.3em;
+      animation: zoom 1.2s ease-in-out infinite alternate;
+    }
+    #chrono {
+      font-size: 1.4em;
+      margin-top: 20px;
+    }
+    .info {
+      margin-top: 30px;
+      font-style: italic;
+      color: #cbd5e1;
+    }
+    .btn {
+      margin: 25px 10px 0;
+      padding: 12px 24px;
+      font-size: 1em;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+    @keyframes zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🚀 Tu as restauré l’harmonie galactique !</h1>
-    <p>Les planètes te remercient, explorateur intersidéral !</p>
-    <div class="badge">🏅 Badge : Astro FAFA™</div>
+    <h1>🚀 Mission accomplie dans la Galaxie FAFou !</h1>
+    <p>Tu viens de repousser les limites de l’exploration cosmique.</p>
+    <div class="badge">🌠 Badge : Explorateur Galactique FAFA™</div>
     <p id="chrono">⏱️ Temps total : ...</p>
-    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour HQ</button>
+    <p class="info">💡 Le savais-tu ? Le nom FAFou provient du mot “fou” mêlé à “FAFA”, un clin d’œil à l’imagination sans limite des aventuriers de Banyuls, entre espace et réalité !</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Menu Principal</button>
+    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📘 Voir mon Carnet</button>
+    <button class="btn" onclick="location.href='../../bonus-galaxie.html'">✨ Bonus Galactique</button>
   </div>
+
   <script>
+    const nomParcours = "Galaxie FAFou";
     const debut = localStorage.getItem("start");
+    const score = "10/10";
+
     if (debut) {
       const fin = Date.now();
       const duree = Math.floor((fin - debut) / 1000);
       const min = String(Math.floor(duree / 60)).padStart(2, '0');
       const sec = String(duree % 60).padStart(2, '0');
-      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      const temps = `${min}m ${sec}s`;
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${temps}`;
+
+      let historique = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      historique.push({ nom: nomParcours, temps: temps, score: score });
+      localStorage.setItem("fafa_explorations", JSON.stringify(historique));
+
       localStorage.removeItem("start");
     }
   </script>
