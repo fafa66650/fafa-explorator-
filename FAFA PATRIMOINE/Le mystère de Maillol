@@ -213,6 +213,7 @@
 </html>
 <!-- patrimoine7/fin.html -->
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -250,6 +251,7 @@
       display: inline-block;
       border-radius: 12px;
       font-size: 1.2em;
+      animation: pulse 1.2s infinite alternate;
     }
     #chrono {
       font-size: 1.3em;
@@ -268,6 +270,15 @@
     .btn:hover {
       background: #86198f;
     }
+    .info {
+      margin-top: 20px;
+      font-style: italic;
+      color: #9d174d;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
   </style>
 </head>
 <body>
@@ -277,18 +288,28 @@
     L’œuvre disparue a enfin retrouvé sa place dans la mémoire du musée.</p>
     <div class="badge">🏅 Badge : Détective des Arts FAFA™</div>
     <p id="chrono">⏱️ Temps total : ...</p>
-    <p>L’univers de l’art t’attendra toujours dans FAFA Explorator™.</p>
+    <p class="info">💡 Le savais-tu ? Aristide Maillol était aussi peintre et graveur avant de se consacrer à la sculpture. Il a marqué l’art moderne par sa recherche d’équilibre et d’harmonie.</p>
     <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📘 Voir mon Carnet</button>
   </div>
 
   <script>
     const debut = localStorage.getItem("start");
+    const nomParcours = "Le Mystère de Maillol";
+    const score = "10/10";
+
     if (debut) {
       const fin = Date.now();
       const duree = Math.floor((fin - debut) / 1000);
       const min = String(Math.floor(duree / 60)).padStart(2, '0');
       const sec = String(duree % 60).padStart(2, '0');
-      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      const temps = `${min}m ${sec}s`;
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${temps}`;
+
+      let historique = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      historique.push({ nom: nomParcours, temps: temps, score: score });
+      localStorage.setItem("fafa_explorations", JSON.stringify(historique));
+
       localStorage.removeItem("start");
     }
   </script>
