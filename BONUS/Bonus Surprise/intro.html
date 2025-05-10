@@ -16,6 +16,7 @@
       border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s ease;
+      margin: 10px;
     }
     .btn:hover { background: #0369a1; }
   </style>
@@ -24,6 +25,7 @@
   <h1>🎉 Bonus Surprise FAFA</h1>
   <p>Tu as débloqué un défi caché ! Réussis ce mini-parcours exclusif pour gagner une aide spéciale ou un indice secret dans l’univers de ton choix.</p>
   <button class="btn" onclick="demarrer()">🎁 Jouer au Bonus</button>
+  <button class="btn" onclick="location.href='../../index.html'">🏠 Retour Menu Principal</button>
   <script>
     function demarrer() {
       localStorage.setItem("start", Date.now());
