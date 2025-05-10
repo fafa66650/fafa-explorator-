@@ -2,77 +2,148 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Énigme Botanique – FAFA EXPLORATOR™</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿 Parcours Botanique FAFA – Jardin de Banyuls</title>
   <link rel="stylesheet" href="../style.css">
   <script src="../scripts/fafa-core.js"></script>
   <style>
-    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      color: #064e3b;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 2.4em; margin-bottom: 10px; color: #047857; }
+    header p { font-size: 1.2em; margin-bottom: 20px; }
+    .chrono, .boussole, .carte {
+      margin: 10px auto;
+      font-size: 1.1em;
+    }
+    .etape { display: none; margin: 30px auto; padding: 20px; background: white; border-radius: 10px; max-width: 700px; box-shadow: 0 0 10px #ccc; }
+    .etape.active { display: block; }
+    input[type="text"] { padding: 10px; font-size: 1em; width: 80%; max-width: 400px; }
+    button { padding: 12px 24px; margin-top: 10px; font-size: 1em; background: #16a34a; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #15803d; }
+    .bonus, .badge { margin-top: 20px; font-weight: bold; color: #0f766e; }
   </style>
 </head>
 <body>
   <header>
-    <h1>🌿 Énigme Botanique</h1>
-    <p>Bienvenue dans le jardin secret de Banyuls ! Une plante rare aurait été cachée par les anciens botanistes FAFA. Résous les énigmes pour la retrouver !</p>
-    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+    <h1>🌿 Parcours Botanique FAFA</h1>
+    <p>Bienvenue au Jardin Méditerranéen de Banyuls ! Résous les énigmes pour retrouver la plante cachée laissée par les anciens botanistes FAFA.</p>
+    <div class="chrono">⏱️ Chrono : <span id="chrono">00:00</span></div>
+    <div class="boussole">🔬 Boussole active : découvre les sens cachés des plantes !</div>
+    <div class="carte">🗺️ Carte : <a href="https://www.openstreetmap.org/#map=17/42.4826/3.1299" target="_blank">Explorer le Jardin de Banyuls</a></div>
   </header>
 
   <main>
-    <!-- Etape 1 -->
-    <section class="etape" data-step="1">
-      <h2>🌼 Enigme 1 : Feuille unique</h2>
-      <p>Une feuille a une forme bien particulière. Laquelle ?</p>
-      <input type="text" placeholder="coeur, dentelée, épineuse...">
-      <button class="valider">Valider</button>
+    <section class="etape active" data-step="1">
+      <h2>🌼 Enigme 1 : Feuille typique</h2>
+      <p>Quelle forme de feuille distingue l'olivier ?</p>
+      <input type="text" id="q1"><br>
+      <button onclick="check(1, 'lanceolée')">Valider</button>
     </section>
 
-    <!-- Etape 2 : mini-jeu de classification -->
-    <section class="etape hidden" data-step="2">
-      <h2>🌳 Enigme 2 : Puzzle botanique</h2>
-      <p>Classe correctement les plantes en familles !</p>
-      <div id="mini-jeu-plantes"></div>
-      <button class="valider">Classification correcte</button>
+    <section class="etape" data-step="2">
+      <h2>🌳 Enigme 2 : Arbre endémique</h2>
+      <p>Quel arbre donne des glands ?</p>
+      <input type="text" id="q2"><br>
+      <button onclick="check(2, 'chêne')">Valider</button>
     </section>
 
-    <!-- Etape 3 -->
-    <section class="etape hidden" data-step="3">
-      <h2>🌱 Enigme 3 : L'odeur mystérieuse</h2>
-      <p>Une plante dégage une odeur sucrée et puissante. Laquelle est-ce ?</p>
-      <input type="text" placeholder="lavande, thym, jasmin...">
-      <button class="valider">Valider</button>
+    <section class="etape" data-step="3">
+      <h2>🌾 Enigme 3 : Sol calcaire</h2>
+      <p>Quelle plante aromatique pousse sur sol sec et calcaire ?</p>
+      <input type="text" id="q3"><br>
+      <button onclick="check(3, 'thym')">Valider</button>
     </section>
 
-    <!-- Etape 4 : mission photo -->
-    <section class="etape hidden" data-step="4">
-      <h2>📸 Mission photo</h2>
-      <p>Photographie une plante aux feuilles rouges ou dégradées. Un indice y est caché !</p>
-      <button class="valider">Photo prise</button>
+    <section class="etape" data-step="4">
+      <h2>🌷 Enigme 4 : Floraison</h2>
+      <p>Quelle fleur jaune du jardin fleurit en hiver ?</p>
+      <input type="text" id="q4"><br>
+      <button onclick="check(4, 'mimosa')">Valider</button>
     </section>
 
-    <!-- Etape 5 : mot gravé -->
-    <section class="etape hidden" data-step="5">
-      <h2>🌺 Enigme finale : Le nom gravé</h2>
-      <p>Un banc du jardin cache un nom gravé lié à la plante mystère. Quel est-il ?</p>
-      <input type="text" placeholder="Nom mystérieux...">
-      <button class="valider">Valider</button>
+    <section class="etape" data-step="5">
+      <h2>🌺 Enigme 5 : Mission photo</h2>
+      <p>Photographie une fleur rouge. Elle t’indique la suite...</p>
+      <button onclick="nextStep()">📷 Photo prise</button>
     </section>
 
-    <!-- Fin -->
-    <section class="etape hidden" data-step="fin">
-      <h2>🌟 Botaniste confirmé !</h2>
-      <p>Tu as identifié la plante secrète et débloqué le badge "Maître Botanique FAFA" 🌿</p>
-      <div class="score"></div>
-      <p><em>Ajouté à ton Carnet FAFA™</em></p>
+    <section class="etape" data-step="6">
+      <h2>🌿 Enigme 6 : Arôme mystère</h2>
+      <p>Quelle plante sent le citron lorsqu’on frotte ses feuilles ?</p>
+      <input type="text" id="q6"><br>
+      <button onclick="check(6, 'verveine')">Valider</button>
+    </section>
+
+    <section class="etape" data-step="7">
+      <h2>🍁 Enigme 7 : Habitat local</h2>
+      <p>Quel animal à carapace vit dans les murets du jardin ?</p>
+      <input type="text" id="q7"><br>
+      <button onclick="check(7, 'lézard')">Valider</button>
+    </section>
+
+    <section class="etape" data-step="8">
+      <h2>🍀 Enigme 8 : Plante grimpante</h2>
+      <p>Quelle plante grimpante est souvent violette et s’enroule ?</p>
+      <input type="text" id="q8"><br>
+      <button onclick="check(8, 'glycine')">Valider</button>
+    </section>
+
+    <section class="etape" data-step="9">
+      <h2>🌴 Enigme 9 : Climat méditerranéen</h2>
+      <p>Quel fruit à noyau pousse sur un arbre méditerranéen ?</p>
+      <input type="text" id="q9"><br>
+      <button onclick="check(9, 'abricot')">Valider</button>
+    </section>
+
+    <section class="etape" data-step="10">
+      <h2>🌼 Enigme 10 : Dernière graine</h2>
+      <p>Quel mot désigne l’ensemble des espèces végétales d’un lieu ?</p>
+      <input type="text" id="q10"><br>
+      <button onclick="check(10, 'flore')">Valider</button>
+    </section>
+
+    <section class="etape" data-step="fin">
+      <h2>🌱 Félicitations, Botaniste FAFA !</h2>
+      <p>Tu as résolu les 10 énigmes et retrouvé la plante secrète !</p>
+      <div class="badge">🌺 Badge : Maître Botanique FAFA™</div>
+      <p class="bonus">🌍 Le savais-tu ? Le jardin de Banyuls abrite plus de 500 espèces méditerranéennes !</p>
+      <button onclick="location.href='../../index.html'">🏠 Menu Principal</button>
     </section>
   </main>
 
+  <audio src="../assets/ambiance-jardin.mp3" autoplay loop></audio>
+
   <script>
     let startTime = Date.now();
-    setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
-      const seconds = String(elapsed % 60).padStart(2, '0');
-      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
-    }, 1000);
+    let currentStep = 1;
+
+    function updateChrono() {
+      const now = Date.now();
+      const elapsed = Math.floor((now - startTime) / 1000);
+      const min = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const sec = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('chrono').textContent = `${min}:${sec}`;
+    }
+    setInterval(updateChrono, 1000);
+
+    function check(n, answer) {
+      const input = document.getElementById(`q${n}`).value.toLowerCase().trim();
+      if (input.includes(answer)) nextStep();
+      else alert("Essaie encore !");
+    }
+
+    function nextStep() {
+      document.querySelector(`.etape[data-step="${currentStep}"]`).classList.remove("active");
+      currentStep++;
+      const next = document.querySelector(`.etape[data-step="${currentStep}"]`);
+      if (next) next.classList.add("active");
+    }
   </script>
 </body>
 </html>
+
