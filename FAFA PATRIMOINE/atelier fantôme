@@ -1,78 +1,159 @@
+<!-- patrimone9/enigme1.html -->
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>L’Atelier Fantôme – FAFA EXPLORATOR™</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../scripts/fafa-core.js"></script>
-  <style>
-    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
-  </style>
-</head>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Pinceau disparu</title></head>
 <body>
-  <header>
-    <h1>🔮 L’Atelier Fantôme</h1>
-    <p>Un ancien atelier d’artiste résonne encore d’étranges échos... Les toiles bougent, les pinceaux tombent. Et si l’esprit du peintre n’avait pas terminé son œuvre ?</p>
-    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
-  </header>
-
-  <main>
-    <!-- Etape 1 -->
-    <section class="etape" data-step="1">
-      <h2>🎨 Enigme 1 : Tache suspecte</h2>
-      <p>Sur la toile principale, une tache semble volontaire. Qu'évoque-t-elle selon toi ?</p>
-      <input type="text" placeholder="Fleur, animal, émotion...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 2 : mini-jeu couleurs -->
-    <section class="etape hidden" data-step="2">
-      <h2>🎨 Enigme 2 : Palette du peintre</h2>
-      <p>Reconstitue la bonne combinaison de couleurs sur la palette du fantôme.</p>
-      <div id="mini-jeu-couleurs"></div>
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 3 -->
-    <section class="etape hidden" data-step="3">
-      <h2>👻 Enigme 3 : Le nom oublié</h2>
-      <p>Une signature fantomatique est apparue sur le mur. Que peux-tu y lire ?</p>
-      <input type="text" placeholder="Nom ou lettre...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Etape 4 : mission photo -->
-    <section class="etape hidden" data-step="4">
-      <h2>📸 Mission photo</h2>
-      <p>Photographie ton reflet dans le miroir ovale du fond de l'atelier. Un autre visage apparaîtra-t-il ?</p>
-      <button class="valider">Photo prise</button>
-    </section>
-
-    <!-- Etape 5 : voix du peintre -->
-    <section class="etape hidden" data-step="5">
-      <h2>🎤 Enigme finale : Le mot d’adieu</h2>
-      <p>Un murmure chuchote un dernier mot... Que dit-il ?</p>
-      <input type="text" placeholder="Mot mystérieux...">
-      <button class="valider">Valider</button>
-    </section>
-
-    <!-- Fin -->
-    <section class="etape hidden" data-step="fin">
-      <h2>🌟 L’Œuvre est terminée</h2>
-      <p>Bravo ! Tu as apaisé l'esprit de l'artiste. Tu gagnes le badge "Artiste Fantôme FAFA" 🎨</p>
-      <div class="score"></div>
-      <p><em>Ajouté dans ton Carnet FAFA™</em></p>
-    </section>
-  </main>
-
+  <h2>🖌️ Épreuve 1 : Pinceau disparu</h2>
+  <p>Quel outil revient dans chaque vision floue de l’atelier ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
   <script>
-    let startTime = Date.now();
-    setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
-      const seconds = String(elapsed % 60).padStart(2, '0');
-      document.getElementById('chrono').textContent = `${minutes}:${seconds}`;
-    }, 1000);
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes("pinceau"))
+        location.href = 'enigme2.html';
+      else alert("Indice : utilisé pour peindre...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Couleur du rêve</title></head>
+<body>
+  <h2>🎨 Épreuve 2 : Couleur du rêve</h2>
+  <p>Quelle couleur symbolise l'imaginaire et les souvenirs ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'violet')
+        location.href = 'enigme3.html';
+      else alert("Entre bleu et rouge... une teinte onirique.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Message entre les lignes</title></head>
+<body>
+  <h2>🔍 Épreuve 3 : Message entre les lignes</h2>
+  <p>Quel mot symbolise un souvenir qui reste ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'souvenir')
+        location.href = 'enigme4.html';
+      else alert("Ce que laisse un fantôme ou une œuvre...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Photo</title></head>
+<body>
+  <h2>📸 Épreuve 4 : Photo de l’objet mystérieux</h2>
+  <p>Prends une photo d’un objet ancien ou artistique dans l’atelier.</p>
+  <button onclick="location.href='enigme5.html'">📷 Photo prise</button>
+</body>
+</html>
+
+<!-- patrimone9/enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Couleur manquante</title></head>
+<body>
+  <h2>🖍️ Épreuve 5 : Couleur manquante</h2>
+  <p>Complète cette palette : Rouge, Bleu, Jaune, ?, Vert</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const val = document.getElementById('rep').value.toLowerCase();
+      if (val === 'orange') location.href = 'enigme6.html';
+      else alert("Couleur secondaire entre rouge et jaune");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 6 – Anagramme cachée</title></head>
+<body>
+  <h2>🔤 Épreuve 6 : Anagramme</h2>
+  <p>Réorganise : "FANTÔME"</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const r = document.getElementById('rep').value.toLowerCase();
+      if (r.includes("montafé")) location.href = 'enigme7.html';
+      else alert("Ce mot te paraît magique...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 7 – Mémoire visuelle</title></head>
+<body>
+  <h2>🧠 Épreuve 7 : Mémoire visuelle</h2>
+  <p>Combien de tableaux sont accrochés dans l'atelier ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value === '4') location.href = 'enigme8.html';
+      else alert("Compte bien chaque cadre...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 8 – Ombre et lumière</title></head>
+<body>
+  <h2>🌑 Épreuve 8 : Ombre et lumière</h2>
+  <p>Le fantôme laisse une ombre étrange... Quel objet la projette ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes("lampe")) location.href = 'enigme9.html';
+      else alert("Objet source de lumière dans la pièce...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 9 – Son mystère</title></head>
+<body>
+  <h2>🎵 Épreuve 9 : Son mystère</h2>
+  <p>Quel instrument joue une mélodie dans l’atelier ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'violon') location.href = 'enigme10.html';
+      else alert("Un instrument à cordes, souvent nostalgique...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimone9/enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 10 – Mot final</title></head>
+<body>
+  <h2>🏁 Épreuve 10 : Le mot final</h2>
+  <p>Quel mot résume l’ensemble de ton aventure ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      const v = document.getElementById('rep').value.toLowerCase();
+      if (v.includes('mémoire')) location.href = 'fin.html';
+      else alert("Un mot lié au souvenir et au passé...");
+    }
   </script>
 </body>
 </html>
