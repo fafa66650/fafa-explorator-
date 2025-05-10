@@ -1,7 +1,73 @@
-<!-- patrimone9/enigme1.html -->
+<!-- patrimone9/intro.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 1 – Pinceau disparu</title></head>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎨 FAFA Patrimoine 9 – Atelier Fantôme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fdf4ff, #fce7f3);
+      text-align: center;
+      padding: 60px 20px;
+      color: #7e22ce;
+    }
+    .box {
+      background: white;
+      max-width: 750px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #9333ea;
+    }
+    p {
+      font-size: 1.1em;
+      color: #6b21a8;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background: #7c3aed;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #6d28d9;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
 <body>
+  <div class="box">
+    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
+    <h1>🎨 Atelier Fantôme</h1>
+    <p>
+      L’atelier d’un artiste oublié recèle d’énigmes visuelles, sonores et émotionnelles...<br><br>
+      Chaque indice te rapprochera de son souvenir ultime. Plonge dans les brumes de la création pour résoudre les mystères.<br><br>
+      👻 Es-tu prêt à réveiller les couleurs du passé ?
+    </p>
+    <button onclick="demarrer()">🔍 Commencer la visite hantée</button>
+  </div>
+
+  <script>
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
+</body>
+</html>
+
   <h2>🖌️ Épreuve 1 : Pinceau disparu</h2>
   <p>Quel outil revient dans chaque vision floue de l’atelier ?</p>
   <input id="rep"><button onclick="valider()">Valider</button>
