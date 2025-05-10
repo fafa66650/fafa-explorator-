@@ -2,21 +2,94 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>La Plage Enchantée – FAFA EXPLORATOR™</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../scripts/fafa-core.js"></script>
+  <title>🏖️ FAFA Plage – La Plage Enchantée</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .chrono { font-size: 1.2em; color: #facc15; margin: 10px 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ecfeff, #cffafe);
+      text-align: center;
+      padding: 60px 20px;
+      color: #155e75;
+    }
+    .container {
+      background: white;
+      max-width: 750px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #0e7490;
+    }
+    p {
+      font-size: 1.1em;
+      color: #164e63;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background: #0ea5e9;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0284c7;
+    }
+    .extras {
+      margin-top: 40px;
+    }
+    .boussole {
+      width: 80px;
+      animation: spin 12s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    iframe {
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    audio {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🌴 La Plage Enchantée</h1>
-    <p>Chaque soir, quand le soleil se couche sur Banyuls, la plage murmure des secrets. Une magie marine se réveille... Ta mission : en découvrir l'origine avant que la marée ne monte !</p>
-    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
-  </header>
+  <div class="container">
+    <h1>🏖️ La Plage Enchantée</h1>
+    <p>
+      Chaque soir, quand le soleil se couche sur Banyuls, la plage murmure des secrets.<br>
+      Une magie marine se réveille... Ta mission : en découvrir l'origine avant que la marée ne monte !
+    </p>
+    <button onclick="demarrer()">🌊 Commencer l'exploration marine</button>
 
-  <main>
+    <div class="extras">
+      <img src="../../assets/img/boussole.png" alt="Boussole" class="boussole">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=3.12%2C42.47%2C3.15%2C42.495&layer=mapnik&marker=42.484%2C3.135" width="100%" height="300"></iframe>
+      <audio controls autoplay loop>
+        <source src="../../assets/audio/mer-ambiance.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas l'audio.
+      </audio>
+    </div>
+  </div>
+  <script>
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
+</body>
+</html>
+
     <!-- Etape 1 -->
     <section class="etape" data-step="1">
       <h2>🌪️ Enigme 1 : Sable enchanté</h2>
