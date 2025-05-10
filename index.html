@@ -2,126 +2,39 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>FAFA Explorator™</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="jeu.js" defer></script>
+  <title>🏠 FAFA Explorator – Accueil</title>
   <style>
-    html, body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f1f5f9, #e0f2fe);
-      color: #1e293b;
-    }
-    header {
-      background: linear-gradient(to right, #0ea5e9, #0284c7);
+    body { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; color: #1f2937; padding: 60px 20px; text-align: center; }
+    h1 { color: #0f172a; font-size: 2.5em; }
+    .section { margin: 40px 0; }
+    .btn {
+      padding: 20px 30px;
+      background: #3b82f6;
       color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 { font-size: 2.5em; margin-bottom: 0.2em; }
-    header p { font-size: 1.1em; }
-    section { padding: 40px 20px; }
-    h2 { text-align: center; font-size: 1.8em; margin-bottom: 30px; }
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    }
-    .card h3 { margin-top: 0; color: #0f172a; }
-    .card p { font-size: 0.95em; color: #334155; }
-    .card button {
-      background: #2563eb;
-      color: white;
+      font-size: 1.2em;
       border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1em;
+      border-radius: 10px;
+      margin: 10px;
       cursor: pointer;
-      margin-top: 15px;
+      transition: background 0.3s;
     }
-    .card button:hover { background: #1e40af; }
-    footer {
-      background: #1e293b;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    .btn:hover { background: #2563eb; }
   </style>
 </head>
 <body>
+  <h1>🌍 FAFA Explorator</h1>
+  <p>Choisis ta catégorie d'aventure :</p>
 
-<header>
-  <h1>🌍 FAFA Explorator™</h1>
-  <p>Un monde d’aventure, de culture et de fun à Banyuls-sur-Mer</p>
-</header>
-
-<div style="text-align: center; margin-top: -20px;">
-  <img src="actifs/logo-fafa.png" alt="Logo FAFA" style="width: 120px; animation: spin 6s linear infinite;">
-</div>
-
-<section>
-  <h2>🎮 Choisis ton aventure</h2>
-  <div class="menu">
-
-    <div class="card">
-      <h3>🏛️ FAFA PATRIMONIO™</h3>
-      <p>10 parcours immersifs pour explorer Banyuls en s'amusant.</p>
-      <a href="parcours/patrimonio1/intro.html"><button>Explorer</button></a>
-    </div>
-
-    <div class="card">
-      <h3>🥾 FAFA RANDO’QUEST™</h3>
-      <p>Randonnées interactives à découvrir avec carte et énigmes.</p>
-      <a href="parcours/rando1/intro.html"><button>Marcher</button></a>
-    </div>
-
-    <div class="card">
-      <h3>🎨 Univers FAFA™</h3>
-      <p>Plonge dans les mondes de Harry Potter, Mario, Avengers et plus !</p>
-      <a href="univers/harry_potter/intro.html"><button>Plonger</button></a>
-    </div>
-
-    <div class="card">
-      <h3>🛠️ FAFA HQ</h3>
-      <p>Espace réservé à l'administrateur pour valider et gérer les parcours.</p>
-      <a href="hq/index.html"><button>FAFA HQ</button></a>
-    </div>
-
+  <div class="section">
+    <button class="btn" onclick="location.href='fafa-patrimoine/menu.html'">🏛️ FAFA Patrimonio</button>
+    <button class="btn" onclick="location.href='fafa-randoquests/menu.html'">🥾 FAFA Rando'Quests</button>
+    <button class="btn" onclick="location.href='fafa-univers/menu.html'">🎮 FAFA Univers</button>
+    <button class="btn" onclick="location.href='bonus/menu.html'">🎁 Bonus & Événements</button>
   </div>
-</section>
 
-<section style="background: #fefce8;">
-  <h2>📘 À propos</h2>
-  <p style="max-width: 720px; margin: auto; text-align: center; color: #7f1d1d;">
-    FAFA Explorator™ est une application éducative et ludique conçue pour faire découvrir Banyuls-sur-Mer de façon interactive. Tous les parcours sont jouables hors ligne, avec énigmes, voix, musiques, carte GPS et surprises. Une création signée FAFA HQ™.
-  </p>
-</section>
-
-<!-- Parcours bonus caché -->
-<div style="text-align: center; margin-top: 40px;">
-  <a href="bonus/intro.html" style="color: #2563eb; font-weight: bold; text-decoration: underline;">
-    🌟 Accéder au parcours surprise
-  </a>
-</div>
-
-<footer>
-  <p>&copy; 2025 FAFA Explorator™ – Tous droits réservés</p>
-</footer>
-
+  <div class="section">
+    <button class="btn" onclick="location.href='fafa-hq.html'">🔐 Accès FAFA HQ</button>
+    <button class="btn" onclick="location.href='info-fafa-explorator.html'">ℹ️ Infos FAFA Explorator</button>
+  </div>
 </body>
 </html>
