@@ -1,61 +1,223 @@
+<!-- patrimoine6/intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>🏃 Mission Run</title></head>
+<body>
+  <h1>🏃 Bienvenue dans Mission Run</h1>
+  <p>Un défi sportif t’attend à chaque coin de rue. Saute, cours, cherche et gagne ta médaille FAFA !</p>
+  <button onclick="lancer()">🏁 Démarrer la course</button>
+  <script>
+    function lancer() {
+      localStorage.setItem("start", Date.now());
+      location.href = 'enigme1.html';
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme1.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 1 – Point de départ</title></head>
+<body>
+  <h2>📍 Épreuve 1 : Où commence une course ?</h2>
+  <p>Quel est le mot qui désigne le début d’une épreuve ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'départ')
+        location.href = 'enigme2.html';
+      else alert("C’est là que tout commence !");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 2 – Rythme cardiaque</title></head>
+<body>
+  <h2>❤️ Épreuve 2 : Organe qui s’accélère</h2>
+  <p>Que ressens-tu dans ta poitrine quand tu cours ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'coeur')
+        location.href = 'enigme3.html';
+      else alert("Il bat plus vite quand tu fais du sport...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 3 – Hydratation</title></head>
+<body>
+  <h2>💧 Épreuve 3 : Ce qu’il faut boire pendant l'effort</h2>
+  <p>Quel liquide est indispensable quand tu cours ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'eau')
+        location.href = 'enigme4.html';
+      else alert("Incolore, inodore, vital.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 4 – Étirement</title></head>
+<body>
+  <h2>🧘 Épreuve 4 : Avant et après une course</h2>
+  <p>Quelle pratique évite les courbatures ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'étirement')
+        location.href = 'enigme5.html';
+      else alert("On tire doucement sur les muscles...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 5 – Numéro de dossard</title></head>
+<body>
+  <h2>🔢 Épreuve 5 : Le chiffre d'identification</h2>
+  <p>Quel est le nom donné au numéro porté par les coureurs ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'dossard')
+        location.href = 'enigme6.html';
+      else alert("Il est accroché à ta poitrine...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 6 – Respiration</title></head>
+<body>
+  <h2>🌬️ Épreuve 6 : Gestion de souffle</h2>
+  <p>Qu’est-ce qui permet à ton corps d’absorber l’oxygène pendant la course ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'respiration')
+        location.href = 'enigme7.html';
+      else alert("Un mot en 11 lettres très important...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 7 – Terrain</title></head>
+<body>
+  <h2>🏞️ Épreuve 7 : Sol d’entraînement</h2>
+  <p>Comment appelle-t-on le lieu naturel où l’on court souvent ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'chemin')
+        location.href = 'enigme8.html';
+      else alert("Un mot qui désigne un sentier...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 8 – Record</title></head>
+<body>
+  <h2>🏆 Épreuve 8 : Battre un...</h2>
+  <p>Quel mot désigne le meilleur temps jamais réalisé ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'record')
+        location.href = 'enigme9.html';
+      else alert("Souvent personnel ou mondial...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 9 – Pointage</title></head>
+<body>
+  <h2>📍 Épreuve 9 : Marque d'étape</h2>
+  <p>Que scanne-t-on avec un téléphone à chaque checkpoint ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'qr code')
+        location.href = 'enigme10.html';
+      else alert("Carré en noir et blanc...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Épreuve 10 – Fin de parcours</title></head>
+<body>
+  <h2>🎉 Épreuve 10 : Dernier mot</h2>
+  <p>Quel mot désigne la ligne finale ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase() === 'arrivée')
+        location.href = 'fin.html';
+      else alert("Opposé du départ...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine6/fin.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>FAFA RUN™ – Mission Sportive</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <title>🏁 Fin – Mission Run</title>
   <style>
-    .etape {
-      margin: 30px auto;
-      width: 80%;
-      max-width: 500px;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .resultat {
-      background-color: #1e293b;
-      padding: 15px;
-      border-left: 5px solid #22c55e;
-      margin-top: 20px;
-      display: none;
-    }
+    body { font-family: sans-serif; background: #ecfdf5; color: #065f46; text-align: center; padding: 60px 20px; }
+    .container { background: #d1fae5; max-width: 700px; margin: auto; padding: 40px; border-radius: 20px; }
+    h1 { font-size: 2em; color: #047857; }
+    .badge { margin: 30px auto; padding: 15px; background: #10b981; border-radius: 12px; display: inline-block; font-size: 1.2em; }
+    #chrono { font-size: 1.3em; margin-top: 20px; }
+    .btn { margin-top: 30px; padding: 12px 24px; font-size: 1em; background: #059669; color: white; border: none; border-radius: 8px; cursor: pointer; }
+    .btn:hover { background: #047857; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🏃‍♂️ FAFA RUN™ – Épreuve 1 : Trouve l’endroit mystère</h1>
-    <p>Indice : “Là où la mer touche les pieds de la montagne”</p>
-  </header>
-
-  <main>
-    <div class="etape">
-      <label>Quel est ce lieu emblématique à Banyuls ?</label>
-      <input id="input" placeholder="Entre ta réponse..." />
-      <button onclick="valider()">Valider</button>
-    </div>
-
-    <div class="resultat" id="resultat">
-      ✅ Bravo ! Tu es au bon endroit.<br />
-      <strong>Le savais-tu ?</strong><br />
-      Le sentier du littoral à Banyuls est l’un des plus spectaculaires de la Côte Vermeille, entre mer, criques et falaises rouges.
-    </div>
-  </main>
-
+  <div class="container">
+    <h1>🏁 Félicitations coureur !</h1>
+    <p>Tu as franchi toutes les étapes de Mission Run.</p>
+    <div class="badge">🏅 Badge : Coureur FAFA™</div>
+    <p id="chrono">⏱️ Temps total : ...</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour HQ</button>
+  </div>
   <script>
-    function valider() {
-      const attendu = "sentier" || "sentier du littoral";
-      const rep = document.getElementById("input").value.toLowerCase().trim();
-      if (rep.includes("sentier")) {
-        document.getElementById("resultat").style.display = "block";
-      } else {
-        alert("❌ Mauvaise réponse. Réessaie !");
-      }
+    const debut = localStorage.getItem("start");
+    if (debut) {
+      const fin = Date.now();
+      const duree = Math.floor((fin - debut) / 1000);
+      const min = String(Math.floor(duree / 60)).padStart(2, '0');
+      const sec = String(duree % 60).padStart(2, '0');
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      localStorage.removeItem("start");
     }
   </script>
 </body>
