@@ -1,9 +1,9 @@
-<!-- patrimone9/intro.html -->
+<!-- patrimoine9/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🎨 FAFA Patrimoine 9 – Atelier Fantôme</title>
+  <title>🎨 Atelier Fantôme</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -11,7 +11,7 @@
       background: linear-gradient(to bottom, #fdf4ff, #fce7f3);
       text-align: center;
       padding: 60px 20px;
-      color: #7e22ce;
+      color: #831843;
     }
     .box {
       background: white;
@@ -23,11 +23,11 @@
     }
     h1 {
       font-size: 2.2em;
-      color: #9333ea;
+      color: #be185d;
     }
     p {
       font-size: 1.1em;
-      color: #6b21a8;
+      color: #9d174d;
     }
     button {
       margin-top: 30px;
@@ -35,12 +35,12 @@
       font-size: 1.1em;
       border: none;
       border-radius: 10px;
-      background: #7c3aed;
+      background: #db2777;
       color: white;
       cursor: pointer;
     }
     button:hover {
-      background: #6d28d9;
+      background: #be185d;
     }
     .logo {
       margin-bottom: 20px;
@@ -52,13 +52,11 @@
     <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
     <h1>🎨 Atelier Fantôme</h1>
     <p>
-      L’atelier d’un artiste oublié recèle d’énigmes visuelles, sonores et émotionnelles...<br><br>
-      Chaque indice te rapprochera de son souvenir ultime. Plonge dans les brumes de la création pour résoudre les mystères.<br><br>
-      👻 Es-tu prêt à réveiller les couleurs du passé ?
+      Un atelier oublié, des toiles inachevées, et des visions étranges...<br><br>
+      Le pinceau disparu d’un artiste mythique semble hanter les lieux. À toi de résoudre 10 épreuves mêlant mémoire, art et mystère pour lever le voile sur le secret de l’atelier fantôme.
     </p>
-    <button onclick="demarrer()">🔍 Commencer la visite hantée</button>
+    <button onclick="demarrer()">👻 Commencer l'enquête artistique</button>
   </div>
-
   <script>
     function demarrer() {
       localStorage.setItem("start", Date.now());
@@ -219,6 +217,85 @@
       const v = document.getElementById('rep').value.toLowerCase();
       if (v.includes('mémoire')) location.href = 'fin.html';
       else alert("Un mot lié au souvenir et au passé...");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine9/fin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎨 Fin - Atelier Fantôme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fdf2f8, #fce7f3);
+      text-align: center;
+      padding: 60px 20px;
+      color: #9d174d;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #be185d;
+    }
+    .badge {
+      margin: 30px auto;
+      padding: 15px;
+      background: #db2777;
+      color: white;
+      display: inline-block;
+      border-radius: 12px;
+      font-size: 1.2em;
+    }
+    #chrono {
+      font-size: 1.3em;
+      margin-top: 20px;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #be185d;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #9d174d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Mystère Résolu !</h1>
+    <p>Tu as rassemblé les fragments de mémoire, guidé par l’esprit de l’atelier.</p>
+    <div class="badge">🏅 Badge : Explorateur Artistique FAFA™</div>
+    <p id="chrono">⏱️ Temps total : ...</p>
+    <p>Tu peux revenir au QG FAFA pour une autre aventure...</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l'accueil</button>
+  </div>
+  <script>
+    const debut = localStorage.getItem("start");
+    if (debut) {
+      const fin = Date.now();
+      const duree = Math.floor((fin - debut) / 1000);
+      const min = String(Math.floor(duree / 60)).padStart(2, '0');
+      const sec = String(duree % 60).padStart(2, '0');
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      localStorage.removeItem("start");
     }
   </script>
 </body>
