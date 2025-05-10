@@ -26,6 +26,11 @@
   <p>Tu as débloqué un défi caché ! Réussis ce mini-parcours exclusif pour gagner une aide spéciale ou un indice secret dans l’univers de ton choix.</p>
   <button class="btn" onclick="demarrer()">🎁 Jouer au Bonus</button>
   <button class="btn" onclick="location.href='../../index.html'">🏠 Retour Menu Principal</button>
+  <div style="margin-top: 40px;">
+    <button onclick="location.href='../../index.html'" style="padding: 12px 24px; font-size: 1em; background: #1f2937; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      🏠 Retour Menu Principal
+    </button>
+  </div>
   <script>
     function demarrer() {
       localStorage.setItem("start", Date.now());
