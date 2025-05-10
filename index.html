@@ -2,28 +2,58 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🏠 FAFA Explorator – Accueil</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; color: #1f2937; padding: 60px 20px; text-align: center; }
-    h1 { color: #0f172a; font-size: 2.5em; }
-    .section { margin: 40px 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      color: #0f172a;
+      padding: 60px 20px;
+      text-align: center;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.8em;
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      color: #475569;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin: 40px 0;
+    }
     .btn {
-      padding: 20px 30px;
+      display: inline-block;
+      padding: 16px 28px;
       background: #3b82f6;
       color: white;
-      font-size: 1.2em;
+      font-size: 1.1em;
       border: none;
-      border-radius: 10px;
-      margin: 10px;
+      border-radius: 12px;
+      margin: 12px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: transform 0.2s, background 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    .btn:hover { background: #2563eb; }
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    .logo {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
+
+  <img src="assets/logo-fafa.png" alt="Logo FAFA" class="logo">
   <h1>🌍 FAFA Explorator</h1>
-  <p>Choisis ta catégorie d'aventure :</p>
+  <p>Choisis ton univers d’aventure et pars à la découverte !</p>
 
   <div class="section">
     <button class="btn" onclick="location.href='fafa-patrimoine/menu.html'">🏛️ FAFA Patrimonio</button>
@@ -33,8 +63,9 @@
   </div>
 
   <div class="section">
-    <button class="btn" onclick="location.href='fafa-hq.html'">🔐 Accès FAFA HQ</button>
-    <button class="btn" onclick="location.href='info-fafa-explorator.html'">ℹ️ Infos FAFA Explorator</button>
+    <button class="btn" onclick="location.href='fafa-hq.html'">🔐 FAFA HQ</button>
+    <button class="btn" onclick="location.href='info-fafa-explorator.html'">ℹ️ Infos Explorator</button>
   </div>
+
 </body>
 </html>
