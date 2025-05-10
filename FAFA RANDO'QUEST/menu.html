@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🥾 FAFA Rando'Quests</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f3f4f6; color: #1f2937; text-align: center; padding: 40px; }
+    h1 { color: #059669; font-size: 2.2em; }
+    .menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+    .btn {
+      padding: 20px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover { background: #059669; transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <h1>🥾 Choisis ta course FAFA Rando'Quest</h1>
+  <div class="menu">
+    <button class="btn" onclick="location.href='Explor-Adult/intro.html'">🏞️ Explor'Adult</button>
+    <button class="btn" onclick="location.href='Explor-Junior/intro.html'">🧒 Explor'Junior</button>
+    <button class="btn" onclick="location.href='Trail-Adulte/intro.html'">⛰️ Trail'Adulte</button>
+    <button class="btn" onclick="location.href='Trail-Junior/intro.html'">🎽 Trail'Junior</button>
+  </div>
+</body>
+</html>
+
