@@ -67,6 +67,7 @@
   </script>
 </body>
 </html>
+
 <!-- patrimoine10/enigme1.html -->
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>Énigme 1 – Le fruit de la vigne</title></head>
@@ -211,12 +212,13 @@
   </script>
 </body>
 </html>
+
 <!-- patrimoine10/fin.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🍷 Fin – Le Vin Mystère de la Cave</title>
+  <title>🍽️ Fin – Le Vin Mystère de la Cave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -250,13 +252,14 @@
       display: inline-block;
       border-radius: 12px;
       font-size: 1.2em;
+      animation: fadeIn 1.5s ease-in-out;
     }
     #chrono {
       font-size: 1.3em;
       margin-top: 20px;
     }
     .btn {
-      margin-top: 30px;
+      margin: 20px 10px 0;
       padding: 12px 24px;
       font-size: 1em;
       border: none;
@@ -264,32 +267,49 @@
       background: #7c2d12;
       color: white;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .btn:hover {
       background: #9a3412;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🍷 Félicitations, Dégustateur de Légende !</h1>
+    <h1>🍽️ Félicitations, Dégustateur de Légende !</h1>
     <p>Tu as percé les secrets de la cave et retrouvé la cuvée mystère...</p>
     <div class="badge">🏅 Badge : Maître du Vin FAFA™</div>
     <p id="chrono">⏱️ Temps total : ...</p>
-    <p>Rejoins le QG FAFA pour d’autres quêtes parfumées !</p>
+    <p>🍇 Rejoins le QG FAFA pour d’autres quêtes parfumées !</p>
     <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📓 Voir mon Carnet</button>
+    <button class="btn" onclick="location.href='../../bonus-vin.html'">✨ Bonus Vigneron</button>
   </div>
 
   <script>
     const debut = localStorage.getItem("start");
+    const nomParcours = "Le Vin Mystère de la Cave";
+    const score = "10/10";
+
     if (debut) {
       const fin = Date.now();
       const duree = Math.floor((fin - debut) / 1000);
       const min = String(Math.floor(duree / 60)).padStart(2, '0');
       const sec = String(duree % 60).padStart(2, '0');
-      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      const temps = `${min}m ${sec}s`;
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${temps}`;
+
+      let historique = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      historique.push({ nom: nomParcours, temps: temps, score: score });
+      localStorage.setItem("fafa_explorations", JSON.stringify(historique));
+
       localStorage.removeItem("start");
     }
   </script>
 </body>
 </html>
+
