@@ -1,208 +1,297 @@
-<!-- intro.html -->
+<!-- @vengers/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>FAFAvengers™ – L’Alliance du Multivers</title>
+  <title>💥 Univers @vengers – Introduction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: linear-gradient(to right, #0f172a, #1e293b);
-      font-family: 'Arial Black', sans-serif;
-      color: #f8fafc;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #000);
       text-align: center;
-      padding: 40px;
+      padding: 60px 20px;
+      color: #facc15;
+      background-image: url('../../actifs/stars-bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
     }
-    h1 {
-      font-size: 2.5em;
-      color: #38bdf8;
-    }
-    .intro-box {
+    .container {
+      background: rgba(0, 0, 0, 0.7);
       max-width: 750px;
       margin: auto;
-      padding: 30px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      box-shadow: 0 0 25px #38bdf8;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.08);
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #fcd34d;
+    }
+    p {
+      font-size: 1.2em;
+      color: #e0f2fe;
     }
     button {
-      margin-top: 25px;
-      padding: 14px 28px;
-      font-size: 1.1em;
-      background: #ef4444;
-      color: white;
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.2em;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
+      background: #3b82f6;
+      color: white;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
-    button:hover { background: #dc2626; }
+    button:hover {
+      background: #2563eb;
+    }
+    audio {
+      display: block;
+      margin: 30px auto 0;
+    }
   </style>
 </head>
 <body>
-  <div class="intro-box">
-    <h1>🔴 FAFAvengers™ – Recrutement Urgent</h1>
-    <p>⚡ Une faille cosmique menace Banyuls !</p>
-    <p>Les FAFAvengers ont besoin de toi pour rétablir l’équilibre du multivers !</p>
-    <p>Tu vas devoir résoudre 10 épreuves de stratégie, force, déduction et observation.</p>
-    <p>🌌 Prépare-toi à voyager de Wakanda au Sanctum Santorum !</p>
-    <a href="enigme1.html"><button>Démarrer la mission</button></a>
+  <div class="container">
+    <h1>💥 Univers @vengers – Appel aux Héros</h1>
+    <p>
+      Un danger interdimensionnel menace Banyuls...<br>
+      Les héros FAFAvengers t’ont choisi pour percer les 10 énigmes cosmiques et libérer l’énergie ultime !
+    </p>
+    <button onclick="demarrer()">🚀 Démarrer la mission multivers</button>
+    <audio controls autoplay loop>
+      <source src="../../sons/avengers-theme.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l’audio HTML5.
+    </audio>
   </div>
+  <script>
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
 </body>
 </html>
+
 <!-- enigme1.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 1 – Iron Man Scan</title></head>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Épreuve 1 – Iron Scan</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: #fbbf24;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
 <body>
-  <h2>⚖ Iron Man : Détection d'intrus</h2>
+  <h2>🤖 Épreuve 1 : Iron Scan</h2>
   <p>Quel mot cache l'anagramme : "ARM NORI" ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
     if (!localStorage.start) localStorage.start = Date.now();
     function valider() {
       if (document.getElementById('rep').value.toLowerCase() === 'ironman') {
         location.href = 'enigme2.html';
       } else {
-        alert("Système défensif activé. Mauvaise réponse.");
+        alert("❌ Mauvaise réponse. Iron Man détecte un intrus.");
       }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme2.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 2 – Thor et le marteau</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 2 – Thor</title></head>
 <body>
-  <h2>⛈ Thor : L'épreuve de Mjolnir</h2>
-  <p>Seul le digne peut soulever Mjolnir. Quel mot complet est caché dans "MJLRNIR" ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <h2>⚡ Thor : Marteau céleste</h2>
+  <p>Quel mot complet est caché dans "MJLRNIR" ?</p>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('mjolnir')) {
-      location.href = 'enigme3.html';
-    } else {
-      alert("Indigne ! Essaie encore.");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('mjolnir')) {
+        location.href = 'enigme3.html';
+      } else {
+        alert("💢 Indigne ! Essaie encore.");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme3.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 3 – Black Panther</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 3 – Vibranium</title></head>
 <body>
-  <h2>🦁 Wakanda : Enigme Royale</h2>
-  <p>Quel est le métal exclusif du Wakanda utilisé par Black Panther ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <h2>🖤 Wakanda Forever</h2>
+  <p>Quel métal rare est utilisé par Black Panther ?</p>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('vibranium')) {
-      location.href = 'enigme4.html';
-    } else {
-      alert("Ceci n'existe pas au Wakanda !");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('vibranium')) {
+        location.href = 'enigme4.html';
+      } else {
+        alert("❌ Ce métal n'existe pas au Wakanda !");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme4.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 4 – Captain Marvel</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 4 – Captain Marvel</title></head>
 <body>
-  <h2>💥 Captain Marvel : Lumière cosmique</h2>
+  <h2>🌌 Captain Marvel : Lumière cosmique</h2>
   <p>Quelle planète fictive est en guerre contre les Skrulls ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('halla')) {
-      location.href = 'enigme5.html';
-    } else {
-      alert("La galaxie attend mieux de toi !");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('halla')) {
+        location.href = 'enigme5.html';
+      } else {
+        alert("🚀 Mauvaise galaxie !");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme5.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 5 – Mission photo Hulk</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 5 – Hulk Smash</title></head>
 <body>
-  <h2>😡 Hulk Smash</h2>
+  <h2>💪 Hulk Smash</h2>
   <p>Photographie un objet vert massif autour de toi. Ce sera ton "mode Hulk" !</p>
-  <button onclick="location.href='enigme6.html'">Photo prise</button>
-</body></html>
+  <button onclick="location.href='enigme6.html'">📸 Photo prise</button>
+</body>
+</html>
 
 <!-- enigme6.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 6 – Vision analyse</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 6 – Vision logique</title></head>
 <body>
-  <h2>🧙 Vision : Analyse logique</h2>
+  <h2>🧠 Vision : Énigme de perception</h2>
   <p>"Plus je suis grande, moins tu en vois." Qui suis-je ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('obscurité')) {
-      location.href = 'enigme7.html';
-    } else {
-      alert("Analyse incorrecte.");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('obscurité')) {
+        location.href = 'enigme7.html';
+      } else {
+        alert("🔍 Mauvaise perception.");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme7.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 7 – Spider-Tech</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 7 – Spider Code</title></head>
 <body>
-  <h2>🥷 Spider-Man : Toile de codes</h2>
+  <h2>🕸️ Spider-Man : Toile d'identité</h2>
   <p>Quel est le vrai nom de Spider-Man ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('peter parker')) {
-      location.href = 'enigme8.html';
-    } else {
-      alert("Spider-sens en alerte : ce n'est pas lui !");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('peter parker')) {
+        location.href = 'enigme8.html';
+      } else {
+        alert("🕷 Mauvaise identité secrète !");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme8.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 8 – Docteur Strange</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 8 – Strange Time</title></head>
 <body>
-  <h2>🧩 Sanctum Santorum</h2>
-  <p>Quelle pierre de l'infini contrôle le temps ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <h2>⏳ Docteur Strange : Chronologie mystique</h2>
+  <p>Quelle pierre de l’infini contrôle le temps ?</p>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('temps')) {
-      location.href = 'enigme9.html';
-    } else {
-      alert("Tu modifies la mauvaise timeline.");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('temps')) {
+        location.href = 'enigme9.html';
+      } else {
+        alert("🌀 La timeline se brise !");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme9.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 9 – Black Widow</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 9 – Natasha</title></head>
 <body>
-  <h2>🗡 Black Widow : Opération Infiltration</h2>
-  <p>Quel pays d'origine est associé à Natasha Romanoff ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <h2>🕵️ Black Widow : Secret d’origine</h2>
+  <p>Quel est le pays natal de Natasha Romanoff ?</p>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value.toLowerCase().includes('russie')) {
-      location.href = 'enigme10.html';
-    } else {
-      alert("Ta couverture est grillée !");
+    function valider() {
+      if (document.getElementById('rep').value.toLowerCase().includes('russie')) {
+        location.href = 'enigme10.html';
+      } else {
+        alert("❌ Dossier top secret non validé !");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
 
 <!-- enigme10.html -->
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Épreuve 10 – Endgame</title></head>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Épreuve 10 – Gant de l'infini</title></head>
 <body>
-  <h2>⚔ Final : Le Gant de l'infini</h2>
-  <p>Combien de pierres l’Infini composent le gant de Thanos ?</p>
-  <input id="rep"><button onclick="valider()">Valider</button>
+  <h2>🪙 Épreuve Finale : Gant de l’Infini</h2>
+  <p>Combien de pierres composent le Gant de Thanos ?</p>
+  <input id="rep"><br>
+  <button onclick="valider()">Valider</button>
   <script>
-    if (document.getElementById('rep').value === '6') {
-      location.href = 'bonus.html';
-    } else {
-      alert("Le gant est incomplet !");
+    function valider() {
+      if (document.getElementById('rep').value === '6') {
+        location.href = 'bonus.html';
+      } else {
+        alert("💥 Le Gant est incomplet !");
+      }
     }
   </script>
-</body></html>
+</body>
+</html>
+
 <!-- bonus.html -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -219,19 +308,68 @@
 <!-- fin.html -->
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8"><title>💪 Fin – Héros du Multivers</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>🌟 Bonus – Mission Secrète des @vengers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #facc15;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(250, 204, 21, 0.2);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #fde68a;
+    }
+    .code {
+      font-size: 1.4em;
+      background: #facc15;
+      color: #0f172a;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    p {
+      font-size: 1.1em;
+      color: #e2e8f0;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background: #facc15;
+      color: #0f172a;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #fde047;
+    }
+  </style>
+</head>
 <body>
-  <h2>🌟 Mission accomplie, Héros !</h2>
-  <p>⚔ Tu as sauvé Banyuls avec les FAFAvengers !</p>
-  <p>🕒 Temps total : <span id="temps"></span></p>
-  <p>🏆 Badge obtenu : Agent FAFAvengers™</p>
-  <p>💡 Le savais-tu ? Chaque pierre de l'infini représente une force universelle... comme ton courage !</p>
-  <script>
-    let duration = Math.floor((Date.now() - localStorage.start) / 1000);
-    let min = String(Math.floor(duration / 60)).padStart(2, '0');
-    let sec = String(duration % 60).padStart(2, '0');
-    document.getElementById('temps').innerText = `${min}:${sec}`;
-    localStorage.removeItem('start');
-  </script>
+  <div class="container">
+    <h1>🔐 Bonus Débloqué : Mission SHIELD Secrète</h1>
+    <p>Tu as bravé les épreuves du Multivers... mais une dernière mission t'attend.</p>
+    <p class="code">Code Infini : AVENGERS-FAFA-2025</p>
+    <p>Utilise ce code dans ton QG FAFA pour débloquer un badge ultime !</p>
+    <button class="btn" onclick="location.href='fin.html'">🎯 Terminer la mission</button>
+  </div>
 </body>
 </html>
