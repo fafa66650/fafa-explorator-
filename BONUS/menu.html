@@ -2,32 +2,40 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🎁 Bonus & Événements</title>
+  <title>🏠 FAFA Explorator – Accueil</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #fefce8; color: #78350f; text-align: center; padding: 40px; }
-    h1 { color: #b45309; font-size: 2.2em; }
-    .menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; color: #1f2937; padding: 60px 20px; text-align: center; }
+    h1 { color: #0f172a; font-size: 2.5em; }
+    .section { margin: 40px 0; }
     .btn {
-      padding: 20px;
-      background: #f59e0b;
+      padding: 20px 30px;
+      background: #3b82f6;
       color: white;
+      font-size: 1.2em;
       border: none;
       border-radius: 10px;
-      font-size: 1.1em;
+      margin: 10px;
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.3s;
     }
-    .btn:hover { background: #d97706; transform: scale(1.05); }
+    .btn:hover { background: #2563eb; }
   </style>
 </head>
 <body>
-  <h1>🎁 Bonus FAFA et Événements spéciaux</h1>
-  <div class="menu">
-    <button class="btn" onclick="location.href='Evenement-Halloween/intro.html'">🎃 Spécial Halloween</button>
-    <button class="btn" onclick="location.href='Evenement-Noel/intro.html'">🎄 Spécial Noël</button>
-    <button class="btn" onclick="location.href='Evenement-Ecole/intro.html'">🏫 Défi Écoles & Points Jeunes</button>
-    <button class="btn" onclick="location.href='Coffre-Final/intro.html'">🔐 Chasse au Coffre Final</button>
-    <button class="btn" onclick="location.href='Bonus-Surprise/intro.html'">🎉 Bonus Surprise</button>
+  <h1>🌍 FAFA Explorator – Menu Principal</h1>
+  <p>Choisis ta catégorie d'aventure :</p>
+
+  <div class="section">
+    <button class="btn" onclick="location.href='fafa-patrimoine/menu.html'">🏛️ FAFA Patrimonio</button>
+    <button class="btn" onclick="location.href='fafa-randoquests/menu.html'">🥾 FAFA Rando'Quests</button>
+    <button class="btn" onclick="location.href='fafa-univers/menu.html'">🎮 FAFA Univers</button>
+    <button class="btn" onclick="location.href='bonus/menu.html'">🎁 Bonus & Événements</button>
+  </div>
+
+  <div class="section">
+    <button class="btn" onclick="location.href='fafa-hq.html'">🔐 Accès FAFA HQ</button>
+    <button class="btn" onclick="location.href='info-fafa-explorator.html'">ℹ️ Infos FAFA Explorator</button>
+    <button class="btn" onclick="location.href='carnet-explorateur.html'">📘 Mon Carnet d'Explorateur</button>
   </div>
 </body>
 </html>
