@@ -1,10 +1,11 @@
-<!-- patrimoine10/intro.html -->
+<!-- patrimoine10/intro.html (optimisé avec chrono, boussole, carte et ambiance) -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>🍇 FAFA Patrimonio 10 – Le Vin Mystère de la Cave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -20,15 +21,10 @@
       padding: 40px;
       border-radius: 18px;
       box-shadow: 0 0 30px rgba(0,0,0,0.05);
+      position: relative;
     }
-    h1 {
-      font-size: 2.2em;
-      color: #92400e;
-    }
-    p {
-      font-size: 1.1em;
-      color: #78350f;
-    }
+    h1 { font-size: 2.4em; color: #92400e; }
+    p { font-size: 1.2em; color: #78350f; margin: 20px 0; }
     button {
       margin-top: 30px;
       padding: 14px 30px;
@@ -38,32 +34,64 @@
       background: #c2410c;
       color: white;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
-    button:hover {
-      background: #a16207;
+    button:hover { background: #a16207; }
+    .logo { margin-bottom: 20px; }
+    .chrono { font-size: 1.1em; margin-top: 15px; color: #9a3412; }
+    #map { width: 100%; height: 200px; border-radius: 12px; margin-top: 20px; }
+    .boussole {
+      width: 60px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      animation: spin 6s linear infinite;
     }
-    .logo {
-      margin-bottom: 20px;
-    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
   <div class="box">
     <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
+    <img src="../../actifs/boussole.png" alt="Boussole" class="boussole">
     <h1>🍇 Le Vin Mystère de la Cave</h1>
     <p>
       Une cuvée d’exception se cacherait dans les profondeurs de la cave coopérative de Banyuls...<br><br>
       Mais seul un aventurier capable de résoudre les 10 énigmes vigneronnes pourra la révéler.<br><br>
       🍷 Que la chasse au nectar commence !
     </p>
+    <div class="chrono">Chrono : <span id="chrono">00:00</span></div>
+    <div id="map"></div>
+    <audio autoplay loop>
+      <source src="../../sons/ambiance-cave.mp3" type="audio/mp3">
+    </audio>
     <button onclick="demarrer()">🔍 Entrer dans la cave</button>
   </div>
 
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     function demarrer() {
       localStorage.setItem("start", Date.now());
       location.href = "enigme1.html";
     }
+
+    // Chronomètre
+    let startTime = Date.now();
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const min = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const sec = String(elapsed % 60).padStart(2, '0');
+      document.getElementById("chrono").textContent = `${min}:${sec}`;
+    }, 1000);
+
+    // Carte interactive
+    const map = L.map('map').setView([42.4833, 3.1333], 15); // Coord. Banyuls-sur-Mer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Carte © OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+    L.marker([42.4833, 3.1333]).addTo(map).bindPopup('Cave de Banyuls').openPopup();
   </script>
 </body>
 </html>
@@ -218,7 +246,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🍽️ Fin – Le Vin Mystère de la Cave</title>
+  <title>🍇 Fin – Le Vin Mystère de la Cave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -226,7 +254,7 @@
       background: linear-gradient(to bottom, #fff7ed, #fef2f2);
       text-align: center;
       padding: 60px 20px;
-      color: #92400e;
+      color: #7c2d12;
     }
     .container {
       background: white;
@@ -234,60 +262,76 @@
       margin: auto;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.08);
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+      position: relative;
     }
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.4em;
       color: #c2410c;
-    }
-    p {
-      font-size: 1.1em;
+      animation: fadeIn 1s ease-in-out;
     }
     .badge {
       margin: 30px auto;
       padding: 15px;
       background: #ea580c;
       color: white;
-      display: inline-block;
       border-radius: 12px;
-      font-size: 1.2em;
-      animation: fadeIn 1.5s ease-in-out;
+      font-size: 1.3em;
+      display: inline-block;
+      animation: pulse 1.2s ease-in-out infinite alternate;
     }
     #chrono {
       font-size: 1.3em;
       margin-top: 20px;
     }
+    .info {
+      margin-top: 30px;
+      font-style: italic;
+      color: #9a3412;
+    }
     .btn {
       margin: 20px 10px 0;
       padding: 12px 24px;
       font-size: 1em;
+      background: #92400e;
+      color: white;
       border: none;
       border-radius: 8px;
-      background: #7c2d12;
-      color: white;
       cursor: pointer;
       transition: background 0.3s ease;
     }
     .btn:hover {
-      background: #9a3412;
+      background: #b45309;
+    }
+    .vignette {
+      width: 100%;
+      height: 200px;
+      margin-top: 30px;
+      border-radius: 12px;
+      background: url('../../actifs/vigne-banyuls.jpg') center/cover no-repeat;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🍽️ Félicitations, Dégustateur de Légende !</h1>
-    <p>Tu as percé les secrets de la cave et retrouvé la cuvée mystère...</p>
+    <h1>🍇 Félicitations, Dégustateur de Légende !</h1>
+    <p>Tu as retrouvé la cuvée mystère et percé les secrets de la cave de Banyuls.</p>
     <div class="badge">🏅 Badge : Maître du Vin FAFA™</div>
     <p id="chrono">⏱️ Temps total : ...</p>
-    <p>🍇 Rejoins le QG FAFA pour d’autres quêtes parfumées !</p>
-    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
-    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📓 Voir mon Carnet</button>
-    <button class="btn" onclick="location.href='../../bonus-vin.html'">✨ Bonus Vigneron</button>
+    <div class="vignette"></div>
+    <p class="info">💡 Le savais-tu ? Le vin doux naturel de Banyuls est protégé par une AOP et repose parfois plusieurs années en fûts exposés au soleil pour gagner en richesse.</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Accueil FAFA</button>
+    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📘 Voir mon Carnet</button>
+    <button class="btn" onclick="location.href='../../bonus-vin.html'">🍷 Bonus Vigneron</button>
   </div>
 
   <script>
@@ -312,4 +356,3 @@
   </script>
 </body>
 </html>
-
