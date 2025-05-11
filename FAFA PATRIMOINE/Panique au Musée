@@ -1,4 +1,3 @@
-<!-- patrimoine2/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,35 +7,36 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
-      color: #1f2937;
+      background: linear-gradient(to bottom, #f3f4f6, #e0e7ff);
+      color: #1e293b;
       text-align: center;
       padding: 60px 20px;
     }
-    .box {
+    .container {
       background: white;
       max-width: 750px;
       margin: auto;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.06);
+      box-shadow: 0 0 30px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
     }
     h1 {
       font-size: 2.4em;
       color: #1e40af;
-      margin-bottom: 20px;
     }
     p {
       font-size: 1.1em;
-      color: #374151;
-      margin-bottom: 30px;
+      color: #334155;
     }
     button {
+      margin-top: 30px;
       padding: 14px 30px;
       font-size: 1.1em;
       border: none;
       border-radius: 10px;
-      background: #1d4ed8;
+      background: #2563eb;
       color: white;
       cursor: pointer;
       transition: background 0.3s ease;
@@ -45,28 +45,58 @@
       background: #1e3a8a;
     }
     .logo {
+      margin-bottom: 20px;
       width: 100px;
-      margin-bottom: 25px;
       animation: float 3s ease-in-out infinite;
     }
+    .info-bar {
+      margin-top: 25px;
+      font-style: italic;
+      color: #64748b;
+    }
+    .map-icon, .compass-icon {
+      position: absolute;
+      width: 30px;
+      top: 20px;
+    }
+    .map-icon {
+      left: 20px;
+    }
+    .compass-icon {
+      right: 20px;
+      animation: rotate 6s linear infinite;
+    }
     @keyframes float {
-      0% { transform: translateY(0); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <div class="box">
+  <div class="container">
     <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo">
+    <img src="../../actifs/map-icon.png" alt="Carte" class="map-icon">
+    <img src="../../actifs/compass-icon.png" alt="Boussole" class="compass-icon">
+
     <h1>🖼️ Panique au Musée</h1>
     <p>
-      Une mystérieuse panne a provoqué la disparition de plusieurs œuvres d’art au musée Maillol...<br><br>
-      Seuls les explorateurs les plus futés parviendront à résoudre les énigmes laissées sur leur passage.<br><br>
-      🧩 Retrouve les 10 pièces manquantes dans la ville et le musée, et restaure l’ordre artistique !
+      Une pénurie d'énergie a provoqué la disparition étrange de plusieurs œuvres du musée Maillol de Banyuls-sur-Mer...
+      <br><br>
+      Ta mission : retrouver les 10 éléments perdus à travers la ville grâce à ton sens de l'observation et ta curiosité artistique.
+      <br><br>
+      Chaque énigme te rapprochera de la vérité et restaurera une partie du patrimoine culturel FAFA™ !
     </p>
-    <button onclick="demarrer()">🎯 Commencer la mission</button>
+    <button onclick="demarrer()">🎯 Démarrer la mission</button>
+    <div class="info-bar">💡 Astuce : observe bien les détails autour de toi, l'art est partout...</div>
   </div>
+
+  <audio autoplay loop>
+    <source src="../../actifs/musee-ambiance.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     function demarrer() {
