@@ -18,19 +18,20 @@
       max-width: 750px;
       margin: auto;
       padding: 40px;
-      border-radius: 18px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.06);
     }
     h1 {
-      font-size: 2.2em;
+      font-size: 2.4em;
       color: #1e40af;
+      margin-bottom: 20px;
     }
     p {
       font-size: 1.1em;
       color: #374151;
+      margin-bottom: 30px;
     }
     button {
-      margin-top: 30px;
       padding: 14px 30px;
       font-size: 1.1em;
       border: none;
@@ -38,23 +39,31 @@
       background: #1d4ed8;
       color: white;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     button:hover {
       background: #1e3a8a;
     }
     .logo {
-      margin-bottom: 20px;
+      width: 100px;
+      margin-bottom: 25px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
+    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo">
     <h1>🖼️ Panique au Musée</h1>
     <p>
       Une mystérieuse panne a provoqué la disparition de plusieurs œuvres d’art au musée Maillol...<br><br>
-      Toi seul peux résoudre ce mystère en retrouvant les 10 éléments perdus dans la ville et le musée !<br><br>
-      Prépare-toi, chaque étape révèle un indice artistique !
+      Seuls les explorateurs les plus futés parviendront à résoudre les énigmes laissées sur leur passage.<br><br>
+      🧩 Retrouve les 10 pièces manquantes dans la ville et le musée, et restaure l’ordre artistique !
     </p>
     <button onclick="demarrer()">🎯 Commencer la mission</button>
   </div>
@@ -67,6 +76,7 @@
   </script>
 </body>
 </html>
+
 <!-- patrimoine2/enigme1.html -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -255,7 +265,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f0f9ff, #dbeafe);
+      background: linear-gradient(to bottom, #e0f2fe, #f0f9ff);
       text-align: center;
       padding: 60px 20px;
       color: #1e293b;
@@ -267,11 +277,14 @@
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
     }
     h1 {
-      font-size: 2em;
+      font-size: 2.4em;
       margin-bottom: 20px;
       color: #1e40af;
+      animation: fadeIn 1s ease-in-out;
     }
     p {
       font-size: 1.1em;
@@ -283,45 +296,72 @@
       color: white;
       display: inline-block;
       border-radius: 12px;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      animation: pulse 1.2s ease-in-out infinite alternate;
     }
     #chrono {
-      font-size: 1.3em;
+      font-size: 1.4em;
       margin-top: 20px;
     }
     .btn {
-      margin-top: 30px;
+      margin: 25px 10px 0;
       padding: 12px 24px;
       font-size: 1em;
-      border: none;
-      border-radius: 8px;
       background: #2563eb;
       color: white;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .btn:hover {
       background: #1d4ed8;
+    }
+    .info {
+      margin-top: 25px;
+      font-style: italic;
+      color: #475569;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🎉 Bravo détective artistique !</h1>
-    <p>Tu as rétabli l’ordre au musée Maillol avec talent.</p>
-    <div class="badge">🏅 Badge : Gardien des œuvres FAFA™</div>
+    <p>Tu as rétabli l’ordre au musée Maillol avec talent. L’art est sauf – grâce à toi.</p>
+    <div class="badge">🌺 Badge : Gardien des œuvres FAFA™</div>
     <p id="chrono">⏱️ Temps total : ...</p>
-    <p>Rejoins FAFA HQ pour révéler ta prochaine mission artistique.</p>
+    <p class="info">🔹 Le savais-tu ? Aristide Maillol, né à Banyuls, a révolutionné la sculpture moderne avec ses formes douces et équilibrées.
+    </p>
     <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📓 Voir mon Carnet</button>
+    <button class="btn" onclick="location.href='../../bonus-musee.html'">✨ Bonus du Musée</button>
   </div>
 
   <script>
+    const nomParcours = "Panique au Musée";
     const debut = localStorage.getItem("start");
+    const score = "10/10";
+
     if (debut) {
       const fin = Date.now();
       const duree = Math.floor((fin - debut) / 1000);
       const min = String(Math.floor(duree / 60)).padStart(2, '0');
       const sec = String(duree % 60).padStart(2, '0');
-      document.getElementById("chrono").innerText = `⏱️ Temps total : ${min}m ${sec}s`;
+      const temps = `${min}m ${sec}s`;
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${temps}`;
+
+      let historique = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      historique.push({ nom: nomParcours, temps: temps, score: score });
+      localStorage.setItem("fafa_explorations", JSON.stringify(historique));
+
       localStorage.removeItem("start");
     }
   </script>
