@@ -42,10 +42,16 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      animation: pulse 1.5s ease-in-out infinite alternate;
     }
 
     button:hover {
       background-color: #2563eb;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
     }
   </style>
 </head>
@@ -68,17 +74,39 @@
 
   <div class="section">
     <h2>🕒 Voir les scores</h2>
-    <button onclick="alert('Scores simulés\nGroupe 1 : 1250 pts\nGroupe 2 : 980 pts')">
-      Afficher les scores
-    </button>
+    <button onclick="afficherScores()">Afficher les scores</button>
+  </div>
+
+  <div class="section">
+    <h2>🎒 Ressources utiles</h2>
+    <button onclick="window.location.href='index.html'">🏠 Accueil FAFA</button>
+    <button onclick="window.location.href='carnet-explorateur.html'">📘 Carnet Explorateur</button>
   </div>
 
   <footer>
     <p style="color:#64748b;margin-top:30px;">© FAFA™ — Interface privée. Ne pas partager sans autorisation.</p>
   </footer>
+
+  <audio id="audioHQ">
+    <source src="assets/audio/admin-connexion.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('audioHQ');
+      setTimeout(() => audio.play().catch(() => {}), 300);
+    });
+
+    function afficherScores() {
+      const historique = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      if (historique.length === 0) return alert("Aucune donnée trouvée.");
+
+      let scoreTexte = "🧾 Historique des parcours :\n\n";
+      historique.forEach(h => {
+        scoreTexte += `• ${h.nom} – ${h.temps} – ${h.score}\n`;
+      });
+      alert(scoreTexte);
+    }
+  </script>
 </body>
 </html>
-<audio>
-  <source src="assets/audio/admin-connexion.mp3" type="audio/mpeg" />
-</audio>
-
