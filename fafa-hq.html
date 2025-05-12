@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>FAFA HQ™ – Panneau Admin</title>
+  <link rel="stylesheet" href="assets/style.css">
   <style>
     body {
       background-color: #0f172a;
@@ -10,34 +11,26 @@
       font-family: 'Segoe UI', sans-serif;
       padding: 20px;
     }
-
     h1 {
       color: #3b82f6;
     }
-
     .section {
       margin-bottom: 30px;
       padding: 20px;
       background-color: #1e293b;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
     }
-
     label {
       display: block;
       margin-bottom: 10px;
     }
-
-    input, textarea, select {
+    input, textarea {
       width: 100%;
       padding: 10px;
       border-radius: 8px;
       border: none;
       margin-bottom: 15px;
-      background-color: #334155;
-      color: #f8fafc;
     }
-
     button {
       background-color: #3b82f6;
       color: white;
@@ -45,100 +38,93 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.3s ease;
     }
-
     button:hover {
       background-color: #2563eb;
-      transform: scale(1.05);
     }
-
-    footer {
-      margin-top: 50px;
+    .footer {
+      color: #64748b;
+      margin-top: 40px;
+      font-size: 0.9em;
       text-align: center;
-      color: #94a3b8;
     }
   </style>
 </head>
-<body onload="document.getElementById('audioIntro').play()">
+<body>
   <h1>🧠 FAFA HQ™ – Panneau de Contrôle</h1>
 
   <div class="section">
     <h2>🔓 Déverrouiller un parcours</h2>
-    <label for="unlockInput">Nom du parcours :</label>
+    <label for="unlockInput">Nom du parcours à débloquer :</label>
     <input id="unlockInput" type="text" placeholder="ex : run" />
     <button onclick="unlockParcours()">Débloquer</button>
   </div>
 
   <div class="section">
     <h2>📩 Envoyer un message aux joueurs</h2>
-    <label for="messageBox">Message :</label>
-    <textarea id="messageBox" rows="4" placeholder="Tape ton message ici..."></textarea>
-    <button onclick="envoyerMessage()">Envoyer</button>
+    <label for="messageInput">Message :</label>
+    <textarea id="messageInput" rows="4" placeholder="Tape ton message ici..."></textarea>
+    <button onclick="sendMessage()">Envoyer</button>
   </div>
 
   <div class="section">
     <h2>🕒 Voir les scores</h2>
-    <button onclick="voirScores()">Afficher les scores</button>
-    <button onclick="exporterScores()">📁 Exporter en CSV</button>
-    <div id="scoresContainer" style="margin-top: 15px;"></div>
+    <button onclick="showScores()">Afficher les scores</button>
+    <button onclick="exportScoresCSV()">📤 Export CSV</button>
   </div>
 
-  <div class="section">
-    <h2>🚀 Liens rapides</h2>
-    <button onclick="location.href='../../index.html'">🏠 Accueil</button>
-    <button onclick="location.href='../../carnet-explorateur.html'">📘 Carnet Explorateur</button>
-  </div>
-
-  <footer>
+  <footer class="footer">
     <p>© FAFA™ — Interface privée. Ne pas partager sans autorisation.</p>
   </footer>
 
-  <audio id="audioIntro" preload="auto">
+  <audio id="audioHQ">
     <source src="assets/audio/admin-connexion.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
     function unlockParcours() {
-      const nom = document.getElementById('unlockInput').value.trim();
-      if (nom) {
-        alert(`Le parcours "${nom}" est maintenant débloqué !`);
-        // Stockage local simulé
-        localStorage.setItem(`parcours_${nom}`, true);
+      const parcours = document.getElementById('unlockInput').value.trim();
+      if (parcours) {
+        localStorage.setItem(`unlocked_${parcours}`, true);
+        alert(`🔓 Parcours "${parcours}" débloqué !`);
       }
     }
 
-    function envoyerMessage() {
-      const message = document.getElementById('messageBox').value.trim();
+    function sendMessage() {
+      const message = document.getElementById('messageInput').value.trim();
       if (message) {
-        alert(`Message envoyé : ${message}`);
-        localStorage.setItem('fafa_admin_message', message);
+        localStorage.setItem("fafa_message", message);
+        alert("📨 Message sauvegardé localement.");
       }
     }
 
-    function voirScores() {
-      const scores = JSON.parse(localStorage.getItem('fafa_explorations') || '[]');
-      const div = document.getElementById('scoresContainer');
-      if (!scores.length) return div.innerText = 'Aucun score enregistré.';
+    function showScores() {
+      const scores = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      if (scores.length === 0) return alert("Aucun score trouvé.");
 
-      const html = `<ul style="text-align:left">` + scores.map(s => `<li><strong>${s.nom}</strong> : ${s.temps} – ${s.score}</li>`).join('') + '</ul>';
-      div.innerHTML = html;
+      let output = "🏆 SCORES :\n";
+      scores.forEach((s, i) => {
+        output += `${i + 1}. ${s.nom} - ${s.temps} - ${s.score}\n`;
+      });
+      alert(output);
     }
 
-    function exporterScores() {
-      const scores = JSON.parse(localStorage.getItem('fafa_explorations') || '[]');
-      if (!scores.length) return alert("Aucun score à exporter.");
+    function exportScoresCSV() {
+      const scores = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      if (scores.length === 0) return alert("Aucun score à exporter.");
 
-      const csvContent = "data:text/csv;charset=utf-8,Nom,Temps,Score\n" +
-        scores.map(s => `${s.nom},${s.temps},${s.score}`).join("\n");
+      let csv = "Nom,Temps,Score\n";
+      scores.forEach(s => {
+        csv += `${s.nom},${s.temps},${s.score}\n`;
+      });
 
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "fafa_scores.csv");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "scores_fafa.csv";
+      a.click();
+      URL.revokeObjectURL(url);
     }
   </script>
 </body>
