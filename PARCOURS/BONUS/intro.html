@@ -1,47 +1,105 @@
-<!-- bonus/intro.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🎁 FAFA Surprise – L'Épreuve Cachée</title>
+  <title>🎁 FAFA Bonus – L'Épreuve Cachée</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style/fafa.css" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle, #f0f9ff, #e0f2fe);
+      background: radial-gradient(circle, #f0fdf4, #d1fae5);
+      color: #064e3b;
       text-align: center;
-      padding: 50px;
-      color: #1e3a8a;
+      padding: 60px 20px;
+      overflow-x: hidden;
     }
+
     .box {
-      background: white;
-      max-width: 600px;
+      background: #ffffff;
+      max-width: 700px;
       margin: auto;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(0,0,0,0.08);
+      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
     }
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #2563eb;
+
+    h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+      color: #047857;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #065f46;
+      margin: 15px 0;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      background: #10b981;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 1.1em;
+      transition: background 0.3s ease;
     }
-    button:hover {
-      background: #1e40af;
+
+    .btn:hover {
+      background: #047857;
+    }
+
+    .wave {
+      position: absolute;
+      background: rgba(16, 185, 129, 0.15);
+      border-radius: 50%;
+      animation: floatUp 15s infinite linear;
+      opacity: 0.3;
+    }
+
+    .wave:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; bottom: -100px; }
+    .wave:nth-child(2) { width: 120px; height: 120px; left: 60%; animation-delay: 3s; bottom: -150px; }
+    .wave:nth-child(3) { width: 100px; height: 100px; left: 30%; animation-delay: 5s; bottom: -120px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.3; }
+      100% { transform: translateY(-120vh); opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
   <div class="box">
     <h1>🎁 FAFA Surprise</h1>
-    <p>Un vieux coffre a été découvert au cœur des ruines de Banyuls...</p>
-    <p>Pour l’ouvrir, une seule façon : réussir l’épreuve cachée.</p>
-    <a href="enigme1.html"><button>Commencer l’épreuve</button></a>
+    <p>Un vieux coffre scellé a été découvert dans les ruines oubliées de Banyuls...</p>
+    <p>✨ Seuls les plus curieux et perspicaces peuvent accéder à l’épreuve cachée et libérer son contenu mystérieux.</p>
+    <button class="btn" onclick="startBonus()">🎯 Commencer l’Épreuve</button>
   </div>
+
+  <audio id="fafaAudio" autoplay>
+    <source src="../assets/audio/bonus-intro.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function startBonus() {
+      const audio = document.getElementById('fafaAudio');
+      if (audio) audio.pause();
+      localStorage.setItem("start", Date.now());
+      window.location.href = "enigme1.html";
+    }
+  </script>
 </body>
 </html>
