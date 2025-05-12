@@ -3,69 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🏠 FAFA Explorator – Accueil</title>
+  <title>🌍 FAFA Explorator – Portail Principal</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #e0f2fe, #f8fafc);
-      color: #0f172a;
-      padding: 60px 20px;
-      text-align: center;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f4f8, #e2e8f0);
+      color: #1e293b;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px 10px;
+      background: #1e3a8a;
+      color: white;
+    }
+    header img {
+      width: 80px;
+      margin-bottom: 10px;
+      animation: logoBounce 2s ease infinite;
     }
     h1 {
-      font-size: 2.8em;
-      color: #1e40af;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.2em;
-      color: #475569;
-      margin-bottom: 40px;
+      font-size: 2.4em;
     }
     .section {
-      margin: 40px 0;
+      max-width: 960px;
+      margin: auto;
+      padding: 40px 20px;
     }
-    .btn {
-      display: inline-block;
-      padding: 16px 28px;
-      background: #3b82f6;
-      color: white;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 12px;
-      margin: 12px;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.3s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .btn:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-    }
-    .logo {
-      max-width: 120px;
+    .section h2 {
       margin-bottom: 20px;
+      color: #1d4ed8;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card a {
+      text-decoration: none;
+      color: #1e3a8a;
+      font-weight: bold;
+    }
+    footer {
+      padding: 30px;
+      font-size: 0.9em;
+      color: #64748b;
+    }
+    @keyframes logoBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
 <body>
-
-  <img src="assets/logo-fafa.png" alt="Logo FAFA" class="logo">
-  <h1>🌍 FAFA Explorator</h1>
-  <p>Choisis ton univers d’aventure et pars à la découverte !</p>
+  <header>
+    <img src="actifs/logo-fafa.png" alt="Logo FAFA">
+    <h1>Bienvenue dans FAFA Explorator</h1>
+    <p>Explore les univers, parcours et mystères de Banyuls-sur-Mer</p>
+  </header>
 
   <div class="section">
-    <button class="btn" onclick="location.href='fafa-patrimoine/menu.html'">🏛️ FAFA Patrimonio</button>
-    <button class="btn" onclick="location.href='fafa-randoquests/menu.html'">🥾 FAFA Rando'Quests</button>
-    <button class="btn" onclick="location.href='fafa-univers/menu.html'">🎮 FAFA Univers</button>
-    <button class="btn" onclick="location.href='bonus/menu.html'">🎁 Bonus & Événements</button>
+    <h2>📚 FAFA Patrimoine</h2>
+    <div class="grid">
+      <div class="card"><a href="fafa patrimoine/Atelier fantôme/menu.html">Atelier Fantôme</a></div>
+      <div class="card"><a href="fafa patrimoine/Code fafa secret/menu.html">Code FAFA Secret</a></div>
+      <div class="card"><a href="fafa patrimoine/Galaxie fafou/menu.html">Galaxie Fafou</a></div>
+      <div class="card"><a href="fafa patrimoine/Le code du jardin méditerranéen/menu.html">Le Code du Jardin</a></div>
+      <div class="card"><a href="fafa patrimoine/Le mystère de Maillol/menu.html">Le Mystère de Maillol</a></div>
+      <div class="card"><a href="fafa patrimoine/Le secret de l'abbé/menu.html">Le Secret de l'Abbé</a></div>
+      <div class="card"><a href="fafa patrimoine/Le trésor de la plage rouge/menu.html">Le Trésor de la Plage Rouge</a></div>
+      <div class="card"><a href="fafa patrimoine/Les secrets du vieux port/menu.html">Secrets du Vieux Port</a></div>
+      <div class="card"><a href="fafa patrimoine/Mission superun/menu.html">Mission Superun</a></div>
+      <div class="card"><a href="fafa patrimoine/Mission dans le mystère/menu.html">Mission dans le Mystère</a></div>
+      <div class="card"><a href="fafa patrimoine/Panique au musée/menu.html">Panique au Musée</a></div>
+      <div class="card"><a href="fafa patrimoine/Sur les traces du sentier littoral/menu.html">Sentier Littoral</a></div>
+    </div>
   </div>
 
   <div class="section">
-    <button class="btn" onclick="location.href='fafa-hq.html'">🔐 FAFA HQ</button>
-    <button class="btn" onclick="location.href='info-fafa-explorator.html'">ℹ️ Infos Explorator</button>
+    <h2>🏃 FAFA Run d'Ouest</h2>
+    <div class="grid">
+      <div class="card"><a href="fafa run d'ouest/Explor'Adulte/menu.html">Explor' Adulte</a></div>
+      <div class="card"><a href="fafa run d'ouest/Explor'Junior/menu.html">Explor' Junior</a></div>
+      <div class="card"><a href="fafa run d'ouest/Trail'Adulte/menu.html">Trail' Adulte</a></div>
+      <div class="card"><a href="fafa run d'ouest/Trail'Junior/menu.html">Trail' Junior</a></div>
+    </div>
   </div>
 
+  <div class="section">
+    <h2>✨ Univers FAFA</h2>
+    <div class="grid">
+      <div class="card"><a href="univers fafa/@vengeurs/menu.html">@vengeurs</a></div>
+      <div class="card"><a href="univers fafa/Crypte du temps/menu.html">Crypte du Temps</a></div>
+      <div class="card"><a href="univers fafa/Grimoire/menu.html">Grimoire</a></div>
+      <div class="card"><a href="univers fafa/Harry Potter/menu.html">Harry Potter</a></div>
+      <div class="card"><a href="univers fafa/Hôtel Transylvanie/menu.html">Hôtel Transylvanie</a></div>
+      <div class="card"><a href="univers fafa/Magie de Noël/menu.html">Magie de Noël</a></div>
+      <div class="card"><a href="univers fafa/Manga des héros/menu.html">Manga des Héros</a></div>
+      <div class="card"><a href="univers fafa/Monde Disney/menu.html">Monde Disney</a></div>
+      <div class="card"><a href="univers fafa/Monde Minions/menu.html">Monde Minions</a></div>
+      <div class="card"><a href="univers fafa/Pokémon/menu.html">Pokémon</a></div>
+      <div class="card"><a href="univers fafa/Plage rouge secrète/menu.html">Plage Rouge Secrète</a></div>
+      <div class="card"><a href="univers fafa/Super Mario/menu.html">Super Mario</a></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎁 Bonus</h2>
+    <div class="grid">
+      <div class="card"><a href="bonus/Bonus Surprise/menu.html">Bonus Surprise</a></div>
+      <div class="card"><a href="bonus/Intro.html">Intro Bonus</a></div>
+      <div class="card"><a href="bonus/Chasse au coffre final/menu.html">Chasse au Coffre</a></div>
+      <div class="card"><a href="bonus/Défi Écoles & Points Jeunes/menu.html">Défi Écoles</a></div>
+      <div class="card"><a href="bonus/Événement-Halloween/menu.html">Événement Halloween</a></div>
+      <div class="card"><a href="bonus/Évènement Noël/menu.html">Évènement Noël</a></div>
+      <div class="card"><a href="bonus/Fin.html">Fin Bonus</a></div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 FAFA Explorator. Tous droits réservés.
+  </footer>
 </body>
 </html>
