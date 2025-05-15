@@ -1,0 +1,318 @@
+<!-- patrimoine7/intro.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎨 FAFA Patrimonio 7 – Le Mystère de Maillol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fdf2f8, #fce7f3);
+      text-align: center;
+      padding: 60px 20px;
+      color: #701a75;
+    }
+    .box {
+      background: white;
+      max-width: 750px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #a21caf;
+    }
+    p {
+      font-size: 1.1em;
+      color: #581c87;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background: #9333ea;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #7e22ce;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="../../actifs/logo-fafa.png" alt="Logo FAFA" class="logo" style="width: 100px;">
+    <h1>🎨 Le Mystère de Maillol</h1>
+    <p>
+      Une œuvre de Maillol a disparu du musée... mais une série d’indices laissés par l’artiste lui-même permettrait de la retrouver.<br><br>
+      En observant ses sculptures, ses carnets, ses citations... tu relèveras 10 énigmes pour découvrir la vérité.<br><br>
+      🗿 L’art parle à qui sait le lire…
+    </p>
+    <button onclick="demarrer()">🔍 Démarrer l’enquête artistique</button>
+  </div>
+
+  <script>
+    function demarrer() {
+      localStorage.setItem("start", Date.now());
+      location.href = "enigme1.html";
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme1.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Énigme 1 – Signature cachée</title></head>
+<body>
+  <h2>🖋️ Énigme 1 : Signature cachée</h2>
+  <p>Quel est le prénom complet de Maillol ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    function valider() {
+      if (document.getElementById("rep").value.toLowerCase().includes("aris")) location.href = 'enigme2.html';
+      else alert("Cherche dans la plaque d’entrée du musée.");
+    }
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme2.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 2 – Sculpture photo</title></head>
+<body>
+  <h2>🗿 Énigme 2 : Sculpture photo</h2>
+  <p>Photographie la statue féminine à l’entrée du musée.</p>
+  <button onclick="location.href='enigme3.html'">📸 Photo prise</button>
+</body>
+</html>
+
+<!-- patrimoine7/enigme3.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 3 – Matière première</title></head>
+<body>
+  <h2>🪵 Énigme 3 : Matière préférée</h2>
+  <p>Quel matériau Maillol utilisait-il souvent pour ses sculptures ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const r = document.getElementById('rep').value.toLowerCase();
+    if (r.includes("bronze") || r.includes("terre") || r.includes("bois"))
+      location.href = 'enigme4.html';
+    else alert("Ce matériau est souvent moulé ou fondu.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme4.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 4 – Anagramme artiste</title></head>
+<body>
+  <h2>🔤 Énigme 4 : Anagramme artiste</h2>
+  <p>Réorganise les lettres : <strong>ATLIOR</strong></p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase() === 'aristol')
+      location.href = 'enigme5.html';
+    else alert("Pas encore ! Relis les lettres attentivement.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme5.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 5 – Œuvre disparue</title></head>
+<body>
+  <h2>🎭 Énigme 5 : Œuvre disparue</h2>
+  <p>Quel type d’œuvre a disparu du catalogue ? (statue, peinture, esquisse...)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const val = document.getElementById('rep').value.toLowerCase();
+    if (val === 'esquisse') location.href = 'enigme6.html';
+    else alert("Cherche la plus petite trace laissée par l’artiste.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme6.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 6 – Citation codée</title></head>
+<body>
+  <h2>📜 Énigme 6 : Citation codée</h2>
+  <p>Complète la phrase célèbre de Maillol : "L’art, c’est..."</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value.toLowerCase().includes("harmonie"))
+      location.href = 'enigme7.html';
+    else alert("Maillol valorisait l’équilibre et la beauté simple.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme7.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 7 – Code UV</title></head>
+<body>
+  <h2>🔢 Énigme 7 : Code UV</h2>
+  <p>Sur un mur, un indice révèle : 2+5x2. Résous-le.</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value === '12') location.href = 'enigme8.html';
+    else alert("Regarde bien la formule mathématique.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme8.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 8 – Œil du détail</title></head>
+<body>
+  <h2>👁️ Énigme 8 : L’œil du détail</h2>
+  <p>Combien de doigts visible sur la sculpture de la salle 2 ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (parseInt(document.getElementById('rep').value) === 4) location.href = 'enigme9.html';
+    else alert("Regarde attentivement les mains sculptées.");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme9.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 9 – Image absente</title></head>
+<body>
+  <h2>🖼️ Énigme 9 : Image absente</h2>
+  <p>Dans quelle salle manque un tableau ou son cartouche ? (numéro uniquement)</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    if (document.getElementById('rep').value === '3') location.href = 'enigme10.html';
+    else alert("Va voir la salle à gauche de l’entrée...");
+  </script>
+</body>
+</html>
+
+<!-- patrimoine7/enigme10.html -->
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Énigme 10 – Mot final</title></head>
+<body>
+  <h2>🎨 Énigme 10 : Mot final</h2>
+  <p>Quel mot unit sculpture, dessin, esquisse et musée ?</p>
+  <input id="rep"><button onclick="valider()">Valider</button>
+  <script>
+    const r = document.getElementById('rep').value.toLowerCase();
+    if (r === 'art') location.href = 'fin.html';
+    else alert("Ce mot est au cœur de tout le parcours...");
+  </script>
+</body>
+</html>
+<!-- patrimoine7/fin.html -->
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎨 Fin – Le Mystère de Maillol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fce7f3, #fdf2f8);
+      text-align: center;
+      padding: 60px 20px;
+      color: #701a75;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #a21caf;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    .badge {
+      margin: 30px auto;
+      padding: 15px;
+      background: #db2777;
+      color: white;
+      display: inline-block;
+      border-radius: 12px;
+      font-size: 1.2em;
+      animation: pulse 1.2s infinite alternate;
+    }
+    #chrono {
+      font-size: 1.3em;
+      margin-top: 20px;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #701a75;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #86198f;
+    }
+    .info {
+      margin-top: 20px;
+      font-style: italic;
+      color: #9d174d;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Bravo, Œil d’Artiste !</h1>
+    <p>Tu as résolu les secrets laissés par Aristide Maillol...<br>
+    L’œuvre disparue a enfin retrouvé sa place dans la mémoire du musée.</p>
+    <div class="badge">🏅 Badge : Détective des Arts FAFA™</div>
+    <p id="chrono">⏱️ Temps total : ...</p>
+    <p class="info">💡 Le savais-tu ? Aristide Maillol était aussi peintre et graveur avant de se consacrer à la sculpture. Il a marqué l’art moderne par sa recherche d’équilibre et d’harmonie.</p>
+    <button class="btn" onclick="location.href='../../index.html'">🏠 Retour à l’accueil</button>
+    <button class="btn" onclick="location.href='../../carnet-explorateur.html'">📘 Voir mon Carnet</button>
+  </div>
+
+  <script>
+    const debut = localStorage.getItem("start");
+    const nomParcours = "Le Mystère de Maillol";
+    const score = "10/10";
+
+    if (debut) {
+      const fin = Date.now();
+      const duree = Math.floor((fin - debut) / 1000);
+      const min = String(Math.floor(duree / 60)).padStart(2, '0');
+      const sec = String(duree % 60).padStart(2, '0');
+      const temps = `${min}m ${sec}s`;
+      document.getElementById("chrono").innerText = `⏱️ Temps total : ${temps}`;
+
+      let historique = JSON.parse(localStorage.getItem("fafa_explorations") || "[]");
+      historique.push({ nom: nomParcours, temps: temps, score: score });
+      localStorage.setItem("fafa_explorations", JSON.stringify(historique));
+
+      localStorage.removeItem("start");
+    }
+  </script>
+</body>
+</html>
