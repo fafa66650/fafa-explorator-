@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎨 Riddle 7 – Le Mystère de Maillol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fef9f5, #fff1f2);
+      margin: 0; padding: 0;
+      color: #4c1d95;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h1, h2 { color: #a21caf; }
+    p { font-size: 1.1em; margin-bottom: 10px; }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    button {
+      background: #9333ea;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover { background: #7e22ce; }
+    .savais-tu {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #f3e8ff;
+      border-left: 5px solid #a855f7;
+      border-radius: 8px;
+      font-style: italic;
+    }
+    .chrono {
+      font-size: 1em;
+      text-align: right;
+      color: #7e22ce;
+    }
+    .footer-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .footer-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #4c1d95;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="chrono" id="chrono">⏱️ Time: ...</div>
+  <h1>🧩 Riddle 7</h1>
+  <p><strong>Location:</strong> UV Wall</p>
+
+  <h2>🔍 Observation :</h2>
+  <p>What phrase appears under UV?</p>
+  <input type="text" id="rep1" placeholder="Answer 1...">
+
+  <h2>🧠 Reflection :</h2>
+  <p>Solve: 3x3 + 1</p>
+  <input type="text" id="rep2" placeholder="Answer 2...">
+
+  <button onclick="valider()">✅ Validate my answers</button>
+
+  <div class="savais-tu" id="savaisTu">
+    💡 <strong>Did you know?</strong> A clue hides under UV light.
+  </div>
+
+  <div class="footer-links">
+    <a href="boussole.html">🧭 Compass</a>
+    <a href="carte.html">🗺️ Map</a>
+  </div>
+</div>
+
+<script>
+  const reponse1 = "maillol";
+  const reponse2 = "10";
+
+  function valider() {
+    const r1 = document.getElementById("rep1").value.toLowerCase().trim();
+    const r2 = document.getElementById("rep2").value.trim();
+    const expire = localStorage.getItem("adminExpire");
+    if (expire && new Date() > new Date(expire)) {
+      alert("⏳ This code has expired. Please contact the organizer.");
+      return;
+    }
+
+    if (r1.includes(reponse1) && r2 === reponse2) {
+      document.getElementById("savaisTu").style.display = "block";
+      setTimeout(() => { location.href = "enigme8.html"; }, 3500);
+    } else {
+      alert("One or both answers are incorrect. Look again!");
+    }
+  }
+
+  const start = localStorage.getItem("start");
+  if (start) {
+    setInterval(() => {
+      const now = Date.now();
+      const diff = Math.floor((now - start) / 1000);
+      const min = String(Math.floor(diff / 60)).padStart(2, '0');
+      const sec = String(diff % 60).padStart(2, '0');
+      document.getElementById("chrono").textContent = `⏱️ Time: ${min}m ${sec}s`;
+    }, 1000);
+  }
+</script>
+</body>
+</html>

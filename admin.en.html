@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔐 Admin Panel – The Mystery of Maillol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f9ff, #e0f2fe);
+      color: #0c4a6e;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0284c7;
+    }
+    select, input, button {
+      padding: 12px;
+      font-size: 1em;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #94a3b8;
+    }
+    button {
+      background: #0ea5e9;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background: #0284c7;
+    }
+    .result {
+      margin-top: 20px;
+      color: #0369a1;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🛠️ Admin Panel</h1>
+  <p>Create a temporary access code to launch the investigation.</p>
+  <input type="text" id="code" placeholder="Enter a custom code (e.g. MAI2025)">
+  <select id="duree">
+    <option value="3">Valid for 3 hours</option>
+    <option value="6">Valid for 6 hours</option>
+    <option value="12">Valid for 12 hours</option>
+    <option value="24">Valid for 1 day</option>
+    <option value="48">Valid for 2 days</option>
+    <option value="72">Valid for 3 days</option>
+    <option value="168">Valid for 7 days</option>
+  </select>
+  <button onclick="generer()">🔐 Generate Code</button>
+  <div class="result" id="resultat"></div>
+</div>
+
+<script>
+  function generer() {
+    const code = document.getElementById("code").value.trim();
+    const hours = parseInt(document.getElementById("duree").value);
+    if (!code) {
+      alert("Please enter a custom access code.");
+      return;
+    }
+    const now = new Date();
+    const expire = new Date(now.getTime() + hours * 60 * 60 * 1000);
+    localStorage.setItem("adminCode", code.toLowerCase());
+    localStorage.setItem("adminExpire", expire.toISOString());
+    document.getElementById("resultat").textContent = `✅ Code activated: ${code.toUpperCase()} valid until ${expire.toLocaleString()}`;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🗺️ Carte du parcours – Le Mystère de Maillol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f9ff, #e0f2fe);
+      color: #0c4a6e;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .lieux {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .etape {
+      padding: 12px 20px;
+      background: #e0f2fe;
+      border: 2px solid #38bdf8;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      transition: background 0.3s;
+    }
+    .etape.debloquee {
+      background: #a7f3d0;
+      border-color: #10b981;
+      font-weight: bold;
+    }
+    .boussole-link {
+      margin-top: 40px;
+    }
+    .boussole-link a {
+      display: inline-block;
+      background: #0284c7;
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗺️ Parcours de l’enquête</h1>
+  <p>Voici la progression actuelle dans le Mystère de Maillol :</p>
+  <div class="lieux" id="listeEtapes"></div>
+
+  <div class="boussole-link">
+    <a href="boussole.html">🧭 Ouvrir la boussole interactive</a>
+  </div>
+
+  <script>
+    const lieux = [
+      "1. Entrée du musée Maillol",
+      "2. Jardin des sculptures",
+      "3. Plage centrale",
+      "4. Place Paul Reig",
+      "5. Église de Banyuls",
+      "6. Mur des citations",
+      "7. Salle 2 du musée",
+      "8. Salle des peintures",
+      "9. Accueil du musée",
+      "10. Œuvre mystère finale"
+    ];
+    const etape = parseInt(localStorage.getItem("etape") || "1");
+    const container = document.getElementById("listeEtapes");
+
+    lieux.forEach((nom, i) => {
+      const div = document.createElement("div");
+      div.className = "etape" + (i + 1 <= etape ? " debloquee" : "");
+      div.textContent = nom;
+      container.appendChild(div);
+    });
+  </script>
+
+  <div class="boussole-link" style="margin-top: 20px;">
+    <a href="carte.visuelle.html">🗺️ Voir la carte réelle de Banyuls-sur-Mer</a>
+  </div>
+
+</body>
+</html>
