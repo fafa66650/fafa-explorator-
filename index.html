@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🌍 Portail – Jeux FAFA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choisissez votre aventure FAFA – Enquêtes, mystères et explorations éducatives à Banyuls-sur-Mer.">
+  <link rel="icon" href="logo.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #fdf2f8, #fce7f3);
+      margin: 0;
+      padding: 60px 20px;
+      color: #4c1d95;
+      text-align: center;
+    }
+    header img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #a21caf;
+    }
+    .lang-select {
+      margin-top: 10px;
+    }
+    .lang-select button {
+      margin: 0 5px;
+      padding: 6px 12px;
+      font-size: 0.9em;
+      border: none;
+      border-radius: 8px;
+      background: #9333ea;
+      color: white;
+      cursor: pointer;
+    }
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .game-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .game-card:hover {
+      transform: scale(1.03);
+    }
+    .game-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .emoji {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .game-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #6b21a8;
+    }
+    .desc {
+      font-size: 0.95em;
+      color: #4c1d95;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.8em;
+      color: #6b21a8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo FAFA">
+    <h1 id="title">🎮 Choisissez votre aventure</h1>
+    <div class="lang-select">
+      <button onclick="setLang('fr')">🇫🇷</button>
+      <button onclick="setLang('en')">🇬🇧</button>
+      <button onclick="setLang('ca')">🇨🇺</button>
+    </div>
+  </header>
+
+  <div class="games" id="gameGrid"></div>
+
+  <footer>
+    FAFA HQ™ – Système sécurisé, responsive & connecté 🔐<br>
+    Tous droits réservés © FAFA, Banyuls-sur-Mer
+  </footer>
+
+  <script>
+    const data = {
+      fr: {
+        title: "🎮 Choisissez votre aventure",
+        games: [
+          ["atelier-fantome", "👻 L'atelier fantôme", "Un atelier abandonné, des secrets d’artiste…"],
+          ["code-fafa", "🕵️‍♂️ Code FAFA secret", "Un code caché au cœur de Banyuls."],
+          ["galaxie-fafou", "🌌 Galaxie Fafou", "Une aventure cosmique pleine de mystères."],
+          ["jardin-mediterraneen", "🌿 Code du jardin méditerranéen", "Des énigmes fleuries au cœur des plantes."],
+          ["secret-abbe", "⛪ Le secret de l’Abbé", "Un abbé, une légende oubliée à redécouvrir."],
+          ["plage-rouge", "🏖️ Trésor de la plage rouge", "Un trésor enfoui dans le sable sanglant."],
+          ["vieux-port", "⚓ Secrets du vieux port", "Histoires marines et mystères portuaires."],
+          ["superun", "🦸‍♀️ Mission Superun", "Une mission héroïque pour sauver la vérité."],
+          ["vin-mystere", "🍷 Vin Mystère", "Une enquête autour du vin et des traditions."],
+          ["panique-musee", "🖼️ Panique au Musée", "Une œuvre a disparu, à vous de la retrouver !"],
+          ["sentier-littoral", "🥾 Sentier littoral", "Un chemin côtier, des indices à suivre…"]
+        ]
+      },
+      en: {
+        title: "🎮 Choose your adventure",
+        games: [
+          ["atelier-fantome", "👻 The Phantom Workshop", "An abandoned studio hides artistic secrets..."],
+          ["code-fafa", "🕵️‍♂️ Secret FAFA Code", "A hidden code in the heart of Banyuls."],
+          ["galaxie-fafou", "🌌 Fafou Galaxy", "A cosmic adventure full of mysteries."],
+          ["jardin-mediterraneen", "🌿 Mediterranean Garden Code", "Nature puzzles among the flowers."],
+          ["secret-abbe", "⛪ The Abbot's Secret", "Rediscover an old monk’s mystery."],
+          ["plage-rouge", "🏖️ Red Beach Treasure", "Buried treasure in the crimson sands."],
+          ["vieux-port", "⚓ Old Port Secrets", "Maritime tales and portside puzzles."],
+          ["superun", "🦸‍♀️ Mission Superun", "Heroic mission to uncover truth."],
+          ["vin-mystere", "🍷 Mystery Wine", "A tasteful investigation on tradition."],
+          ["panique-musee", "🖼️ Museum Panic", "An artwork is missing – find it!"],
+          ["sentier-littoral", "🥾 Coastal Trail", "Follow the path and uncover clues…"]
+        ]
+      },
+      ca: {
+        title: "🎮 Trieu la vostra aventura",
+        games: [
+          ["atelier-fantome", "👻 El Taller Fantasma", "Un taller abandonat amaga secrets..."],
+          ["code-fafa", "🕵️‍♂️ Codi secret FAFA", "Un codi ocult al cor de Banyuls."],
+          ["galaxie-fafou", "🌌 Galàxia Fafou", "Una aventura còsmica plena de misteris."],
+          ["jardin-mediterraneen", "🌿 Codi del jardí mediterrani", "Enigmes entre flors i aromes."],
+          ["secret-abbe", "⛪ El secret de l’Abat", "Una llegenda perduda per descobrir."],
+          ["plage-rouge", "🏖️ Tresor de la platja roja", "Un tresor amagat a la sorra."],
+          ["vieux-port", "⚓ Secrets del port vell", "Històries marines i enigmes portuaris."],
+          ["superun", "🦸‍♀️ Missió Superun", "Una missió heroica per revelar la veritat."],
+          ["vin-mystere", "🍷 Vi Misteriós", "Una investigació gustativa i cultural."],
+          ["panique-musee", "🖼️ Pànic al Museu", "Una obra ha desaparegut!"],
+          ["sentier-littoral", "🥾 Camí costaner", "Segueix la ruta i resol enigmes..."]
+        ]
+      }
+    };
+
+    function render(lang = 'fr') {
+      const grid = document.getElementById('gameGrid');
+      const content = data[lang];
+      document.getElementById('title').textContent = content.title;
+      grid.innerHTML = '';
+      content.games.forEach(([folder, title, desc]) => {
+        grid.innerHTML += `
+          <div class="game-card">
+            <a href="./${folder}/index.html">
+              <div class="emoji">${title.split(' ')[0]}</div>
+              <div class="game-title">${title}</div>
+              <div class="desc">${desc}</div>
+            </a>
+          </div>`;
+      });
+    }
+
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      render(lang);
+    }
+
+    const browserLang = navigator.language.slice(0,2);
+    const preferredLang = localStorage.getItem('lang') || (['fr','en','ca'].includes(browserLang) ? browserLang : 'fr');
+    render(preferredLang);
+  </script>
+</body>
+</html>
