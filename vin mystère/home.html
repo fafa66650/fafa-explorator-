@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🍷 Bienvenue – Mission Vin Mystère</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portail du jeu Mission Vin Mystère – Accès aux énigmes, à la boussole, à la carte, au panneau admin et plus encore.">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fef3c7, #fde68a);
+      color: #78350f;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #b45309;
+      margin-bottom: 10px;
+    }
+    p.intro {
+      font-size: 1.1em;
+      color: #92400e;
+      margin-bottom: 30px;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .menu a {
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      background: #f59e0b;
+      color: white;
+      transition: background 0.2s;
+    }
+    .menu a:hover {
+      background: #d97706;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #78350f;
+    }
+    .lang {
+      margin-top: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo_vin_mystere.png" alt="Logo Vin Mystère" style="width: 90px; margin-bottom: 20px;">
+  <h1>🍷 Mission Vin Mystère</h1>
+  <p class="intro">
+    Prêt·e pour une aventure sensorielle et patrimoniale ? Résous les énigmes, suis les indices et découvre les secrets viticoles de Banyuls !
+  </p>
+
+  <div class="menu">
+    <a href="index.fr.html">🔍 Commencer l'aventure</a>
+    <a href="carte.fr.html">🗺️ Voir la carte des lieux</a>
+    <a href="boussole.html">🧭 Utiliser la boussole</a>
+    <a href="succes.html">🎖️ Mes succès débloqués</a>
+    <a href="admin.html">🔐 Accès administrateur</a>
+    <a href="guide_personnel_vin.pdf" target="_blank">📘 Guide pour le personnel</a>
+    <a href="ouvertures_codes_vin.ics" download>📅 Importer les créneaux d’ouverture</a>
+  </div>
+
+  <p class="lang">🌍 Besoin d’une autre langue ? Le site détecte automatiquement votre navigateur.</p>
+
+  <footer>
+    <p>© Projet FAFA – Mission Vin Mystère</p>
+    <p>Fonctionne hors ligne 📲 Ajoutez-la à votre écran d’accueil !</p>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('✅ Service Worker enregistré'))
+        .catch(err => console.error('❌ Erreur Service Worker', err));
+    }
+  </script>
+</body>
+</html>
