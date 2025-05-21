@@ -1,43 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>🧭 FAFA Explorer – Parcours libre</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explorez Banyuls-sur-Mer avec le mode Explorer FAFA – Anecdotes, défis et liberté totale !">
-  <link rel="icon" href="../logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAFA Explorator</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(to bottom, #fdf2f8, #fce7f3); color: #581c87; padding: 40px 20px; text-align: center; }
-    header { position: relative; margin-bottom: 20px; }
-    header img { width: 80px; }
-    .lang-switch { position: absolute; top: 0; right: 0; margin: 10px; }
-    .lang-switch button { background: #9333ea; color: white; border: none; padding: 6px 10px; margin-left: 4px; border-radius: 8px; cursor: pointer; font-size: 0.9em; }
-    h1 { font-size: 2.2em; color: #7e22ce; }
-    .intro { max-width: 700px; margin: 20px auto; font-size: 1.1em; }
-    .zone { background: white; margin: 30px auto; padding: 25px; border-radius: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 700px; text-align: left; }
-    .zone h2 { color: #9333ea; margin-bottom: 10px; }
-    .zone p { margin: 10px 0; }
-    .badge { display: inline-block; margin-top: 20px; padding: 10px 18px; background: #ec4899; color: white; border-radius: 10px; font-weight: bold; }
-    .btn { display: inline-block; margin-top: 30px; padding: 12px 24px; background: #9333ea; color: white; text-decoration: none; border-radius: 10px; font-size: 1em; }
-    .btn:hover { background: #7e22ce; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fde68a, #fff);
+      color: #0f172a;
+      overflow: hidden;
+    }
+    .loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff9c4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .loader::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 5px solid #1d4ed8;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    header img {
+      width: 300px;
+      max-width: 90%;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+    .btn {
+      font-size: 1.2rem;
+      margin: 1rem;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 1rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 90%;
+      max-width: 300px;
+    }
+    .maillol { background: #dc2626; }
+    .vin { background: #f59e0b; }
+    .port { background: #16a34a; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="../logo.png" alt="Logo FAFA">
-    <div class="lang-switch">
-      <button onclick="window.location.href='index.html'">🇫🇷</button>
-      <button onclick="window.location.href='index.en.html'">🇬🇧</button>
-      <button onclick="window.location.href='index.ca.html'">🇨🇺</button>
-    </div>
-  </header>
-  <h1>🧭 FAFA Explorer</h1>
-  <div class="intro">Welcome to the Explorer Mode of <strong>Explorer</strong> de Banyuls-sur-Mer ! This journey is open: no fixed order, no pressure. Just you, your curiosity, and the joy of discovery.</div>
-  <div class="zone"><h2>📍 Zone 1 – L’Atelier Maillol</h2><p><strong>Challenge:</strong> Devine quelle sculpture a été réalisée ici en premier ?</p><p><strong>Fun fact:</strong> Maillol aimait sculpter pieds nus, connecté à la terre.</p></div>
-  <div class="zone"><h2>🌿 Zone 2 – Le Jardin des Plantes</h2><p><strong>Challenge:</strong> Trouve la plante qui sent la réglisse.</p><p><strong>Fun fact:</strong> Ce jardin héberge plus de 60 espèces locales !</p></div>
-  <div class="zone"><h2>🌊 Zone 3 – La Plage Rouge</h2><p><strong>Challenge:</strong> Trouve une pierre rouge naturelle… ou presque.</p><p><strong>Fun fact:</strong> Cette plage tient son nom des falaises d’argile.</p></div>
-  <div class="zone"><h2>🖼️ Bonus – Photo Mystère</h2><p><strong>Challenge:</strong> Prends une photo d’un détail architectural ancien.</p><p><strong>Bonus :</strong> Montre-la à un animateur FAFA pour un badge spécial !</p></div>
-  <div class="badge">🎖️ Explorer FAFA – Badge unlocked!</div>
-  <a class="btn" href="../index.html">⬅️ Back to Portal</a>
+  <div class="loader" id="loader"></div>
+  <div class="container" id="main">
+    <header>
+      <img src="logo-fafa-explorator.png" alt="FAFA Explorator">
+    </header>
+    <h1>Welcome to FAFA Explorator</h1>
+    <a href="maillol/index.html"><button class="btn maillol">The Mystery of Maillol</button></a>
+    <a href="vin-mystere/index.html"><button class="btn vin">Wine Mystery Mission</button></a>
+    <a href="vieux-port/index.html"><button class="btn port">Secrets of the Old Port</button></a>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('main').style.display = 'flex';
+    });
+  </script>
 </body>
 </html>
