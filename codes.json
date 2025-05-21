@@ -1,0 +1,21 @@
+{
+  "maillol": {
+    "code1": "MAI001",
+    "code2": "MAI002",
+    "secret": "FAFA"
+  },
+  "vin-mystere": {
+    "code1": "VIN001",
+    "code2": "VIN002",
+    "secret": "MILL\u00c9SIME"
+  },
+  "vieux-port": {
+    "code1": "PORT001",
+    "code2": "PORT002",
+    "secret": "ANCHOR"
+  },
+  "bonus": {
+    "universal_code": "FAFAEXPLORATOR",
+    "unlock": "enigme_bonus"
+  }
+}
