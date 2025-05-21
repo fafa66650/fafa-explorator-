@@ -1,0 +1,17 @@
+{
+  "name": "FAFA Explorator",
+  "short_name": "FAFA",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fde68a",
+  "theme_color": "#facc15",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logo-fafa-explorator.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "description": "Un jeu de piste immersif, fun et multilingue \u00e0 Banyuls-sur-Mer. Explore les parcours Maillol, Vin Myst\u00e8re et Vieux Port en solo, famille ou groupe !"
+}
