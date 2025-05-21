@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🧭 Boussole – Le Mystère de Vieux Port</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0;url=boussole.fr.final.html">
+  
+<script>
+  const lieux = {
+    1: "l’entrée du vieux port",
+    2: "le quai des pêcheurs",
+    3: "le phare rouge",
+    4: "la halle aux poissons",
+    5: "la jetée ouest",
+    6: "la cabane du douanier",
+    7: "le mât historique",
+    8: "le mur du souvenir marin",
+    9: "le belvédère du port",
+    10: "l'énigme finale du capitaine"
+  };
+  const etape = parseInt(localStorage.getItem("etape") || "1");
+  const message = "🎯 Étape " + etape + " : dirige-toi vers " + (lieux[etape] || "l’étape suivante.");
+  document.getElementById("lieu").textContent = message;
+
+  function orienter(angle) {
+    document.getElementById("fleche").style.transform =
+      "translateX(-50%) rotate(" + angle + "deg)";
+  }
+
+  window.addEventListener("deviceorientationabsolute", (e) => {
+    if (e.alpha !== null) orienter(e.alpha);
+  });
+
+  window.addEventListener("deviceorientation", (e) => {
+    if (e.alpha !== null) orienter(e.alpha);
+  });
+</script>
+
+</body></html>

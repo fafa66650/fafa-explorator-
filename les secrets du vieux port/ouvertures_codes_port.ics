@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:FAFA2024@vieux_port.local
+DTSTAMP:20250519T193256Z
+DTSTART:20250519T203256Z
+DTEND:20250519T210256Z
+SUMMARY:Ouverture du code : FAFA2024
+DESCRIPTION:Ce code est maintenant actif. Pensez à le copier dans codes.json.
+LOCATION:Le Mystère de Vieux Port
+END:VEVENT
+BEGIN:VEVENT
+UID:MUSEE25@vieux_port.local
+DTSTAMP:20250519T193256Z
+DTSTART:20250520T193256Z
+DTEND:20250520T200256Z
+SUMMARY:Ouverture du code : MUSEE25
+DESCRIPTION:Ce code est maintenant actif. Pensez à le copier dans codes.json.
+LOCATION:Le Mystère de Vieux Port
+END:VEVENT
+BEGIN:VEVENT
+UID:ARTVIP@vieux_port.local
+DTSTAMP:20250519T193256Z
+DTSTART:20250521T223256Z
+DTEND:20250521T230256Z
+SUMMARY:Ouverture du code : ARTVIP
+DESCRIPTION:Ce code est maintenant actif. Pensez à le copier dans codes.json.
+LOCATION:Le Mystère de Vieux Port
+END:VEVENT
+BEGIN:VEVENT
+UID:SCULPTEUR@vieux_port.local
+DTSTAMP:20250519T193256Z
+DTSTART:20250523T013256Z
+DTEND:20250523T020256Z
+SUMMARY:Ouverture du code : SCULPTEUR
+DESCRIPTION:Ce code est maintenant actif. Pensez à le copier dans codes.json.
+LOCATION:Le Mystère de Vieux Port
+END:VEVENT
+END:VCALENDAR

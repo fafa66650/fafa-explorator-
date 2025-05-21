@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛥️ Enigma 4 – El Le Secret de la Jetée</title>
+  <style>
+    body {{
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      color: #0c4a6e;
+      text-align: center;
+      padding: 40px 20px;
+    }}
+    .container {{
+      max-width: 760px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.05);
+    }}
+    h2 {{
+      color: #0284c7;
+      font-size: 2em;
+    }}
+    .intro {{
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #0369a1;
+    }}
+    .lieu {{
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #075985;
+    }}
+    input {{
+      padding: 10px;
+      font-size: 1.1em;
+      width: 80%;
+      margin-top: 20px;
+    }}
+    button {{
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background: #0ea5e9;
+      color: white;
+      cursor: pointer;
+    }}
+    button:hover {{
+      background: #0284c7;
+    }}
+    .savais-tu {{
+      margin-top: 30px;
+      background: #e0f2fe;
+      padding: 15px;
+      border-left: 6px solid #0ea5e9;
+      font-style: italic;
+      display: none;
+      animation: fadeIn 1s ease-in;
+    }}
+    .chrono {{
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      background: #bae6fd;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #0c4a6e;
+      font-size: 1em;
+    }}
+    @keyframes fadeIn {{
+      from {{opacity: 0;}}
+      to {{opacity: 1;}}
+    }}
+  </style>
+</head>
+<body>
+  <div class="chrono" id="chrono">⏱️ 00:00</div>
+  <div class="container">
+    <h2>🛥️ Enigma 4 – El Le Secret de la Jetée</h2>
+    <p class="intro">Un misteri envolta Jetée Ouest...</p>
+    <p class="lieu">📍 Lloc: Jetée Ouest, Banyuls-sur-Mer</p>
+
+    <p><strong>1️⃣</strong> Quelle structure en métal rouillé veille au bout de la jetée ?</p>
+    <input id="rep1" placeholder="...">
+
+    <p><strong>2️⃣</strong> À quoi sert-elle pour les marins ?</p>
+    <input id="rep2" placeholder="...">
+
+    <button onclick="valider()">Validar</button>
+
+    <div class="savais-tu" id="savaisTu">💡 Pista desbloquejada!</div>
+
+    <br><br>
+    <button onclick="location.href='boussole.html'">🧭 Accedeix a la brúixola</button>
+  </div>
+
+  <script>
+    if (Date.now() > parseInt(localStorage.getItem("expiration") || "0")) {{
+      alert("⛔ Temps expiré. Retour à l'accueil.");
+      location.href = "index.html";
+    }}
+
+    function updateChrono() {{
+      const start = parseInt(localStorage.getItem("start") || Date.now());
+      const now = Date.now();
+      const delta = Math.floor((now - start) / 1000);
+      const min = String(Math.floor(delta / 60)).padStart(2, '0');
+      const sec = String(delta % 60).padStart(2, '0');
+      document.getElementById("chrono").innerText = `⏱️ ${min}:${sec}`;
+    }}
+    setInterval(updateChrono, 1000);
+    updateChrono();
+
+    function valider() {{
+      const r1 = document.getElementById('rep1').value.toLowerCase();
+      const r2 = document.getElementById('rep2').value.toLowerCase();
+      if (r1.includes("fanal") && r2.includes("orientació")) {{
+        document.getElementById("savaisTu").style.display = "block";
+        setTimeout(() => {{ location.href = "enigme3.html"; }}, 3000);
+      }} else {{
+        alert("Torna-ho a provar...");
+      }}
+    }}
+  </script>
+</body>
+</html>
