@@ -1,56 +1,95 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🌍 Choix de langue – Le Mystère de Maillol</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Mystère de Maillol</title>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fdf2f8, #fce7f3);
-      color: #581c87;
+      background: url('logo_maillol_graffiti.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 20px;
       text-align: center;
-      padding: 80px 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px #000;
     }
     h1 {
-      color: #a21caf;
-      font-size: 2em;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    .info {
-      font-style: italic;
-      margin-top: 20px;
+    label, input, select {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
     }
-    .btn {
-      margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 1.1em;
+    input, select {
+      padding: 0.5rem;
       border: none;
       border-radius: 10px;
-      background: #9333ea;
-      color: white;
-      cursor: pointer;
+      font-size: 1rem;
     }
-    .btn:hover {
-      background: #7e22ce;
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background-color: #9333ea;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #7e22ce;
+    }
+    .logo-fafa {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      width: 100px;
+      opacity: 0.85;
+      transition: transform 0.3s ease;
+    }
+    .logo-fafa:hover {
+      transform: scale(1.1) rotate(-2deg);
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <h1>🌍 Bienvenue / Welcome</h1>
-  <p class="info">Redirection automatique vers la version de votre langue...</p>
-  <noscript>
-    <p><strong>JavaScript est requis pour accéder à l'application.</strong></p>
-    <p>Veuillez activer JavaScript ou choisir manuellement :</p>
-    <button class="btn" onclick="location.href='index.html'">🇫🇷 Version Française</button>
-    <button class="btn" onclick="location.href='index.en.html'">🇬🇧 English Version</button>
-  </noscript>
-  <script>
-    const lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith("en")) {
-      window.location.href = "index.en.html";
-    } else {
-      window.location.href = "index.html";
-    }
-  </script>
+  <div class="container">
+    <h1>🎨 Le Mystère de Maillol</h1>
+    <p>Suivez les traces de l’artiste à Banyuls-sur-Mer.</p>
+    <form>
+      <label for="mode">Mode de jeu</label>
+      <select id="mode" name="mode">
+        <option value="solo">Solo</option>
+        <option value="famille">Famille</option>
+        <option value="groupe">Groupe</option>
+        <option value="scolaire">Scolaire</option>
+      </select>
+      <input type="text" placeholder="Nom du groupe" name="groupe">
+      <input type="text" placeholder="Participants" name="participants">
+      <input type="text" placeholder="Code secret FAFA" name="code">
+      <button type="submit">🧭 Démarrer l'aventure</button>
+    </form>
+  </div>
+  <img class="logo-fafa" src="logo-fafa-explorator.png" alt="FAFA Explorator">
 </body>
 </html>
