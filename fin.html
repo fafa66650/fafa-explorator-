@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bravo Explorateur !</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bravo Explorateur !</title>
+<style>
     body {
       background: linear-gradient(to right, #7c3aed, #3b82f6);
       color: white;
@@ -38,8 +39,19 @@
   </style>
 </head>
 <body>
-  <h1>🎉 Bravo Explorateur !</h1>
-  <p>Tu as terminé ce parcours FAFA avec succès. Continue l’aventure sur un autre jeu ou découvre ton badge de réussite !</p>
-  <a href="succes.html" class="btn">Voir mes succès</a>
+<h1>🎉 Bravo Explorateur !</h1>
+<p>Tu as terminé ce parcours FAFA avec succès. Continue l’aventure sur un autre jeu ou découvre ton badge de réussite !</p>
+<a class="btn" href="succes.html">Voir mes succès</a>
+<script src="/fafa-validate.js"></script>
+<section style="margin-top: 2rem; text-align: center;">
+<select id="parcoursSelect">
+<option value="maillol">🎨 Maillol</option>
+<option value="vin-mystere">🍷 Vin Mystère</option>
+<option value="vieux-port">⚓ Vieux Port</option>
+</select>
+<input id="codeInput" placeholder="Entre ton code ici" type="text"/>
+<button id="checkCodeBtn">Valider</button>
+<p id="result" style="font-weight:bold;"></p>
+</section>
 </body>
 </html>

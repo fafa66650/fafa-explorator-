@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Succès Débloqués</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Succès Débloqués</title>
+<style>
     body {
       background: #1e3a8a;
       color: white;
@@ -29,10 +30,21 @@
   </style>
 </head>
 <body>
-  <h1>🏅 Tes Succès FAFA</h1>
-  <div class="badge">Explorateur de Maillol</div>
-  <div class="badge">Dégustateur Mystère</div>
-  <div class="badge">Capitaine du Vieux Port</div>
-  <div class="badge">Code Secret FAFA Déverrouillé</div>
+<h1>🏅 Tes Succès FAFA</h1>
+<div class="badge">Explorateur de Maillol</div>
+<div class="badge">Dégustateur Mystère</div>
+<div class="badge">Capitaine du Vieux Port</div>
+<div class="badge">Code Secret FAFA Déverrouillé</div>
+<script src="/fafa-validate.js"></script>
+<section style="margin-top: 2rem; text-align: center;">
+<select id="parcoursSelect">
+<option value="maillol">🎨 Maillol</option>
+<option value="vin-mystere">🍷 Vin Mystère</option>
+<option value="vieux-port">⚓ Vieux Port</option>
+</select>
+<input id="codeInput" placeholder="Entre ton code ici" type="text"/>
+<button id="checkCodeBtn">Valider</button>
+<p id="result" style="font-weight:bold;"></p>
+</section>
 </body>
 </html>
