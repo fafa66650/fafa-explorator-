@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAFA Explorator – Ajuda</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(to right, #f5f7fa, #c3cfe2); color: #333; padding: 2em; line-height: 1.6; }
+    h1, h2 { color: #6e00ff; }
+    .section { background: white; padding: 1.5em; margin-bottom: 2em; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    img { max-width: 100%; border-radius: 10px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>📖 Ajuda – FAFA Explorator</h1>
+  <div class="section">
+    <h2>🔍 Què és FAFA Explorator?</h2>
+    <p>És una gimcana digital a Banyuls-sur-Mer per descobrir l’art, el vi i la història amb 3 rutes temàtiques:</p>
+    <ul>
+      <li>🎨 El Misteri de Vieux Port</li>
+      <li>🍷 Missió Vi Misteriós</li>
+      <li>⚓ Els Secrets del Port Vell</li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>📱 Com funciona?</h2>
+    <ol>
+      <li>Escull una ruta des de la pàgina inicial.</li>
+      <li>Segueix les instruccions i ves als llocs reals.</li>
+      <li>Introdueix les respostes correctes per desbloquejar les etapes.</li>
+      <li>Guanya recompenses i desbloqueja una prova final!</li>
+    </ol>
+    <img src="logo-fafa-explorator.png" alt="Logotip FAFA Explorator">
+  </div>
+  <div class="section">
+    <h2>🧭 Eines integrades</h2>
+    <ul>
+      <li>🗺️ Mapa interactiu de Banyuls</li>
+      <li>🧭 Brúixola per orientar-te</li>
+      <li>🌐 Disponible en FR / EN / CA</li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>💡 Consell</h2>
+    <p>Si una pàgina no es carrega, comprova la connexió o torna a la pàgina inicial.</p>
+  </div>
+  <div class="section">
+    <h2>🛟 Necessites ajuda?</h2>
+    <p>Demana al personal FAFA o escriu a: <strong>contact@fafaexplorator.fr</strong></p>
+  </div>
+
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

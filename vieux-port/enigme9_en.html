@@ -2,106 +2,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Énigme 9 – Belvédère de la Côte Vermeille</title>
+  <meta charset="UTF-8">
+  <title>Riddle 1 – Les Secrets du Old Port</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.ico">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #7e2d2d, #b88f4f);
-      color: white;
+    body {{
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #05668d, #028090);
+      color: #fff;
       margin: 0;
-      padding: 0;
-    }
-    .container {
-      padding: 30px;
-      max-width: 880px;
+      padding: 20px;
+    }}
+    .container {{
+      max-width: 850px;
       margin: auto;
-    }
-    h1 {
-      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border: 2px solid #ffd166;
+    }}
+    h1 {{
+      font-size: 2.2em;
       margin-bottom: 10px;
-    }
-    .question {
-      margin-top: 20px;
-      font-size: 1.2rem;
-    }
-    input[type="text"] {
-      width: 100%;
+      color: #ffd166;
+      text-shadow: 1px 1px 3px black;
+    }}
+    .lieu {{
+      font-style: italic;
+      margin-bottom: 15px;
+      font-size: 1.15em;
+      color: #ffeaa7;
+    }}
+    .question {{
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      background: #fcbf49;
       padding: 12px;
-      margin-top: 8px;
-      border-radius: 6px;
+      color: #023047;
+      border-radius: 10px;
+    }}
+    input[type="text"] {{
+      padding: 12px;
+      font-size: 1em;
+      width: 75%;
+      margin-top: 10px;
       border: none;
-      font-size: 1rem;
-    }
-    button {
-      margin-top: 15px;
-      padding: 12px 25px;
-      background-color: #ab1c3f;
+      border-radius: 8px;
+      color: #023047;
+    }}
+    button {{
+      background-color: #ef476f;
       color: white;
+      padding: 12px 25px;
+      margin-top: 10px;
+      font-size: 1em;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
       cursor: pointer;
-    }
-    .feedback {
-      margin-top: 20px;
+    }}
+    .feedback {{
       font-weight: bold;
-    }
-    .bonus {
-      background: rgba(255,255,255,0.1);
+      margin-top: 15px;
+      font-size: 1.1em;
+    }}
+    .bonus {{
+      margin-top: 25px;
       padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
+      background-color: rgba(255,255,255,0.15);
+      border-left: 5px solid #ffd166;
       display: none;
-    }
-    .nav {
+      border-radius: 10px;
+    }}
+    .nav {{
       margin-top: 30px;
-    }
-    .nav a {
-      display: inline-block;
+    }}
+    .nav a {{
       margin-right: 15px;
-      padding: 10px 20px;
-      background: white;
-      color: #7e2d2d;
+      color: #e0f7fa;
       text-decoration: none;
-      border-radius: 6px;
-    }
+      font-weight: bold;
+      background: #073b4c;
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: inline-block;
+    }}
   </style>
+  <script>
+    function checkAnswer() {{
+      const answer = document.getElementById('answer').value.toLowerCase().trim();
+      const feedback = document.getElementById('feedback');
+      const bonus = document.getElementById('bonus');
+      if (answer.includes("barque")) {{
+        feedback.textContent = "🎉 Bonne réponse ! Un pan d’histoire se révèle.";
+        feedback.style.color = "#06d6a0";
+        bonus.style.display = "block";
+      }} else {{
+        feedback.textContent = "🤔 Hmm... essaie encore, regarde bien autour de toi.";
+        feedback.style.color = "#ffb703";
+        bonus.style.display = "none";
+      }}
+    }}
+  </script>
 </head>
 <body>
   <div class="container">
-    <h1>Énigme 9 – Belvédère de la Côte Vermeille</h1>
-    <div class="question">What natural feature is seen on the horizon?</div>
-    <input type="text" id="rep" placeholder="Votre réponse…" />
-    <button onclick="valider()">Valider</button>
+    <h1>🚢 Riddle 9 – Old Port</h1>
+    <div class="lieu">📍 Vieux Chantier Naval</div>
+    <div class="question">🧐 Quel type de bateau était souvent réparé ici ?</div>
+    <input type="text" id="answer" placeholder="Tape ta réponse ici...">
+    <button onclick="checkAnswer()">🧪 Tester</button>
     <div id="feedback" class="feedback"></div>
     <div id="bonus" class="bonus">
-      🍇 <strong>Le savais-tu ?</strong><br/>
-      Belvédère de la Côte Vermeille est un lieu emblématique du patrimoine viticole de Banyuls-sur-Mer. Chaque vigne raconte une histoire enracinée dans la terre et le soleil.
+      <strong>✨ Le savais-tu ?</strong><br>
+      Le vieux débarcadère était utilisé par les bateaux reliant Banyuls aux ports voisins, longtemps avant les travaux du port actuel !
     </div>
     <div class="nav">
-      <a href="../boussole.html" target="_blank">🧭 Boussole</a>
-      <a href="../carte.html" target="_blank">🗺️ Carte</a>
-      <a href="enigme10_en.html">➡️ Énigme suivante</a>
+      <a href="carte.en.html">🗺️ Carte</a>
+      <a href="boussole.en.html">🧭 Boussole</a>
+      <a href="enigme10_en.html">⏭️ Suivant</a>
     </div>
   </div>
-  <script>
-    function valider() {
-      let r = document.getElementById("rep").value.toLowerCase().trim();
-      let ok = r === "cap bear";
-      let feedback = document.getElementById("feedback");
-      let bonus = document.getElementById("bonus");
-      if (ok) {
-        feedback.innerHTML = "✅ Bonne réponse !";
-        feedback.style.color = "lightgreen";
-        bonus.style.display = "block";
-      } else {
-        feedback.innerHTML = "❌ Mauvaise réponse. Essaie encore.";
-        feedback.style.color = "yellow";
-        bonus.style.display = "none";
-      }
-    }
-  </script>
 </body>
 </html>

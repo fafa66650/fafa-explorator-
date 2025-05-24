@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAFA Explorator – Aide</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      color: #333;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #6e00ff;
+    }
+    .section {
+      background: white;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📖 Aide – FAFA Explorator</h1>
+
+  <div class="section">
+    <h2>🔍 Qu'est-ce que FAFA Explorator ?</h2>
+    <p>C’est un jeu de piste numérique à Banyuls-sur-Mer pour explorer l’histoire, la culture et les secrets du village à travers 3 parcours :</p>
+    <ul>
+      <li>🎨 Les Secrets du Vieux Port</li>
+      <li>🍷 Mission Vin Mystère</li>
+      <li>⚓ Les Secrets du Vieux Port</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📱 Comment ça marche ?</h2>
+    <ol>
+      <li>Choisissez un parcours depuis la page d'accueil.</li>
+      <li>Suivez les instructions à l’écran et dirigez-vous vers les lieux réels.</li>
+      <li>Entrez les bonnes réponses pour débloquer les étapes suivantes.</li>
+      <li>Obtenez des récompenses, des anecdotes, et une énigme bonus !</li>
+    </ol>
+    <img src="logo-fafa-explorator.png" alt="Logo FAFA Explorator">
+  </div>
+
+  <div class="section">
+    <h2>🧭 Outils intégrés</h2>
+    <ul>
+      <li>🗺️ Carte interactive de Banyuls</li>
+      <li>🧭 Boussole pour trouver les lieux</li>
+      <li>🌐 Disponible en FR / EN / CA</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>💡 Astuce</h2>
+    <p>Si une page ne se charge pas, vérifiez votre connexion ou rechargez le parcours depuis l’accueil.</p>
+  </div>
+
+  <div class="section">
+    <h2>🛟 Besoin d’aide ?</h2>
+    <p>Demandez au staff FAFA ou écrivez à : <strong>contact@fafaexplorator.fr</strong></p>
+  </div>
+
+
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

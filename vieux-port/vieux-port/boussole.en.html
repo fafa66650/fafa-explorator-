@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🧭 Interactive Compass – The Mystery of Vieux Port</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle, #fdf2f8, #fce7f3);
+      text-align: center;
+      padding: 40px 20px;
+      color: #701a75;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .lieu {
+      margin-top: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #a21caf;
+    }
+    .boussole {
+      margin: 40px auto;
+      width: 250px;
+      height: 250px;
+      border: 8px solid #9333ea;
+      border-radius: 50%;
+      position: relative;
+    }
+    .fleche {
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 60px solid #f43f5e;
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%) rotate(0deg);
+      transform-origin: bottom center;
+      transition: transform 0.2s ease-out;
+    }
+    .back {
+      margin-top: 20px;
+    }
+    .back a {
+      text-decoration: none;
+      font-size: 1em;
+      color: #7e22ce;
+    }
+  </style>
+</head>
+<body>
+
+<!-- BOUTON AIDE MULTILINGUE (inline) -->
+<a href="aide.html" class="btn-aide" lang="fr">❓ Aide</a>
+<a href="aide.en.html" class="btn-aide" lang="en">❓ Help</a>
+<a href="aide.ca.html" class="btn-aide" lang="ca">❓ Ajuda</a>
+
+<style>
+  .btn-aide {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+  }
+  .btn-aide:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+  <h1>🧭 Follow the compass!</h1>
+  <div class="boussole">
+    <div class="fleche" id="fleche"></div>
+  </div>
+  <div class="lieu" id="lieu"></div>
+  <div class="back"><a href="carte.en.html">⬅️ Back to the map</a></div>
+
+  
+<script>
+  const lieux = {
+    1: "l’entrée du vieux port",
+    2: "le quai des pêcheurs",
+    3: "le phare rouge",
+    4: "la halle aux poissons",
+    5: "la jetée ouest",
+    6: "la cabane du douanier",
+    7: "le mât historique",
+    8: "le mur du souvenir marin",
+    9: "le belvédère du port",
+    10: "l'énigme finale du capitaine"
+  };
+  const etape = parseInt(localStorage.getItem("etape") || "1");
+  const message = "🎯 Étape " + etape + " : dirige-toi vers " + (lieux[etape] || "l’étape suivante.");
+  document.getElementById("lieu").textContent = message;
+
+  function orienter(angle) {
+    document.getElementById("fleche").style.transform =
+      "translateX(-50%) rotate(" + angle + "deg)";
+  }
+
+  window.addEventListener("deviceorientationabsolute", (e) => {
+    if (e.alpha !== null) orienter(e.alpha);
+  });
+
+  window.addEventListener("deviceorientation", (e) => {
+    if (e.alpha !== null) orienter(e.alpha);
+  });
+</script>
+
+
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.includes("fr")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="fr"]').style.display = 'inline-block';
+  } else if (userLang.includes("ca")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="ca"]').style.display = 'inline-block';
+  } else {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="en"]').style.display = 'inline-block';
+  }
+</script>
+
+</body></html>
