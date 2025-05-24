@@ -1,15 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les Secrets du Vieux Port</title>
+  <title>Le Mystère de Maillol</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('fusion_secret_vieux_port_final.png') no-repeat center center fixed;
+      background: url('logo_maillol_graffiti.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       display: flex;
@@ -45,7 +46,7 @@
     button {
       margin-top: 1rem;
       padding: 0.8rem;
-      background-color: #0ea5e9;
+      background-color: #9333ea;
       color: white;
       font-size: 1rem;
       font-weight: bold;
@@ -55,7 +56,7 @@
       width: 100%;
     }
     button:hover {
-      background-color: #0284c7;
+      background-color: #7e22ce;
     }
     .logo-fafa {
       position: absolute;
@@ -72,9 +73,36 @@
   </style>
 </head>
 <body>
+
+<!-- BOUTON AIDE MULTILINGUE (inline) -->
+<a href="aide.html" class="btn-aide" lang="fr">❓ Aide</a>
+<a href="aide.en.html" class="btn-aide" lang="en">❓ Help</a>
+<a href="aide.ca.html" class="btn-aide" lang="ca">❓ Ajuda</a>
+
+<style>
+  .btn-aide {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+  }
+
+  .btn-aide:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
   <div class="container">
-    <h1>🔍 Lancement de l'aventure</h1>
-    <p>Prêt à enquêter ? Lancez l’aventure en choisissant vos options ci-dessous.</p>
+    <h1>🎨 Le Mystère de Maillol</h1>
+    <p>Suivez les traces de l’artiste à Banyuls-sur-Mer.</p>
     <form>
       <label for="mode">Mode de jeu</label>
       <select id="mode" name="mode">
@@ -90,5 +118,62 @@
     </form>
   </div>
   <img class="logo-fafa" src="logo-fafa-explorator.png" alt="FAFA Explorator">
+
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
+
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.includes("fr")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="fr"]').style.display = 'inline-block';
+  } else if (userLang.includes("ca")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="ca"]').style.display = 'inline-block';
+  } else {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="en"]').style.display = 'inline-block';
+  }
+</script>
+
 </body>
 </html>

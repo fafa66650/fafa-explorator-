@@ -57,6 +57,32 @@
   </style>
 </head>
 <body>
+
+<!-- BOUTON AIDE MULTILINGUE (inline) -->
+<a href="aide.html" class="btn-aide" lang="fr">❓ Aide</a>
+<a href="aide.en.html" class="btn-aide" lang="en">❓ Help</a>
+<a href="aide.ca.html" class="btn-aide" lang="ca">❓ Ajuda</a>
+
+<style>
+  .btn-aide {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+  }
+  .btn-aide:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
   <h1>🧭 Suis la boussole !</h1>
   <div class="boussole">
     <div class="fleche" id="fleche"></div>
@@ -96,6 +122,21 @@
   window.addEventListener("deviceorientation", (e) => {
     if (e.alpha !== null) orienter(e.alpha);
   });
+</script>
+
+
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.includes("fr")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="fr"]').style.display = 'inline-block';
+  } else if (userLang.includes("ca")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="ca"]').style.display = 'inline-block';
+  } else {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="en"]').style.display = 'inline-block';
+  }
 </script>
 
 </body></html>

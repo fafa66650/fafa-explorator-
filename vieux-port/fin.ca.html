@@ -1,7 +1,90 @@
 <!DOCTYPE html><html lang='ca'><head><meta charset='UTF-8'><title>fin.ca.html</title></head><body>
+
+<!-- BOUTON AIDE MULTILINGUE (inline) -->
+<a href="aide.html" class="btn-aide" lang="fr">❓ Aide</a>
+<a href="aide.en.html" class="btn-aide" lang="en">❓ Help</a>
+<a href="aide.ca.html" class="btn-aide" lang="ca">❓ Ajuda</a>
+
+<style>
+  .btn-aide {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+  }
+  .btn-aide:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
     <h1>🎉 Final de la missió!</h1>
     <p>Has completat totes les proves i desbloquejat el secret del vi de Banyuls.</p>
     <div class='badge'>🏆 Insígnia: Explorador del Port FAFA™</div>
     <p>« El vi és la poesia de la terra. »</p>
     <a href='index.ca.html'>🔁 Torna a començar</a>
-    </body></html>
+    
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
+
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.includes("fr")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="fr"]').style.display = 'inline-block';
+  } else if (userLang.includes("ca")) {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="ca"]').style.display = 'inline-block';
+  } else {
+    document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+    document.querySelector('[lang="en"]').style.display = 'inline-block';
+  }
+</script>
+
+</body></html>
