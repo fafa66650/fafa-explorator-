@@ -3,71 +3,72 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🎉 Fin de l'enquête – Le Mystère de Maillol</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Mystère de Maillol</title>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to top, #fce7f3, #fdf2f8);
-      color: #6b21a8;
+      background: url('logo_maillol_graffiti.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 20px;
       text-align: center;
-      padding: 60px 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px #000;
     }
     h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-      color: #a21caf;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    h2 {
-      margin-top: 30px;
-      font-size: 1.4em;
-      color: #7e22ce;
+    label, input, select {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
     }
-    .box {
-      background: white;
-      max-width: 700px;
-      margin: auto;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.1);
-    }
-    .art {
-      margin: 20px auto;
-      font-size: 4em;
-      animation: pulse 1s infinite alternate;
-    }
-    @keyframes pulse {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
-    }
-    .badge {
-      display: inline-block;
-      margin: 30px auto;
-      padding: 15px;
-      background: #ec4899;
-      color: white;
-      border-radius: 12px;
-      font-size: 1.2em;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    .quote {
-      font-style: italic;
-      color: #86198f;
-      margin-top: 30px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 24px;
-      background: #9333ea;
-      color: white;
+    input, select {
+      padding: 0.5rem;
       border: none;
       border-radius: 10px;
-      font-size: 1em;
-      text-decoration: none;
+      font-size: 1rem;
     }
-    .btn:hover {
-      background: #7e22ce;
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background-color: #9333ea;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #7e22ce;
+    }
+    .logo-fafa {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      width: 100px;
+      opacity: 0.85;
+      transition: transform 0.3s ease;
+    }
+    .logo-fafa:hover {
+      transform: scale(1.1) rotate(-2deg);
+      opacity: 1;
     }
   </style>
 </head>
@@ -99,24 +100,24 @@
   }
 </style>
 
-  <div class="box">
-    <h1>🎉 Bravo, enquête complétée !</h1>
-    <p>Tu as résolu les 10 énigmes et découvert la vérité derrière l’œuvre disparue de Maillol.</p>
-
-    <div class="art">🗿</div>
-    <h2>Œuvre retrouvée : <em>La Méditerranée</em></h2>
-
-    <div class="badge">🏆 Badge ultime : Gardien de l'Art</div>
-
-    <p class="quote">« L’art, c’est l’équilibre entre la force et la douceur. » – A. Maillol</p>
-
-    <a class="btn" href="index.html">🏠 Rejouer l'aventure</a>
-    <a class="btn" href="succes.html">🎖️ Voir mes succès</a>
+  <div class="container">
+    <h1>🎨 Le Mystère de Maillol</h1>
+    <p>Suivez les traces de l’artiste à Banyuls-sur-Mer.</p>
+    <form>
+      <label for="mode">Mode de jeu</label>
+      <select id="mode" name="mode">
+        <option value="solo">Solo</option>
+        <option value="famille">Famille</option>
+        <option value="groupe">Groupe</option>
+        <option value="scolaire">Scolaire</option>
+      </select>
+      <input type="text" placeholder="Nom du groupe" name="groupe">
+      <input type="text" placeholder="Participants" name="participants">
+      <input type="text" placeholder="Code secret FAFA" name="code">
+      <button type="submit">🧭 Démarrer l'aventure</button>
+    </form>
   </div>
-
-  <script>
-    localStorage.setItem("etape", "10");
-  </script>
+  <img class="logo-fafa" src="logo-fafa-explorator.png" alt="FAFA Explorator">
 
 <!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
 <a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>

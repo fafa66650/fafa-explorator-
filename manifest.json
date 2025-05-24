@@ -1,14 +1,14 @@
 {
-  "name": "FAFA Explorator",
-  "short_name": "FAFA",
-  "start_url": "./index.html",
+  "name": "Le Mystère de Maillol",
+  "short_name": "Maillol",
+  "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#f26522",
+  "background_color": "#f0f9ff",
+  "theme_color": "#0ea5e9",
   "icons": [
     {
-      "src": "icon-pwa-512.png",
-      "sizes": "512x512",
+      "src": "img/logo_maillol_graffiti.png",
+      "sizes": "192x192",
       "type": "image/png"
     }
   ]

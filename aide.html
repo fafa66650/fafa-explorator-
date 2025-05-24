@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>❓ Aide – FAFA Explorator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #360033, #0b8793);
+      color: white;
+      padding: 30px;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+    p {
+      margin: 10px 0;
+    }
+    .lang-block {
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+    select {
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>❓ Aide / Help / Ajuda</h1>
+  <select onchange="switchLang(this.value)">
+    <option value="fr">🇫🇷 Français</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="ca">🇪🇸 Català</option>
+  </select>
+
+  <div id="fr" class="lang-block visible">
+    <h2>Comment fonctionne le jeu ?</h2>
+    <p>Le jeu FAFA Explorator vous propose 3 parcours ludiques à Banyuls-sur-Mer. À chaque étape, résolvez une énigme en lien avec un lieu réel.</p>
+    <h2>Navigation</h2>
+    <p>Utilisez la <strong>boussole</strong> et la <strong>carte</strong> pour vous rendre au bon endroit. La distance diminue au fur et à mesure de votre déplacement !</p>
+    <h2>Récompenses</h2>
+    <p>Des succès sont débloqués à chaque bonne réponse. Le code spécial <strong>FAFA</strong> peut même révéler un bonus secret 🎁 !</p>
+  </div>
+
+  <div id="en" class="lang-block">
+    <h2>How does the game work?</h2>
+    <p>FAFA Explorator offers 3 fun trails in Banyuls-sur-Mer. At each step, solve a riddle related to a real location.</p>
+    <h2>Navigation</h2>
+    <p>Use the <strong>compass</strong> and <strong>map</strong> to reach the right place. The distance updates as you walk!</p>
+    <h2>Rewards</h2>
+    <p>Achievements unlock with each correct answer. The secret code <strong>FAFA</strong> might even reveal a surprise bonus 🎁!</p>
+  </div>
+
+  <div id="ca" class="lang-block">
+    <h2>Com funciona el joc?</h2>
+    <p>FAFA Explorator t'ofereix 3 recorreguts lúdics a Banyuls. A cada pas, resol una endevinalla relacionada amb un lloc real.</p>
+    <h2>Navegació</h2>
+    <p>Utilitza la <strong>brúixola</strong> i el <strong>mapa</strong> per arribar al lloc correcte. La distància es redueix mentre camines!</p>
+    <h2>Recompenses</h2>
+    <p>Els èxits es desbloquegen amb cada resposta correcta. El codi secret <strong>FAFA</strong> pot revelar un premi sorpresa 🎁!</p>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-block').forEach(el => el.classList.remove('visible'));
+      document.getElementById(lang).classList.add('visible');
+    }
+  </script>
+</body>
+</html>
