@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🧭 Boussole – Le Mystère de du Vin Mystère</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0;url=boussole.fr.final.html">
+  <script>
+    const lang = navigator.language || navigator.userLanguage;
+    if (lang.startsWith("en")) {
+      window.location.href = "boussole.en.html";
+    } else {
+      window.location.href = "boussole.fr.final.html";
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle, #f0f9ff, #e0f2fe);
+      color: #0c4a6e;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .desc {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .noscript-buttons {
+      margin-top: 30px;
+    }
+    .noscript-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background: #0284c7;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+<img src="../logo-fafa-explorator.png" alt="FAFA Explorator" style="position: fixed; bottom: 10px; right: 10px; width: 40px; opacity: 0.8; z-index: 999;">
+  <h1>🧭 Préparation de la boussole interactive</h1>
+  <div class="desc">Chargement automatique de la version adaptée à votre langue...</div>
+  <div class="noscript-buttons">
+    <noscript>
+      <p><strong>JavaScript est requis.</strong></p>
+      <a href="boussole.fr.final.html">🇫🇷 Version Française</a>
+      <a href="boussole.en.html">🇬🇧 English Version</a>
+    </noscript>
+  </div>
+
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

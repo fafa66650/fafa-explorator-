@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Fin de l'enquête – Le Mystère de Vin Mystère</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #fce7f3, #fdf2f8);
+      color: #6b21a8;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #a21caf;
+    }
+    h2 {
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #7e22ce;
+    }
+    .box {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    .art {
+      margin: 20px auto;
+      font-size: 4em;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+    .badge {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 15px;
+      background: #ec4899;
+      color: white;
+      border-radius: 12px;
+      font-size: 1.2em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .quote {
+      font-style: italic;
+      color: #86198f;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background: #9333ea;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #7e22ce;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🎉 Bravo, enquête complétée !</h1>
+    <p>Tu as résolu les 10 énigmes et découvert la vérité derrière l’œuvre disparue de Vin Mystère.</p>
+
+    <div class="art">🗿</div>
+    <h2>Œuvre retrouvée : <em>La Méditerranée</em></h2>
+
+    <div class="badge">🏆 Badge ultime : Gardien de l'Art</div>
+
+    <p class="quote">« L’art, c’est l’équilibre entre la force et la douceur. » – A. Vin Mystère</p>
+
+    <a class="btn" href="index.html">🏠 Rejouer l'aventure</a>
+    <a class="btn" href="succes.html">🎖️ Voir mes succès</a>
+  </div>
+
+  <script>
+    localStorage.setItem("etape", "10");
+  </script>
+
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
