@@ -1,18 +1,148 @@
-[
-  {
-    "code": "FAFA2024",
-    "expire": "2025-05-19T22:21:56.468340"
+{
+  "maillol": {
+    "enigmes": {
+      "1": [
+        "aristide",
+        "1861"
+      ],
+      "2": [
+        "2",
+        "bronze"
+      ],
+      "3": [
+        "terre",
+        "moulage"
+      ],
+      "4": [
+        "3",
+        "harmonie"
+      ],
+      "5": [
+        "ocre",
+        "préparation"
+      ],
+      "6": [
+        "harmonie",
+        "équilibre"
+      ],
+      "7": [
+        "maillol",
+        "10"
+      ],
+      "8": [
+        "4",
+        "gauche"
+      ],
+      "9": [
+        "la muse",
+        "l'inspiration"
+      ],
+      "10": [
+        "art",
+        "synthèse"
+      ]
+    },
+    "bonus": "MAILLOL-FAFA-2025"
   },
-  {
-    "code": "MUSEE25",
-    "expire": "2025-05-20T19:21:56.468340"
+  "vin-mystere": {
+    "enigmes": {
+      "1": [
+        "raisin",
+        "grenache"
+      ],
+      "2": [
+        "1848",
+        "mémoire"
+      ],
+      "3": [
+        "chêne",
+        "vanille"
+      ],
+      "4": [
+        "poisson",
+        "vieillissement"
+      ],
+      "5": [
+        "schiste",
+        "drainage"
+      ],
+      "6": [
+        "pressoir",
+        "hotte"
+      ],
+      "7": [
+        "10",
+        "concentration"
+      ],
+      "8": [
+        "vin",
+        "nectar"
+      ],
+      "9": [
+        "réglisse",
+        "300"
+      ],
+      "10": [
+        "patrimoine",
+        "cadenas"
+      ]
+    },
+    "bonus": "VIN-FAFA-2025"
   },
-  {
-    "code": "EXPIRED1",
-    "expire": "2025-05-19T18:21:56.468340"
+  "vieux-port": {
+    "enigmes": {
+      "1": [
+        "espoir",
+        "cloche"
+      ],
+      "2": [
+        "poisson",
+        "alerte"
+      ],
+      "3": [
+        "lanterne",
+        "guidage"
+      ],
+      "4": [
+        "phare",
+        "orientation"
+      ],
+      "5": [
+        "casier",
+        "crabe"
+      ],
+      "6": [
+        "10h10",
+        "travail"
+      ],
+      "7": [
+        "toile",
+        "repos"
+      ],
+      "8": [
+        "goéland",
+        "messager"
+      ],
+      "9": [
+        "surveillance",
+        "douanier"
+      ],
+      "10": [
+        "amarre",
+        "lien"
+      ]
+    },
+    "bonus": "PORT-FAFA-2025"
   },
-  {
-    "code": "GROUPEX",
-    "expire": "2025-05-20T01:21:56.468340"
+  "global": {
+    "universal_code": "FAFAEXPLORATOR",
+    "unlocks": "enigme_bonus"
+  },
+  "meta": {
+    "version": "1.0",
+    "secure": true,
+    "logo": "logo-fafa-explorator-clean.png",
+    "generated": "auto",
+    "credits": "FAFA Explorator™ 2025"
   }
-]
+}

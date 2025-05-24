@@ -1,0 +1,15 @@
+{
+  "name": "Le Mystère de Maillol",
+  "short_name": "Maillol",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f0f9ff",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "img/logo_maillol_graffiti.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

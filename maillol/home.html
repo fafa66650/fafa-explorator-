@@ -85,5 +85,47 @@
         .catch(err => console.error('❌ Erreur Service Worker', err));
     }
   </script>
+
+<!-- BOUTON FLOTTANT AIDE MULTILINGUE -->
+<a href="aide.html" class="btn-aide-flottant" lang="fr" title="Besoin d'aide ?">❓</a>
+<a href="aide.en.html" class="btn-aide-flottant" lang="en" title="Need help?">❓</a>
+<a href="aide.ca.html" class="btn-aide-flottant" lang="ca" title="Necessites ajuda?">❓</a>
+
+<style>
+  .btn-aide-flottant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #6e00ff, #b300b3);
+    color: white;
+    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  .btn-aide-flottant:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #7f3cff, #d500f9);
+  }
+</style>
+
+<script>
+  const lang = navigator.language || navigator.userLanguage;
+  document.querySelectorAll('.btn-aide-flottant').forEach(btn => btn.style.display = 'none');
+  if (lang.includes('fr')) {
+    document.querySelector('.btn-aide-flottant[lang="fr"]').style.display = 'block';
+  } else if (lang.includes('ca')) {
+    document.querySelector('.btn-aide-flottant[lang="ca"]').style.display = 'block';
+  } else {
+    document.querySelector('.btn-aide-flottant[lang="en"]').style.display = 'block';
+  }
+</script>
+
 </body>
 </html>
